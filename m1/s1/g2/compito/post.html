@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sviluppo di una pagina web - Blog Epicode</title>
+    <meta name="description" content="Primi passi operativi per creare un modello di pagina HTML per un post. Scopri come iniziare in modo facile">
+    <link rel="stylesheet" href="css/stylepost.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="assets/logo.svg" alt="Logo Epicode">
+
+            <p>Epicode - Il blog dei developers</p>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">Articoli</a></li>
+                <li><a href="#">Lavora con noi</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>COME CREARE UN TEMPLATE PER I POST</h1>
+
+        <p>La prima cosa da fare è suddividere in blocchi logici la pagina, identificando le parti comuni da applicare a tutte le pagine</p>
+
+        <p>Le varie aree saranno quindi suddivise in:</p>
+
+        <ul>
+            <li>Contenuti di intestazione del tag &lt;header></li>
+            <li>Contenuti centrali variabili del tag &lt;main> (corpo principale)</li>
+            <li>Contenuti di fine pagina comuni, da inserire nel tag &lt;footer></li>
+        </ul>
+
+        <h2>Formattazione del codice</h2>
+
+        <p>Il testo dell'articolo dovrà essere formattato per identificare tutte le parti da selezionare con i CSS. Perciò i passi saranno:</p>
+
+        <ol>
+            <li>Progettare il markup assegnando ad ogni specifico testo il tag appropriato</li>
+            <li>Scrivere l'HTML dai tag esterni a quelli interni e dall'alto verso il basso</li>
+            <li>Applicare gli stili CSS</li>
+        </ol>
+
+        <p>L'applicazione di stili CSS è cresciuta negli anni fino a raggiungere la diffusione pressochè totale</p>
+
+        <table>
+            <caption>Diffusione dei CSS</caption>
+            <thead>
+                <tr>
+                    <th>Anno</th>
+                    <th>% di utilizzo</th>
+                    <th>Supporto browsers</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>2000</td>
+                    <td>20%</td>
+                    <td>17%</td>
+                </tr>
+                <tr>
+                    <td>2002</td>
+                    <td>35%</td>
+                    <td>22%</td>
+                </tr>
+                <tr>
+                    <td>2004</td>
+                    <td>45%</td>
+                    <td>42%</td>
+                </tr>
+                <tr>
+                    <td>2008</td>
+                    <td>80%</td>
+                    <td>51%</td>
+                </tr>
+                <tr>
+                    <td>2012</td>
+                    <td>100%</td>
+                    <td>76%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Un test di validazione potrà essere fatto tramite il tool online --- dedicato allo scopo. Una volta ottimizzato il tutto, avremo raggiunto il nostro obiettivo ed essere stati dei veri developers come loro:</p>
+        
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/BMcCXG8ZCG4?si=w1E5V4x68fqId1oy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </main>
+
+    <div class="newsletter">
+        <form>
+            <h2>Vuoi rimanere aggiornato su altre novità del blog? Iscriviti alla nostra newsletter:</h2>
+            <input type="email" placeholder="Inserisci la tua email">
+            <button>ISCRIVITI!</button>
+        </form>
+    </div>
+
+    <div class="posts">
+        <h2 id="correlati">AREA CORRELATI</h2>
+
+        <div class="post">
+            <div class="foto">
+                <a href="#"><img src="assets/post1.webp" alt=""></a>
+            </div>
+
+            <div class="info">
+                <div class="description">
+                    <a href="#"><h2>Validare il codice HTML</h2></a>
+                    <h3>Mario Rossi - 18/9/2020</h3>
+                    <p>#develop</p>
+                </div>
+
+                <div class="likes">
+                    <ion-icon name="thumbs-up-outline"></ion-icon>
+                    <ion-icon name="thumbs-down-outline"></ion-icon>
+                </div>
+            </div>
+        </div>
+
+        <div class="post">
+            <div class="foto">
+                <a href="#"><img src="assets/post1.webp" alt=""></a>
+            </div>
+
+            <div class="info">
+                <div class="description">
+                    <a href="#"><h2>Correggere la sintassi</h2></a>
+                    <h3>Mario Rossi - 16/9/2020</h3>
+                    <p>#develop</p>
+                </div>
+
+                <div class="likes">
+                    <ion-icon name="thumbs-up-outline"></ion-icon>
+                    <ion-icon name="thumbs-down-outline"></ion-icon>
+                </div>
+            </div>
+        </div>
+
+        <div class="post">
+            <div class="foto">
+                <a href="#"><img src="assets/post1.webp" alt=""></a>
+            </div>
+
+            <div class="info">
+                <div class="description">
+                    <a href="#"><h2>Meno kb nella pagina</h2></a>
+                    <h3>Mario Rossi - 30/9/2020</h3>
+                    <p>#ottimizzazione</p>
+                </div>
+
+                <div class="likes">
+                    <ion-icon name="thumbs-up-outline"></ion-icon>
+                    <ion-icon name="thumbs-down-outline"></ion-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <h2>Blog Epicode &copy; 2023</h2>
+        <p>Testata online di Mario Rossi, registrata con prot. n.213/2018 - via Luigi Einaudi 2 - Milano. P.IVA 00112233.</p>
+        <a href="mailto:info@epicode.school"><p>info@epicode.school</p></a>
+    </footer>
+</body>
+</html>

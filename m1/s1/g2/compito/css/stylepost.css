@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #00d9da;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background-color: purple;
+    height: 80px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+img {
+    height: 40px;
+}
+
+.logo p {
+    color: white;
+    margin-left: 20px;
+}
+
+header ul {
+    display: flex;
+    list-style: none;
+}
+
+header li {
+    margin-left: 20px;
+}
+
+header li a {
+    text-decoration: none;
+    color: white;
+}
+
+header li a:hover {
+    text-decoration: underline;
+}
+
+main {
+    width: 50%;
+    min-width: 768px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 40px 30px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ff2751;
+}
+
+main p {
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+main ul {
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+main h2 {
+    color: #00d9da;
+    margin-bottom: 10px;
+}
+
+main ol {
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+table {
+    margin: 0 auto;
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+th, td, tr {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th {
+    padding: 5px;
+}
+
+table caption {
+    font-weight: 700;
+}
+
+iframe {
+    display: block;
+    margin: 30px auto;
+    width: 70%;
+}
+
+.newsletter {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: 50%;
+    min-width: 768px;
+    padding: 50px 0;
+    background-color: #ff2751;
+}
+
+form {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+form h2 {
+    color: white;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    height: 30px;
+    padding: 0 10px;
+    margin-bottom: 5px;
+}
+
+button {
+    width: 100%;
+    height: 30px;
+    background-color: #00d9da;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    font-size: 15px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: orange;
+    color: white;
+}
+
+#correlati {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 32px;
+    color: #ff2751;
+}
+
+.posts {
+    width: 50%;
+    min-width: 768px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 50px 0;
+}
+
+.post {
+    width: 50%;
+    background-color: black;
+    margin: 0 auto 50px auto;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.foto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 768px;
+    height: 216px;
+    background-color: blue;
+}
+
+.foto a {
+    width: 100%;
+    height: 100%;
+}
+
+.foto img {
+    width: 100%;
+    height: 100%;
+}
+
+#html {
+    font-size: 100px;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+}
+
+.description a {
+    text-decoration: none;
+}
+
+.description h2 {
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.description h3 {
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.description p {
+    color: white;
+    font-size: 10px;
+}
+
+.description h2:hover {
+    color: orange;
+}
+
+.likes {
+    display: flex;
+}
+
+.likes ion-icon {
+    color: white;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.likes ion-icon:hover {
+    cursor: pointer;
+    color: orange;
+}
+
+footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #333;
+}
+
+footer h2 {
+    margin: 20px 0;
+    font-size: 20px;
+    font-weight: 400;
+    color: white;
+}
+
+footer p {
+    color: white;
+    font-size: 14px;
+    transition: 0.5s;
+}
+
+footer a {
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+footer a p:hover {
+    color: #ff2751;
+}
