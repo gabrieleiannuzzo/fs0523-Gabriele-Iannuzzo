@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header img {
+    height: 60px;
+}
+
+hr {
+    width: 100%;
+}
+
+.linea-arancione {
+    height: 2px;
+    border: none;
+    background-color: yellow;
+}
+
+.slogan {
+    height: 40px;
+    background-color: rgba(255, 213, 0, 0.295);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slogan p {
+    color: teal;
+    font-weight: 400;
+}
+
+.slogan span {
+    font-weight: 700;
+}
+
+main {
+    width: 50%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    width: 70%;
+    text-align: center;
+    margin: 40px auto 20px auto;
+}
+
+.intro {
+    margin-bottom: 20px;
+}
+
+.video p {
+    text-align: center;
+    color: gray;
+    margin-top: 10px;
+}
+
+video {
+    width: 100%;
+    box-shadow: 0 0 10px black;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.featured {
+    margin: 40px 0 60px 0;
+    border-left: 3px solid yellow;
+    padding-left: 20px;
+}
+
+.featured .p1 {
+    color: crimson;
+}
+
+.featured .p2 {
+    color: teal;
+}
+
+h2 {
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.linea {
+    height: 1px;
+    background-color: aqua;
+    border: none;
+    margin-bottom: 30px;
+}
+
+h3 {
+    margin-bottom: 20px;
+}
+
+ul {
+    margin-bottom: 30px;
+    margin-left: 40px;
+    line-height: 2rem;
+}
+
+ol {
+    margin-left: 40px;
+}
+
+ol li {
+    margin-bottom: 20px;
+}
+
+.titolo {
+    font-weight: 700;
+}
+
+.testo {
+    list-style: none;
+}
+
+.read-more a {
+    color: teal;
+}

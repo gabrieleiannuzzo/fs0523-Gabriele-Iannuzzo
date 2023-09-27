@@ -107,6 +107,10 @@ table caption {
     font-weight: 700;
 }
 
+#tool {
+    color: blue;
+}
+
 iframe {
     display: block;
     margin: 30px auto;
