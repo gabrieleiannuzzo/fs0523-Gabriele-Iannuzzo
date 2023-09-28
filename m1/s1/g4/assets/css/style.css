@@ -82,11 +82,11 @@ header ul li a {
 }
 
 header li a::before {
-    content: '>> '
+    content: '⇒ '
 }
 
 header li a::after {
-    content: ' <<';
+    content: ' ⇐';
 }
 
 .container {
@@ -135,6 +135,7 @@ table {
     width: 100%;
     border-bottom: 3px solid dodgerblue;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 td, th {
@@ -151,13 +152,11 @@ th:nth-child(2) {
     border-right: 1px solid white;
 }
 
-.grigio {
+tr:nth-of-type(even) {
     background-color: lightgray;
-    border-left: 1px solid white;
-    border-right: 1px solid white;
 }
 
-.bordo {
+td:nth-child(2) {
     border-left: 1px solid white;
     border-right: 1px solid white;
 }
