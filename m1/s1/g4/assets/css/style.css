@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap');
+
+body {
+    padding: 15px;
+    background-image: url(../img/sfondo.png);
+    box-sizing: border-box;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+    font-size: 2.5em;
+    font-weight: 600;
+    line-height: 4rem;
+    margin-bottom: 20px;
+}
+
+h2 {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.8em;
+    margin-bottom: 50px;
+}
+
+h3 {
+    color: gray;
+    font-size: 1.3em;
+    margin-bottom: 20px;
+}
+
+h4 {
+    font-size: 1.4em;
+    line-height: 2rem;
+}
+
+p {
+    font-size: 1.4em;
+}
+
+span {
+    color: rgb(197, 0, 197);
+}
+
+header {
+    padding: 40px 0;
+    margin-bottom: 20px;
+    background-image: linear-gradient(to bottom, rgb(0,160,198), rgba(3,109,134,1));
+    background-size: 100% auto;
+    text-align: center;
+    box-shadow: 0 0 10px #000;
+}
+
+header img {
+    width: 250px;
+    margin-bottom: 40px;
+}
+
+header p {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: #fff;
+}
+
+header ul {
+    line-height: 2em;
+}
+
+header li {
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+header ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+header li a::before {
+    content: '>> '
+}
+
+header li a::after {
+    content: ' <<';
+}
+
+.container {
+    padding: 25px 15px 25px 15px;
+    background-color: #fff;
+    box-shadow: 0 0 10px #000;
+    margin-bottom: 20px;
+}
+
+.container > p {
+    line-height: 2rem;
+    margin-bottom: 20px;
+}
+
+.container ul {
+    line-height: 2rem;
+    font-size: 1.4em;
+    list-style: initial;
+    margin-left: 35px;
+    margin-bottom: 20px;
+}
+
+code {
+    background-color: lightgray;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 0 5px;
+}
+
+.container ol {
+    line-height: 2rem;
+    font-size: 1.4em;
+    list-style: decimal;
+    margin-left: 35px;
+    margin-bottom: 20px;
+}
+
+#intestazione-tabella {
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+    margin-bottom: 0;
+}
+
+table {
+    width: 100%;
+    border-bottom: 3px solid dodgerblue;
+    margin-bottom: 20px;
+}
+
+td, th {
+    padding: 15px;
+}
+
+th {
+    background-color: dodgerblue;
+    color: white;
+}
+
+th:nth-child(2) {
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+}
+
+.grigio {
+    background-color: lightgray;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+}
+
+.bordo {
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+}
+
+#tool {
+    color: rgb(0,160,198);
+}
+
+iframe {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 40px;
+}
+
+form {
+    text-align: center;
+    background-color: lightgray;
+    padding: 20px 15px 15px 15px;
+    margin-bottom: 50px;
+}
+
+form h2 {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.8em;
+    margin-bottom: 50px;
+}
+
+form p {
+    margin-bottom: 25px;
+}
+
+input {
+    width: 70%;
+    height: 30px;
+    border: none;
+    border-bottom: 2px dashed black;
+    font-size: 1em;
+    padding-left: 10px;
+}
+
+button {
+    width: 25%;
+    height: 30px;
+    color: white;
+    background-color: dodgerblue;
+    border: none;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+aside h2 {
+    text-align: center;
+}
+
+article {
+    padding: 25px 20px;
+    margin-bottom: 20px;
+    background-color: lightgray;
+}
+
+article div {
+    margin-bottom: 30px;
+}
+
+article > p {
+    text-align: end;
+}
+
+.titolo {
+    margin-bottom: 10px;
+}
+
+.titolo a {
+    color: rgb(0,160,198);
+}
+
+footer {
+    padding: 20px 15px 40px 15px;
+    background-image: linear-gradient(to bottom, rgb(0,160,198), rgba(3,109,134,1));
+    box-shadow: 0 0 10px #000;
+    text-align: center;
+    color: #fff;
+}
+
+#copyright {
+    margin-bottom: 20px;
+}
+
+footer a {
+    color: #ff00d9;
+    text-decoration: underline;
+    font-weight: bold;
+}
