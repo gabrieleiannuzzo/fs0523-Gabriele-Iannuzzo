@@ -29,7 +29,7 @@ header img {
 }
 
 /* main */
-.intro, .info, .testimonianze, footer, footer address {
+#intro, #info, #testimonianze, footer, footer address {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -39,7 +39,7 @@ h1, h2, h3, p {
     text-align: center;
 }
 
-.intro {
+#intro {
     padding: 30px 20px;
     background-image: url(../images/banner.jpg);
     background-size: cover;
@@ -49,11 +49,11 @@ h1 {
     font-size: 3rem;
 }
 
-.intro p {
+#intro p {
     margin-top: 20px;
 }
 
-.intro a {
+#intro a {
     background-color: #f04c2f;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
@@ -65,58 +65,58 @@ h1 {
     margin: 40px 0;
 }
 
-.info {
+#info {
     padding: 30px 20px;
 }
 
-.info h3 {
+#info h3 {
     margin-top: 30px;
 }
 
-.info p {
+#info p {
     margin-top: 10px;
 }
 
-.info img {
+#info img {
     border-radius: 100%;
-    width: 350px;
+    width: 70%;
     margin-top: 30px;
 }
 
-.testimonianze {
+#testimonianze {
     background-color: #e22d0e;
     padding: 50px 20px 30px 20px;
 }
 
-.testimonianze h2 {
+#testimonianze h2 {
     color: white;
     font-size: 2.5rem;
     margin-bottom: 40px;
 }
 
-.testimonianze blockquote, .testimonianze figcaption, .testimonianze p {
+#testimonianze blockquote, #testimonianze figcaption, #testimonianze p {
     color: white;
     text-align: center;
 }
 
-.testimonianze blockquote {
+#testimonianze blockquote {
     font-style: italic;
     margin-bottom: 30px;
 }
 
-.testimonianze figcaption {
+#testimonianze figcaption {
     font-size: 1.4rem;
 }
 
-.testimonianze p {
+#testimonianze p {
     font-size: 1rem;
 }
 
-.cards {
+#cards {
     padding: 50px 40px;
 }
 
-.cards div {
+#cards div {
     border: 1px solid #dee1e3;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -124,11 +124,11 @@ h1 {
     padding-bottom: 30px;
 }
 
-.cards h3, .cards p {
+#cards h3, #cards p {
     margin: 10px 20px 0 20px;
 }
 
-.cards img {
+#cards img {
     width: 100%;
 }
 
