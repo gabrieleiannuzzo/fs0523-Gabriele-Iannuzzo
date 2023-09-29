@@ -1,0 +1,190 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.65;
+    color: #393d41;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    line-height: 1.5;
+    color: #25a2c3;
+}
+
+/* header */
+header {
+    background-color: black;
+    padding-left: 20px;
+}
+
+header img {
+    height: 80px;
+    padding: 20px 0;
+}
+
+/* main */
+h1, h2, h3, p {
+    text-align: center;
+}
+
+.intro, footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.intro {
+    padding: 150px 400px;
+    background-image: url(../images/banner.jpg);
+    background-size: cover;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+.intro p {
+    margin-top: 20px;
+}
+
+.intro a {
+    background-color: #f04c2f;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    padding: 15px 25px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 40px 0;
+}
+
+.info {
+    padding: 150px 190px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.contenuto {
+    display: flex;
+}
+
+.foto {
+    width: 50%;
+}
+
+.info img {
+    height: 100%;
+    border-radius: 100%;
+    margin-top: 30px;
+}
+
+.testi {
+    width: 50%;
+}
+
+.info h3 {
+    margin-top: 30px;
+    text-align: start;
+}
+
+.info p {
+    margin-top: 10px;
+    text-align: start;
+}
+
+.testimonianze {
+    background-color: #e22d0e;
+    padding: 100px;
+}
+
+.testimonianze h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.testimonianze blockquote, .testimonianze figcaption, .testimonianze p {
+    color: white;
+    text-align: center;
+}
+
+.testimonianze blockquote {
+    font-style: italic;
+    margin-bottom: 30px;
+}
+
+.testimonianze figcaption {
+    font-size: 1.4rem;
+}
+
+.testimonianze p {
+    font-size: 1rem;
+}
+
+.cards {
+    padding: 100px 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.cards div {
+    width: 28%;
+    border: 1px solid #dee1e3;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+}
+
+.cards h3, .cards p {
+    margin: 10px 20px 0 20px;
+}
+
+.cards img {
+    width: 100%;
+    height: 251px;
+}
+
+/* footer */
+footer {
+    background-color: #25a2c3;
+    padding: 50px;
+}
+
+footer h2 {
+    color: white;
+    font-size: 2.5rem;
+}
+
+footer address {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid white;
+    padding-bottom: 40px;
+}
+
+footer i {
+    color: white;
+}
+
+/* footer address a {
+    text-align: start;
+} */
+
+footer a, footer p {
+    color: #c8e7f0;
+}
+
+footer > p {
+    display: inline-block;
+    font-size: 1rem;
+    margin-top: 40px;
+}
