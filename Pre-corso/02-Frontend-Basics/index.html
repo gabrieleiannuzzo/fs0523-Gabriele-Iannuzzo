@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrazione app music streaming</title>
+    <style>
+        body {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        h2 {
+            margin: 20px 0;
+            color: rgb(58, 27, 255);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 auto;
+            width: 30%;
+            border: 2px solid rgb(58, 27, 255);
+            border-radius: 10px;
+            padding: 10px;
+            max-width: 335px;
+            min-width: 270px;
+        }
+
+        form div {
+            margin-bottom: 10px;
+        }
+
+        hr {
+            width: 100%;
+        }
+
+        p {
+            margin: 0 0 5px 0;
+        }
+
+        .musical-tastes {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .musical-tastes div {
+            display: flex;
+            flex-direction: column;
+            margin: 0 10px;
+        }
+
+        button {
+            height: 30px;
+            width: 50%;
+            max-width: 150px;
+            cursor: pointer;
+            color: white;
+            background-color: rgb(58, 27, 255);
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: dodgerblue;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Registrazione all'app</h1>
+    <h2>Compila il modulo per la registrazione:</h2>
+
+    <form onsubmit="alert('Registrazione inviata!')">
+        <div>
+            <input type="text" placeholder="Il tuo nome">
+        </div>
+        <div>
+            <input type="text" placeholder="Il tuo cognome">
+        </div>
+        <div>
+            <input type="email" placeholder="La tua email">
+        </div>
+        <div>
+            <input type="password" placeholder="La tua password">
+        </div>
+        <div>
+            <label for="data">La tua data di nascita:</label>
+            <input type="date" name="data">
+        </div>
+        <div>
+            <input type="number" placeholder="Il tuo numero di telefono">
+        </div>
+        <hr>
+        <p>I tuoi gusti musicali:</p>
+        <div class="musical-tastes">
+            <div>
+                <label for="checkbox1">Pop</label>
+                <input type="checkbox" name="checkbox1">
+            </div>
+            <div>
+                <label for="checkbox2">Rock</label>
+                <input type="checkbox" name="checkbox2">
+            </div>
+            <div>
+                <label for="checkbox3">Jazz</label>
+                <input type="checkbox" name="checkbox3">
+            </div>
+            <div>
+                <label for="checkbox4">Rap</label>
+                <input type="checkbox" name="checkbox4">
+            </div>
+        </div>
+        <div>
+            <input type="radio">
+            <label for="radio">Accetto i termini e condizioni</label>
+        </div>
+        <button type="submit">Invia registrazione</button>
+    </form>
+</body>
+</html>

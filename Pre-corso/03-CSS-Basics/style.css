@@ -1,0 +1,179 @@
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.main-section {
+    padding: 20px;
+}
+
+.image-container {
+    height: 500px;
+    background-repeat: no-repeat;
+}
+
+#image-mercurio {
+    background-image: url(immagini/mercurio.jpg);
+}
+
+#image-venere {
+    background-image: url(immagini/venere.jpg);
+}
+
+#image-terra {
+    background-image: url(immagini/terra.jpg);  
+}
+
+#image-marte {
+    background-image: url(immagini/marte.png);
+}
+
+#image-giove {
+    background-image: url(immagini/giove.jpg);
+}
+
+#image-saturno {
+    background-image: url(immagini/saturno.jpg);
+}
+
+#image-urano {
+    background-image: url(immagini/urano.jpg);
+}
+
+#image-nettuno {
+    background-image: url(immagini/nettuno.jpg);
+}
+
+#image-plutone {
+    background-image: url(immagini/plutone.jpg);
+}
+
+h1 {
+    font-family: 'Prata', serif;
+    font-size: 64px;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+h3 {
+    font-family: 'Prata', serif;
+    font-size: 24px;
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#a {
+    font-weight: 600;
+    font-style: italic;
+}
+
+h6 {
+    padding: 22px;
+    margin-bottom: 0;
+    margin-top: 56px;
+    color: white;
+    border-radius: 6px;
+}
+
+#h6-mercurio {
+    background: linear-gradient(90deg, #6a6a6a, #fff);
+}
+
+#h6-venere {
+    background: linear-gradient(90deg, #ffcc4b, #ffe49e);
+}
+
+#h6-terra {
+    background: linear-gradient(90deg, #0000ff, #00ff00);
+}
+
+#h6-marte {
+    background: linear-gradient(90deg, #c33200, #a10000);
+}
+
+#h6-giove {
+    background: linear-gradient(90deg, #ff0000, #a66000);
+}
+
+#h6-saturno {
+    background: linear-gradient(90deg, #d09500, #c84b00);
+}
+
+#h6-urano {
+    background: linear-gradient(90deg, #00c9cb, #00e5ff);
+}
+
+#h6-nettuno {
+    background: linear-gradient(90deg, #006bff, #0061be);
+}
+
+#h6-plutone {
+    background: linear-gradient(90deg, #760000, #f7ffce);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 22px;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+li a {
+    text-decoration: none;
+}
+
+.a-mercurio {
+    color: #6a6a6a;
+}
+
+.a-venere {
+    color: #ffcc4b;
+}
+
+.a-terra {
+    color: #0000ff;
+}
+
+.a-marte {
+    color: #c33200;
+}
+
+.a-giove {
+    color: #ff0000;
+}
+
+.a-saturno {
+    color: #d09500;
+}
+
+.a-urano {
+    color: #00c9cb;
+}
+
+.a-nettuno {
+    color: #006bff;
+}
+
+.a-plutone {
+    color: #760000;
+}
+
+footer {
+    background-color: #000;
+    padding: 16px;
+}
+
+footer p {
+    text-align: center;
+    margin: 0;
+}
+
+footer p a {
+    color: #fff;
+}
