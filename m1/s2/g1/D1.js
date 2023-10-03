@@ -18,7 +18,7 @@ let numeriEsempio = 9;
 console.log(numeri);
 console.log(numeriEsempio);
 
-let stringhe = "il datatype stringa è un insieme di caratteri, che si dichiara utilizzando gli apici (singoli o doppi) al cui interno si inserisce la stringa desiderata. Un esempio è riportato nel prossimo console.log()";
+let stringhe = "il datatype stringa è una sequenza di caratteri, che si dichiara utilizzando gli apici (singoli o doppi) al cui interno si inserisce la stringa desiderata. Un esempio è riportato nel prossimo console.log()";
 let stringheEsempio = "Hello World!";
 
 console.log(stringhe);

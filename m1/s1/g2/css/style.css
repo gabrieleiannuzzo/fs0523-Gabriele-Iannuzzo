@@ -126,9 +126,8 @@ section {
     font-size: 10px;
 }
 
-.description h2:hover {
+.description:hover h2, .description:hover h3, .description:hover p {
     color: orange;
-    cursor: pointer;
 }
 
 .likes {
