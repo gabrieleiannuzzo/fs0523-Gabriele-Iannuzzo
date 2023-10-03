@@ -5,18 +5,26 @@
 /* SCRIVI QUI LA TUA RISPOSTA */
 function higher(a, b){
   if (a > b) {
-    console.log("The higher number among", a, "and", b, "is",  a);
+    return 1;
   } else if (b > a) {
-    console.log("The higher number among", a, "and", b, "is",  b);
+    return 2;
   } else {
-    console.log("The two numbers are equal");
+    return 0;
   }
 }
 
-let a = 8;
+let a = 10;
 let b = 9;
 
-higher(a, b);
+let high = higher(a, b);
+
+if (high == 1) {
+  console.log("The higher number among", a, "and", b, "is",  a);
+} else if (high == 2) {
+  console.log("The higher number among", a, "and", b, "is",  b);
+} else {
+  console.log("The numbers are equal");
+}
 
 /* ESERCIZIO 2
   Scrivi un algoritmo che mostri "not equal" in console se un numero intero fornito è diverso da 5.
@@ -25,15 +33,21 @@ higher(a, b);
 /* SCRIVI QUI LA TUA RISPOSTA */
 function notEqual(c) {
   if (c != 5) {
-    console.log("not equal");
+    return 0;
   } else {
-    console.log("equal");
+    return 1;
   }
 }
 
-let c = 10;
+let c = 3;
 
-notEqual(c);
+let equal = notEqual(c);
+
+if (equal == 0) {
+  console.log("not equal");
+} else {
+  console.log("equal");
+}
 
 /* ESERCIZIO 3
   Scrivi un algoritmo che mostri "divisibile per 5" in console se un numero fornito è perfettamente divisibile per 5 (suggerimento: cerca l'operatore modulo su un motore di ricerca)
@@ -42,15 +56,21 @@ notEqual(c);
 /* SCRIVI QUI LA TUA RISPOSTA */
 function divisible(d) {
   if (d % 5 == 0) {
-    console.log("divisible by 5");
+    return 1;
   } else {
-    console.log("not divisible by 5");
+    return 0;
   }
 }
 
 let d = 20;
 
-divisible(d);
+let result = divisible(d);
+
+if (result == 1) {
+  console.log("divisible by 5");
+} else {
+  console.log("not divisible by 5");
+}
 
 /* ESERCIZIO 4
   Scrivi un algoritmo per verificare che, dati due numeri interi, il valore di uno di essi sia 8 oppure se la loro addizione/sottrazione sia uguale a 8.
@@ -60,21 +80,31 @@ divisible(d);
 function eight(e, f) {
   if (e == 8 || f == 8) {
     if (e != 8) {
-      console.log("The second number is equal to 8");
+      return 1;
     } else if (f != 8) {
-      console.log("The first number is equal to 8");
+      return 2;
     } else {
-      console.log("Both numbers are equal to 8");
+      return 3;
     }
   } else {
-    console.log("None of the numbers is equal to 8");
+    return 4;
   }
 }
 
-let e = 7;
-let f = 6;
+let e = 3;
+let f = 8;
 
-eight(e, f);
+let number = eight(e, f);
+
+if (number == 1) {
+  console.log("The second number is equal to 8");
+} else if (number == 2) {
+  console.log("The first number is equal to 8");
+} else if (number == 3) {
+  console.log("Both numbers are equal to 8");
+} else {
+  console.log("None of the numbers is equal to 8");
+}
 
 /* ESERCIZIO 5
   Stai lavorando su un sito di e-commerce. Stai salvando il saldo totale del carrello dell'utente in una variabile "totalShoppingCart".
@@ -91,7 +121,7 @@ function total(g) {
   }
 }
 
-let totalShoppingCart = 50;
+let totalShoppingCart = 34;
 
 console.log("The total amount is", total(totalShoppingCart));
 
@@ -109,7 +139,7 @@ function total2(h) {
   }
 }
 
-let totalShoppingCart2 = 30;
+let totalShoppingCart2 = 20;
 
 console.log("The total amount is", total2(totalShoppingCart2));
 
@@ -120,32 +150,54 @@ console.log("The total amount is", total2(totalShoppingCart2));
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+// METODO 1
 function order(i, j, k) {
   if (i > j && i > k) {
     if (j > k) {
-      console.log("The order is", i, j, k);
+      return 1;
     } else {
-      console.log("The order is", i, k, j);
+      return 2;
     }
   } else if (j > i && j > k) {
-      if (i > k) {
-        console.log("The order is", j, i, k);
-      } else {
-        console.log("The order is", j, k, i);
-      }
+    if (i > k) {
+      return 3;
     } else {
+      return 4;
+    }
+  } else {
     if (i > j) {
-      console.log("The order is", k, i, j);
+      return 5;
     } else {
-      console.log("The order is", k, j, i);
+      return 6;
     }
   }
 }
-let i = 100;
-let j = 20;
-let k = 110;
 
-order(i, j, k);
+let i = 20;
+let j = 102;
+let k = 10;
+
+let list = order(i, j, k);
+
+switch (list) {
+  case 1: console.log("The order is", i, j, k);
+  break;
+
+  case 2: console.log("The order is", i, k, j);
+  break;
+
+  case 3: console.log("The order is", j, i, k);
+  break;
+
+  case 4: console.log("The order is", j, k, i);
+  break;
+
+  case 5: console.log("The order is", k, i, j);
+  break;
+
+  case 6: console.log("The order is", k, j, i);
+  break;
+}
 
 /* ESERCIZIO 8
   Crea un algoritmo per verificare che un valore fornito sia un numero oppure no (suggerimento: cerca su un motore di ricerca "typeof").
@@ -154,15 +206,21 @@ order(i, j, k);
 /* SCRIVI QUI LA TUA RISPOSTA */
 function checkNumber(l) {
   if (typeof l == "number") {
-    console.log("It is a number");
+    return 1;
   } else {
-    console.log("It's not a number");
+    return 0;
   }
 }
 
 let l = 3;
 
-checkNumber(l);
+let item = checkNumber(l);
+
+if (item == 1) {
+  console.log("It is a number");
+} else {
+  console.log("It's not a number");
+}
 
 /* ESERCIZIO 9
   Crea un algoritmo per controllare se un numero fornito sia pari o dispari (suggerimento: cerca l'operatore modulo su un motore di ricerca)
@@ -171,15 +229,21 @@ checkNumber(l);
 /* SCRIVI QUI LA TUA RISPOSTA */
 function even(m) {
   if (m % 2 == 0) {
-    console.log("The number is even");
+    return 1;
   } else {
-    console.log("The number is odd");
+    return 0;
   }
 }
 
 let m = 21;
 
-even(m);
+let number2 = even(m);
+
+if (number2 == 1) {
+  console.log("The number is even");
+} else {
+  console.log("The number is odd");
+}
 
 /* ESERCIZIO 10
   Modifica la logica del seguente algoritmo in modo che mostri in console il messaggio corretto in ogni circostanza.
