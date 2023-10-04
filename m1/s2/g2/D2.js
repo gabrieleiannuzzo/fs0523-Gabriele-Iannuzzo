@@ -180,23 +180,29 @@ let k = 10;
 let list = order(i, j, k);
 
 switch (list) {
-  case 1: console.log("The order is", i, j, k);
-  break;
+  case 1: 
+    console.log("The order is", i, j, k);
+    break;
 
-  case 2: console.log("The order is", i, k, j);
-  break;
+  case 2: 
+    console.log("The order is", i, k, j);
+    break;
 
-  case 3: console.log("The order is", j, i, k);
-  break;
+  case 3: 
+    console.log("The order is", j, i, k);
+    break;
 
-  case 4: console.log("The order is", j, k, i);
-  break;
+  case 4: 
+    console.log("The order is", j, k, i);
+    break;
 
-  case 5: console.log("The order is", k, i, j);
-  break;
+  case 5: 
+    console.log("The order is", k, i, j);
+    break;
 
-  case 6: console.log("The order is", k, j, i);
-  break;
+  case 6: 
+    console.log("The order is", k, j, i);
+    break;
 }
 
 /* ESERCIZIO 8
