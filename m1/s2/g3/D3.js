@@ -129,15 +129,21 @@ for (let i2 of starWarsCharacters) {
 /* ESERCIZIO 3
   Seguendo i passaggi precedenti crea un nuovo array chiamato "femaleCharacters" e inserisci al suo interno tutti gli oggetti femminili.
 */
+// METODO 1
 let femaleCharacters = [];
 
 for (i = 0; i < starWarsCharacters.length; i++) {
   if (starWarsCharacters[i].gender == "female") {
-    femaleCharacters.push(starWarsCharacters[i].name);
+    femaleCharacters.push(starWarsCharacters[i]);
   }
 }
 
 console.log(femaleCharacters);
+
+// METODO 2
+let femaleCharacters2 = starWarsCharacters.filter(c => c.gender == 'female');
+
+console.log(femaleCharacters2);
 
 /* ESERCIZIO 4
   Crea un oggetto "eyeColor" che abbia le seguenti proprietà: blue, yellow, brown, red, blue-gray.
@@ -155,32 +161,41 @@ let eyeColor = {
   Utilizza uno switch statement per inserire uno ad uno gli oggetti dei personaggi di "starWarsCharacters" negli array relativi al colore degli occhi precedentemente creati.
   Ogni personaggio dovrà finire nell'array corrispondente al suo colore degli occhi (al valore della sua proprietà "eye_color").
 */
+// METODO 1
 for (i = 0; i < starWarsCharacters.length; i++) {
   switch (starWarsCharacters[i].eye_color) {
     case "blue":
-      eyeColor['blue'].push(starWarsCharacters[i].eye_color);
+      eyeColor.blue.push(starWarsCharacters[i]);
       break;
     case "yellow":
-      eyeColor['yellow'].push(starWarsCharacters[i].eye_color);
+      eyeColor.yellow.push(starWarsCharacters[i]);
       break;
     case "brown":
-      eyeColor['brown'].push(starWarsCharacters[i].eye_color);
+      eyeColor.brown.push(starWarsCharacters[i]);
       break;
     case "red":
-      eyeColor['red'].push(starWarsCharacters[i].eye_color);
+      eyeColor.red.push(starWarsCharacters[i]);
       break;
     case "blue-grey":
-      eyeColor['blue-gray'].push(starWarsCharacters[i].eye_color);
+      eyeColor['blue-gray'].push(starWarsCharacters[i]);
       break;
   }
 }
 
-// console.log(eyeColor);
+console.log(eyeColor);
+
+// METODO 2
+for (i = 0; i < starWarsCharacters.length; i++) {
+  eyeColor[starWarsCharacters[i].eye_color].push(starWarsCharacters[i]);
+}
+
+console.log(eyeColor);
 
 /* ESERCIZIO 6
   Usa un while loop per calcolare la massa totale dell'equipaggio. Salvala in una variabile chiamata "crewMass".
 */
-let crewMass = 0;
+// METODO 1
+let crewMass = 0, crewMass2 = 0;
 i = 0;
 
 while (i < starWarsCharacters.length) {
@@ -189,6 +204,13 @@ while (i < starWarsCharacters.length) {
 }
 
 console.log(crewMass);
+
+// METODO 2
+for (p of starWarsCharacters) {
+  crewMass2 += p.mass;
+}
+
+console.log(crewMass2);
 
 /* ESERCIZIO 7
   Crea uno if/else statement per rivelare la tipologia di carico, utilizzando la massa totale, di un'ipotetica astronave contenente i personaggi dell'array "starWarsCharacters".
@@ -241,23 +263,5 @@ console.log(characters);
   Crea una funzionalità che selezioni un elemento casuale dall'array "starWarsCharacters" e ne stampi in console le proprietà in modo discorsivo (a tuo piacimento).
 */
 let r = Math.floor(Math.random() * starWarsCharacters.length);
-let adjective = '';
-let pronoun = '';
 
-if (starWarsCharacters[r].gender == 'male') {
-  adjective = 'his';
-} else if (starWarsCharacters[r].gender == 'female') {
-  adjective = 'her';
-} else {
-  adjective = 'its';
-}
-
-if (starWarsCharacters[r].gender == 'male') {
-  pronoun = 'He';
-} else if (starWarsCharacters[r].gender == 'female') {
-  pronoun = 'She';
-} else {
-  pronoun = 'It';
-}
-
-console.log("The selected character is " + starWarsCharacters[r].name + ". " + pronoun +" is tall " + starWarsCharacters[r].height + ", weighs " + starWarsCharacters[r].mass + ", " + adjective + " hair's color is " + starWarsCharacters[r].hair_color + ", " + adjective + " skin's color is " + starWarsCharacters[r].skin_color + " and " + adjective + " eyes' color is " + starWarsCharacters[r].eye_color + ". " + pronoun + " was born in " + starWarsCharacters[r].birth_year + " and " + adjective + " gender is " + starWarsCharacters[r].gender);
+console.log("The selected character is " + starWarsCharacters[r].name + ". He is tall " + starWarsCharacters[r].height + ", weighs " + starWarsCharacters[r].mass + ", his hair's color is " + starWarsCharacters[r].hair_color + ", his skin's color is " + starWarsCharacters[r].skin_color + " and his eyes' color is " + starWarsCharacters[r].eye_color + ". He was born in " + starWarsCharacters[r].birth_year + " and his gender is " + starWarsCharacters[r].gender)

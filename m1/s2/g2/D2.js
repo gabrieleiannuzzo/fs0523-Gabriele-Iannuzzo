@@ -3,7 +3,7 @@
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
-function higher(a, b){
+function larger(a, b){
   if (a > b) {
     return 1;
   } else if (b > a) {
@@ -16,12 +16,12 @@ function higher(a, b){
 let a = 10;
 let b = 9;
 
-let high = higher(a, b);
+let large = larger(a, b);
 
-if (high == 1) {
-  console.log("The higher number among", a, "and", b, "is",  a);
-} else if (high == 2) {
-  console.log("The higher number among", a, "and", b, "is",  b);
+if (large == 1) {
+  console.log("The larger number among", a, "and", b, "is",  a);
+} else if (large == 2) {
+  console.log("The larger number among", a, "and", b, "is",  b);
 } else {
   console.log("The numbers are equal");
 }
