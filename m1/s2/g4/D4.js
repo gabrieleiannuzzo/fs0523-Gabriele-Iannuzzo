@@ -15,11 +15,9 @@ console.log(area(8, 2));
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 const crazySum = (n1, n2) => {
-    if (n1 == n2) {
-        return 3 * (n1 + n2);
-    } else {
-        return n1 + n2;
-    }
+    let sum = n1 + n2;
+
+    return n1 === n2 ? sum * 3 : sum;
 }
 
 console.log(crazySum(4, 4));
@@ -33,11 +31,7 @@ console.log(crazySum(4, 4));
 const crazyDiff = a => {
     let diff = Math.abs(a - 19);
 
-    if (a <= 19) {
-        return diff;
-    } else {
-        return diff * 3;
-    }
+    return a <= 19 ? diff : diff * 3;
 }
 
 console.log(crazyDiff(18));
@@ -48,11 +42,7 @@ console.log(crazyDiff(18));
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
-const boundary = n => {
-    if ((n > 20 && n < 100) || n == 400) {
-        return true;
-    }
-}
+const boundary = n => (n > 20 && n <= 100) || n == 400;
 
 console.log(boundary(400));
 
@@ -64,7 +54,7 @@ console.log(boundary(400));
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 function epify (string) {
-    if (string.indexOf("EPICODE") == 0) {
+    if (string.startsWith("EPICODE")) {
         return string;
     } else {
         return "EPICODE " + string;

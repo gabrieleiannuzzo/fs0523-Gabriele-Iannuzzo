@@ -1,0 +1,174 @@
+/* GENERAL PROPERTIES */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #e9eced;
+}
+
+.top-bottom {
+    background-color: #222f3f;
+}
+
+.navigation {
+    background-color: #364759;
+}
+
+.text-align {
+    text-align: center;
+}
+
+.titles {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: black;
+}
+
+.links {
+    margin-left: 10px;
+    color: teal;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.links:hover {
+    text-decoration: underline;
+}
+
+.nav-links {
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: white;
+}
+
+.nav-links:hover {
+    text-decoration: underline;
+}
+
+/* HEADER */
+header img {
+    height: 60px;
+    padding: 10px 30px;
+}
+
+header nav {
+    padding: 10px 10px;
+}
+
+header ul {
+    display: flex;
+    list-style: none;
+}
+
+header ul li a{
+    margin-left: 20px;
+}
+
+/* CONTENT */
+#text {
+    margin: 30px;
+    background-color: #f36600;
+}
+
+#text p {
+    color: white;
+    padding: 8px;
+}
+
+main section {
+    margin: 0px 30px 30px 30px;
+}
+
+#info {
+    padding-top: 15px;
+    height: 160px;
+    background-image: url(../images/bg-image.png);
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#info h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+}
+
+#info p {
+    margin-top: 25px;
+    font-weight: 700;
+    color: white;
+}
+
+#img-cards {
+    background-color: #fefefe;
+    padding: 20px;
+}
+
+#img-cards h2 {
+    margin-bottom: 20px;
+}
+
+#img-cards #images {
+    display: flex;
+    justify-content: space-between;
+}
+
+#img-cards .img-container {
+    width: 22%;
+    height:400px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px #cecece;
+}
+
+#img-cards .img-container a{
+    display: block;
+    height: 100%;
+}
+
+#img1, #img2, #img3, #img4 {
+    background-size: cover;
+    background-position: center;
+}
+
+#img1 {
+    background-image: url(../images/img_1.jpg);
+}
+
+#img2 {
+    background-image: url(../images/img_2.jpg);
+}
+
+#img3 {
+    background-image: url(../images/img_3.jpg);
+}
+
+#img4 {
+    background-image: url(../images/img_4.jpg);
+}
+
+.main-images .large-images img{
+    max-width: 100%;
+    margin-bottom: 5px;
+}
+
+/* FOOTER */
+footer {
+    padding-bottom: 50px;
+}
+
+#footer-link {
+    display: block;
+    padding: 10px;
+}
+
+footer img {
+    height: 80px;
+    display: block;
+    margin: 50px auto 0 auto;
+}
