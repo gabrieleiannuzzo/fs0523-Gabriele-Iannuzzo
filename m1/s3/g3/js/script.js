@@ -3,38 +3,48 @@ let list2 = document.getElementById("to-do-tasks");
 let elements = [];
 let input = document.querySelector("input");
 let button = document.querySelector("button");
-let iButtons = document.querySelectorAll("i");
 
 button.addEventListener("click", function(event){
     if (input.value && input.value.length < 18) {
         let li = document.createElement("li");
-        let span = document.createElement("span");
-        let div = document.createElement("div");
-        
-        span.innerText = input.value;
-        div.innerHTML = '<i class="fas fa-trash-alt" id="trash-can"></i>';
-        
-        list1.append(li);
-        li.append(span);
-        li.append(div);
+        let div1 = document.createElement("div");
+        let div2 = document.createElement("div");
 
-        input.value = '';
+        list1.prepend(li);
+        li.append(div1);
+        li.append(div2);
 
-        li.addEventListener("click", () => {
+        div1.classList.add("div1");
+        div2.classList.add("div2");
+
+        div1.innerText = input.value;
+        div2.innerHTML = '<i class="fas fa-trash-alt" id="trash-can"></i>';
+        
+        div1.addEventListener("mouseenter", () => {
+            div1.style.width = "80%";
+            div1.nextSibling.style.display = "flex";
+        });
+        
+        li.addEventListener("mouseleave", () => {
+            div1.style.width = "100%";
+            div1.nextSibling.style.display = "none";
+        });
+        
+        div1.addEventListener("click", () => {
             if (li.parentElement == list1) {
                 list2.append(li);
             } else {
                 list1.append(li);
             }
-
+            
             li.classList.toggle("done");
+        });
+
+        div2.addEventListener("click", () => {
+            li.remove();
         })
 
-        let i = div.querySelector("#trash-can");
-
-        i.addEventListener("click", () => {
-            i.parentElement.parentElement.remove();
-        });
+        input.value = '';
     }
 
     event.preventDefault();

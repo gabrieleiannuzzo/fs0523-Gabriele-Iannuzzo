@@ -9,7 +9,7 @@ body {
 #container {
     width: 45%;
     min-width: 690px;
-    height: 100vh;
+    min-height: 100vh;
     padding: 50px 20px;
     margin: 0 auto;
     background-color: rgb(255, 58, 98);
@@ -83,10 +83,8 @@ ul {
 
 ul li {
     list-style: none;
-    background-color: dodgerblue;
     color: white;
     border-radius: 5px;
-    padding: 7px 10px;
     margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
@@ -96,20 +94,23 @@ ul li {
     text-decoration: line-through;
 }
 
-ul li div {
-    margin-left: 5px;
-    font-size: 0.9rem;
+ul li .div1 {
+    background-color: dodgerblue;
+    height: 30px;
+    width: 100%;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+}
+
+ul li .div2 {
+    background-color: red;
+    height: 30px;
+    width: 18%;
+    border-radius: 5px;
     display: none;
-}
-
-ul li:hover div {
-    display: block;
-}
-
-ul li div i {
-    margin-left: 5px;
-}
-
-ul li div i:hover {
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
 }
