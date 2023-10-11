@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins&display=swap" rel="stylesheet">
+
+    <!-- FONTAWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="container">
+        <h1>TO-DO-LIST</h1>
+
+        <p>Scrivi qui le task da completare, e segnale come completate passandoci sopra con il mouse e cliccando sulla spunta. Puoi anche eliminarle cliccando sull'icona del cestino, oppure riportarle nella lista delle cose da fare se ti sei sbagliando a catalogarle come fatte</p>
+
+        <form>
+            <input type="text" placeholder="Scrivi una nuova task">
+            <button>Salva task</button>
+        </form>
+
+        <div id="lists-container">
+            <div id="first-ul">
+                <h2>Cose da fare</h2>
+
+                <ul id="done-tasks"></ul>
+            </div>
+            
+            <div id="second-ul">
+                <h2>Cose già fatte</h2>
+
+                <ul id="to-do-tasks"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

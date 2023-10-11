@@ -286,7 +286,7 @@
         let h2 = document.getElementById("changeMyColor");
 
         h2.addEventListener("click", () => {
-          let color = Math.floor(Math.random() * 16777217).toString(16);
+          let color = Math.floor(Math.random() * 16777216).toString(16);
           h2.style.color = `#${color}`;
         })
       }

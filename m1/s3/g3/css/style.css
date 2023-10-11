@@ -1,0 +1,115 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+#container {
+    width: 45%;
+    min-width: 690px;
+    height: 100vh;
+    padding: 50px 20px;
+    margin: 0 auto;
+    background-color: rgb(255, 58, 98);
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#container > p {
+    color: white;
+    text-align: center;
+    margin: 20px 30px;
+}
+
+form {
+    display: flex;
+    width: 70%;
+    min-width: 455px;
+    margin: 0 auto;
+}
+
+form input {
+    width: 75%;
+    height: 40px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border: none;
+    padding-left: 10px;
+}
+
+form button {
+    width: 25%;
+    height: 40px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border: none;
+}
+
+form button:hover {
+    cursor: pointer;
+    background-color: dodgerblue;
+    color: white;
+}
+
+#lists-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+#lists-container > div {
+    margin: 40px 30px;
+    width: 40%;
+}
+
+#lists-container h2 {
+    text-align: center;
+    color: white;
+    font-size: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+ul {
+    width: 100%;
+    margin-top: 20px;
+}
+
+ul li {
+    list-style: none;
+    background-color: dodgerblue;
+    color: white;
+    border-radius: 5px;
+    padding: 7px 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.done {
+    text-decoration: line-through;
+}
+
+ul li div {
+    margin-left: 5px;
+    font-size: 0.9rem;
+    display: none;
+}
+
+ul li:hover div {
+    display: block;
+}
+
+ul li div i {
+    margin-left: 5px;
+}
+
+ul li div i:hover {
+    cursor: pointer;
+}
