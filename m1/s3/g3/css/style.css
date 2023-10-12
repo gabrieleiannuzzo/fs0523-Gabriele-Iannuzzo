@@ -94,6 +94,10 @@ ul li {
     text-decoration: line-through;
 }
 
+#second-ul .enlightened {
+    background-color: rgb(0, 161, 35);
+}
+
 ul li .div1 {
     background-color: dodgerblue;
     height: 30px;

@@ -1,0 +1,157 @@
+/* STILI PREDEFINITI */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #F5F5F5;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* STILE */
+.container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* TOMBOLA */
+.tombola {
+    padding-top: 10px;
+    width: 50%;
+    background-color: #333333;
+}
+
+h1 {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.inputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.inputs p {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.inputs input {
+    height: 25px;
+    width: 100px;
+    margin-right: 10px;
+}
+
+.tombola button {
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid white;
+}
+
+.tombola button:hover {
+    cursor: pointer;
+    background-color: #00ff00;
+}
+
+.estrazione {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+    border: 2px solid blue;
+    padding: 5px;
+}
+
+.numero {
+    flex: 0 1 10%;
+    height: calc(100vw / 20);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.check {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: green;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}
+
+/* CARTELLE */
+.cartelle {
+    padding-top: 10px;
+    width: 30%;
+    border: 1px solid #9d9d9d;
+}
+
+.cartelle h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.cartelle button {
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.cartelle button:hover {
+    cursor: pointer;
+    background-color: #9d9d9d;
+    color: white;
+    border: 2px solid white;
+}
+
+.cartella {
+    width: 100%;
+    text-align: center;
+    border: 1px solid black;
+    margin-bottom: 20px;
+    border-bottom: none;
+    border-right: none;
+}
+
+.cartella .div1 {
+    font-weight: bold;
+    padding: 10px 0;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.cartella .div2 {
+    height: calc((100vw * 3) / 80);
+    border-bottom: 1px solid black;
+    vertical-align: middle;
+    font-weight: bold;
+    display: flex;
+}
+
+.cartella .div2 div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12.5%;
+    border-right: 1px solid black;
+}
+
+.cartella .div2 .div.estratto {
+    background-color: #00ff00;
+    color: white;
+}

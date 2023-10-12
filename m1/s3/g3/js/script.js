@@ -38,6 +38,7 @@ button.addEventListener("click", function(event){
             }
             
             li.classList.toggle("done");
+            div1.classList.toggle("enlightened");
         });
 
         div2.addEventListener("click", () => {
