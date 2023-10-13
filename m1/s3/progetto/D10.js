@@ -72,7 +72,7 @@ console.log(dice());
 let whoIsBigger = (a, b) => {
   return Math.max(a, b);
 }
-console.log(whoIsBigger(3, 8));
+console.log(whoIsBigger(100, 8));
 
 /* ESERCIZIO 3
   Crea una funzione chiamata "splitMe" che riceve una stringa come parametro e ritorna un'array contenente ogni parola della stringa.
@@ -83,7 +83,7 @@ function splitMe (str) {
   let arr = str.split(" ");
   return arr;
 }
-console.log(splitMe("fucsia Charles Leclerc"));
+console.log(splitMe("Ciao mondo"));
 
 /* ESERCIZIO 4
   Crea una funzione chiamata "deleteOne" che riceve una stringa e un booleano come parametri.
@@ -93,7 +93,7 @@ let deleteOne = (str, bool) => {
   if (bool) return str.substring(1);
   return str.substring(0, str.length - 1);
 }
-console.log(deleteOne("ciao", false));
+console.log(deleteOne("ciao", true));
 
 /* ESERCIZIO 5
   Crea una funzione chiamata "onlyLetters" che riceve una stringa come parametro e la ritorna eliminando tutte le cifre numeriche.
@@ -103,7 +103,7 @@ console.log(deleteOne("ciao", false));
 function onlyLetters (str) {
   return str.replace(/[0-9]/g, '');
 }
-console.log(onlyLetters("fucsia1 Charles 22Leclerc8317939"));
+console.log(onlyLetters("ci78a08o98 m0ond5568o"));
 
 /* ESERCIZIO 6
   Crea una funzione chiamata "isThisAnEmail" che riceve una stringa come parametro e ritorna true se la stringa è un valido indirizzo email.
@@ -169,13 +169,13 @@ console.log(howManyDays("10-10-2023"));
 /* ESERCIZIO 10
   Scrivi una funzione chiamata "isTodayMyBirthday" che deve ritornare true se oggi è il tuo compleanno, falso negli altri casi.
 */
-function isTodayMyBirthday (date) {
-  let day = new Date(date);
+function isTodayMyBirthday () {
+  let myBirthday = new Date("10-13-2023");
   let today = new Date();
-  if (today.getDay() === day.getDay() && today.getMonth() == day.getMonth()) return true;
+  if (today.getDate() === myBirthday.getDate() && today.getMonth() === myBirthday.getMonth()) return true;
   return false;
 }
-console.log(isTodayMyBirthday("09-13-2023"));
+console.log(isTodayMyBirthday());
 
 // Arrays & Oggetti
 
@@ -305,16 +305,14 @@ let deleteProp = (obj, str) => {
   delete obj[str];
   return obj;
 }
-console.log(deleteProp({nome: 'paolo', cognome: 'filiali', eta: 20}, 'cognome'));
+console.log(deleteProp({nome: 'Gabriele', cognome: 'Iannuzzo', età: 21}, 'cognome'));
 
 /* ESERCIZIO 12
   Scrivi una funzione chiamata "newestMovie" che trova il film più recente nell'array "movies" fornito.
 */
 function newestMovie () {
-  let years = [];
-  for (i of movies) years.push(i.Year);
-  let year = Math.max(...years);
-  let movie = movies.find(movie => movie.Year == year);
+  let year = movies.reduce((c, p) => {return Math.max(c, parseInt(p.Year))}, 0);
+  let movie = movies.find(movie => parseInt(movie.Year) == year);
   return movie;
 }
 console.log(newestMovie());
@@ -341,7 +339,7 @@ console.log(onlyTheYears());
   Scrivi una funzione chiamata "onlyInLastMillennium" che ritorna solamente i film prodotto nel millennio scorso contenuti nell'array "movies" fornito.
 */
 let onlyInLastMillennium = () => {
-  let lastMillennium = movies.filter(movie => movie.Year > 2000);
+  let lastMillennium = movies.filter(movie => movie.Year < 2000);
   return lastMillennium;
 }
 console.log(onlyInLastMillennium());
@@ -369,11 +367,10 @@ console.log(searchByTitle("Avengers"));
   "match" deve includere tutti i film dell'array "movies" fornito che contengono la stringa fornita all'interno del proprio titolo, mentre "unmatch" deve includere tutti i rimanenti.
 */
 function searchAndDivide (str) {
-  let obj = {};
-
-  obj.match = movies.filter(movie => movie.Title.includes(str));
-  obj.unmacth = movies.filter(movie => !(movie.Title.includes(str)));
-
+  let obj = {
+    match: movies.filter(movie => movie.Title.includes(str)),
+    unmatch: movies.filter(movie => !(movie.Title.includes(str))),
+  };    
   return obj;
 }
 console.log(searchAndDivide("Avengers"));
@@ -459,7 +456,7 @@ function addTest () {
 
 */
 let halfTree = n => {
-  for (let i = 0; i < n; i++) {
+  for (let i = 1; i <= n; i++) {
     console.log("*".repeat(i));
   }
 }
@@ -478,12 +475,12 @@ halfTree(5);
 */
 function tree (n) {
   for (let i = 0; i < n; i++) {
-    let spaces = " ".repeat(n - i + 1);
+    let spaces = " ".repeat(n - i - 1);
     let stars = "*".repeat(2 * i + 1);
     console.log(spaces + stars);
   }
 }
-tree(3);
+tree(7);
 
 /* ESERCIZIO 29
   Crea una funzione chiamata "isItPrime" che riceve un numero come parametro e ritorna true se il numero fornito è un numero primo.
