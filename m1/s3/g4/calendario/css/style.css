@@ -1,0 +1,213 @@
+/* font-family: 'Montserrat', sans-serif; */
+/* font-family: 'Poppins', sans-serif; */
+
+/* STILI GENERICI */
+:root {
+    --main-color: #131334;
+    --main-dark-color: #0c0b1d;
+    --purple: #7a408a;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--main-color);
+    scroll-behavior: smooth;
+}
+
+#container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 902px) {
+    #container {
+        border-right: 2px solid white;
+        border-left: 2px solid white;
+    }
+}
+
+/* PRIMO DIV */
+#first-div {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: var(--main-color);
+    color: white;
+}
+
+#first-div p {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+#arrow-div {
+    display: flex;
+    align-items: center;
+}
+
+#arrow-div i {
+    font-size: 2rem;
+    font-weight: 700;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+#arrow-div i:first-child {
+    margin-right: 10px;
+}
+
+#arrow-div i:hover {
+    color: var(--purple);
+}
+
+/* CALENDARIO */
+#calendar {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--main-dark-color);
+}
+
+#calendar div {
+    flex: 0 1 calc(100% / 7);
+    height: calc(100vw / 7);
+    max-height: 128.56px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+#calendar div.selezionato {
+    background-color: var(--main-color);
+}
+
+#calendar div:hover {
+    background-color: var(--main-color);
+    cursor: pointer;
+}
+
+#calendar div.today {
+    color: var(--purple);
+}
+
+/* INPUTS */
+#add-meeting {
+    background-color: var(--main-color);
+    padding: 25px 0 15px 15px;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+#inputs {
+    background-color: var(--main-color);
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 15px;
+}
+
+#inputs h4 {
+    color: white;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+#inputs p {
+    color: white;
+}
+
+#inputs input {
+    background-color: var(--main-dark-color);
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+#inputs [type="time"] {
+    width: 100px;
+}
+
+#inputs input::placeholder {
+    color: white;
+}
+
+#inputs button {
+    padding: 10px 15px;
+    background-color: var(--purple);
+    color: white;
+    font-weight: 700;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#inputs button:hover {
+    background-color: #b14ecc;
+}
+
+/* MEETINGS */
+.meeting {
+    background-color: var(--main-color);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-top: 1px solid white;
+    height: 140px;
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.meeting.green {
+    background-color: green;
+}
+
+.icons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.icons .meeting-info {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.icons div {
+    display: flex;
+}
+
+.check {
+    width: 25px;
+    height: 25px;
+    background-color: rgb(0, 206, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.check:hover {
+    background-color: rgb(0, 255, 0);
+}
+
+.trash-can {
+    width: 25px;
+    height: 25px;
+    background-color: red;
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.trash-can:hover {
+    background-color: rgb(215, 0, 0);
+}
