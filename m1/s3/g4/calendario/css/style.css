@@ -21,6 +21,7 @@ body {
 #container {
     max-width: 900px;
     margin: 0 auto;
+    position: relative;
 }
 
 @media screen and (min-width: 902px) {
@@ -28,6 +29,35 @@ body {
         border-right: 2px solid white;
         border-left: 2px solid white;
     }
+}
+
+/* COLOR PICKER */
+#color-picker {
+    position: absolute;
+    top: 50px;
+    left: -300px;
+    display: none;
+}
+
+@media screen and (min-width: 1515px) {
+    #color-picker {
+        display: block;
+    }
+}
+
+#color-picker div {
+    display: flex;
+    align-items: center;
+}
+
+#color-picker div p {
+    color: white;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+#color-picker div input {
+    cursor: pointer;
 }
 
 /* PRIMO DIV */

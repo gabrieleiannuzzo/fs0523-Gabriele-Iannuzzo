@@ -6,14 +6,76 @@ let dateObject = {
     year: '2023',
 }
 
-let date = 0;
-let month = 0;  //variabili collegate alla funzione saveDay() e setToday()
-setInterval(saveDay(), 1000); //eseguo ogni secondo un riassegnamento del giorno corretto alla variabile day tramite la funzione saveDay()
+colors()  // setup colori della pagina
 
-generateMonthName(); //genero una prima volta il nome del mese
-generateDays(); // genero una prima volta il calendario
-setToday(); // evidenzio una prima volta il giorno corrente
-navigation(); // navigo tra i mesi e applico nuovamente le 3 funzioni qui sopra
+let date = 0;
+let month = 0;  // variabili collegate alla funzione saveDay() e setToday()
+setInterval(saveDay(), 1000); // eseguo ogni secondo un riassegnamento del giorno corretto alla variabile day tramite la funzione saveDay()
+
+generateMonthName();  // genero una prima volta il nome del mese
+generateDays();  // genero una prima volta il calendario
+setToday();  // evidenzio una prima volta il giorno corrente
+navigation();  // navigo tra i mesi e applico nuovamente le 3 funzioni qui sopra
+
+
+
+
+
+function colors () {
+    let colorPicker1 = document.querySelector("#div1 input");
+    let colorPicker2 = document.querySelector("#div2 input");
+    let colorPicker3 = document.querySelector("#div3 input");
+    let colorPicker4 = document.querySelector("#div4 input");
+
+    let color1 = document.querySelectorAll("body, #first-div, #calendar div.selezionato, #add-meeting, #inputs, .meeting");
+    let color1Hover = document.querySelectorAll("#calendar div, #inputs button");
+    let color2 = document.querySelectorAll("#calendar, #inputs");
+    let color3 = document.querySelectorAll("#calendar div.today, #inputs button");
+    let color3Hover = document.querySelector("#arrow-div i");
+    let color4 = document.querySelectorAll("#color-picker div p, #first-div, #calendar div, #add-meeting, #inputs h4, #inputs p, #inputs input, #inputs input::placeholder, #inputs button, .meeting");
+
+    colorPicker1.addEventListener("input", () => {
+        for (let c of color1) {
+            c.style.backgroundColor = colorPicker1.value;
+        }
+
+        for (c of color1Hover) {
+            c.addEventListener("mouseover", () => {
+                c.style.backgroundColor = colorPicker1.value;
+            });
+              
+            c.addEventListener("mouseleave", () => {
+                c.style.backgroundColor = "";
+            });
+        }
+    });
+
+    colorPicker2.addEventListener("input", () => {
+        for (let c of color2) {
+            c.style.backgroundColor = colorPicker2.value;
+        }
+    });
+
+    colorPicker3.addEventListener("input", () => {
+        for (let c of color3) {
+            c.style.backgroundColor = colorPicker3.value;
+        }
+
+        color3Hover.addEventListener("mouseenter", () => {
+            color3Hover.style.backgroundColor = colorPicker3.value;
+        });
+
+        color3Hover.addEventListener("mouseleave", () => {
+            color3Hover.style.backgroundColor = "";
+        });
+    });
+
+    colorPicker4.addEventListener("input", () => {
+        for (let c of color4) {
+            c.style.color = colorPicker4.value;
+        }
+    });
+}
 
 
 
