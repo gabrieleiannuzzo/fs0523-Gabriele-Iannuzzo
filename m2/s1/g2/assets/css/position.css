@@ -1,0 +1,136 @@
+.imgLeft {
+    float: left;
+}
+
+#underline {
+    display: none;
+}
+
+#container {
+    position: relative;
+}
+
+@media screen and (min-width: 434px) {
+    #underline {
+        display: inline;
+        position: absolute;
+        top: 92px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    h1 {
+        width: 445px;
+    }
+
+    #underline {
+        top: 107px;
+        width: 430px;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    h1 {
+        width: 535px;
+    }
+
+    #underline {
+        top: 128px;
+        left: 5px;
+        width: 515px;
+    }
+}
+
+@media screen and (min-width: 1085px) {
+    h1 {
+        width: auto;
+    }
+
+    #underline {
+        top: 60px;
+        left: 460px;
+        width: 515px;
+    }
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+#novità-section {
+    position: relative;
+}
+
+#novità {
+    position: absolute;
+    top: -1.2rem;
+    text-transform: uppercase;
+}
+
+#link-social-div, #calendar-div, #btt-div {
+    background-color: rgba(255, 255, 255, 0.5);
+    width: calc(2rem + 20px);
+    height: calc(2rem + 20px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border: 2px solid white;
+}
+
+#link-social, #calendar, #btt {
+    font-size: 2rem;
+}
+
+#link-social, #calendar {
+    color: #566bc7;
+}
+
+#btt {
+    color: #d35f5f;
+}
+
+#link-social-div {
+    position: fixed;
+    bottom: calc(4rem + 85px);
+    right: -12px;
+}
+
+#calendar-div {
+    position: fixed;
+    bottom: calc(2rem + 50px);
+    right: -12px;
+}
+
+#btt-div {
+    position: fixed;
+    bottom: 15px;
+    right: -12px;
+}
+
+@media screen and (min-width: 700px) {
+    #link-social-div {
+        top: 15px;
+        z-index: 2;
+    }
+
+    #calendar-div {
+        top: calc(2rem + 50px);
+        z-index: 2;
+    }
+}
+
+.tag-div {
+    position: relative;
+}
+
+.tag {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #cdcdcd;
+    font-size: 4rem;
+}
