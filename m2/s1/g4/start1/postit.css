@@ -1,0 +1,64 @@
+/* STILI PREDEFINITI */
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --giallo: #fefece;
+    --verde: #ccfece;
+    --viola: #cacafa;
+}
+
+body {
+    font-family: 'Indie Flower', cursive;
+    background-color: #666666;
+}
+
+.giallo {
+    transform: rotate(-5deg);
+    background-image: linear-gradient(var(--giallo) 0%, var(--giallo) 75%, #bdbda3 90%, #bdbda3 100%);
+}
+
+.verde {
+    transform: rotate(5deg);
+    background-image: linear-gradient(var(--verde) 0%, var(--verde) 75%, #a1b8a1 90%, #a1b8a1 100%);
+}
+
+.viola {
+    transform: rotate(-7deg);
+    background-image: linear-gradient(var(--viola) 0%, var(--viola) 75%, #8b8c9b 90%, #8b8c9b 100%);
+}
+
+/* MAIN */
+#container {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 30px;
+}
+
+.postit {
+    flex-basis: 23%;
+    text-align: center;
+    padding: 100px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 5px 5px rgb(37, 37, 37);
+    transition: all 0.5s;
+}
+
+.postit:hover {
+    transform: rotate(0deg);
+    transform: scale(1.15);
+}
+
+.postit .postit-container .task {
+    font-size: 3rem;
+}
+
+.postit .postit-container .descrizione {
+    font-size: 1.5rem;
+    text-align: left;
+}

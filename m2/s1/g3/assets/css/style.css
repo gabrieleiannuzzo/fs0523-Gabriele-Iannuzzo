@@ -98,9 +98,10 @@ header nav > a {
         order: 2;
     }
     
-    #shop {
+    header #shop {
         order: 3;
-        flex-basis: 20%;
+        flex-grow: 0;
+        flex-basis: 2%;
     }
 
     #link4 {
@@ -112,18 +113,17 @@ header nav > a {
     }
 
     header nav > a {
-        flex-basis: 17%;
+        flex-basis: 1%;
     }
 }
 
 @media screen and (min-width: 768px) {
     header {
         flex-direction: column;
-        row-gap: 30px;
         flex-basis: 20%;
     }
 
-    #shop {
+    header #shop {
         order: 1;
     }
 

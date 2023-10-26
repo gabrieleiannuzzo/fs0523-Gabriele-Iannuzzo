@@ -1,0 +1,82 @@
+/*
+1 creazione del testo e formattazione di 1 parola da far ruotare
+2 inserimento delle altre 2 parole
+3 sovrapporre le 3 parole
+4 mostrare 1 parola e nascondere le altre 2
+5 animare 1 parola (fadein - fadeout con spostamento)
+6 animare le altre 2 parole
+7 ritardare progressivamente l'animazione delle altre 2 parole 
+*/
+
+/* STILI PREDEFINITI */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Bree Serif', serif;
+}
+
+/* MAIN */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+main #testoAlternato {
+    padding: 15px 150px 15px 15px;
+    border: 2px solid black;
+    line-height: 1.5rem;
+}
+
+main #testoAlternato .parole {
+    color: #6a889c;
+    position: relative;
+}
+
+main #testoAlternato .parole i {
+    position: absolute;
+    white-space: nowrap;
+    left: 4px
+}
+
+#parola1 {
+    animation-name: ciclo1;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+
+#parola2 {
+    animation-name: ciclo2;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+
+#parola3 {
+    animation-name: ciclo3;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes ciclo1 {
+    0% {top: 0; opacity: 1}
+    33% {top: 15px; opacity: 0}
+    66% {top: -15px; opacity: 0}
+    100% {top: 0; opacity: 1}
+}
+
+@keyframes ciclo2 {
+    0% {top: 15px; opacity: 0}
+    33% {top: -15px; opacity: 0}
+    66% {top: 0; opacity: 1}
+    100% {top: 15px; opacity: 0}
+}
+
+@keyframes ciclo3 {
+    0% {top: -15px; opacity: 0}
+    33% {top: 0; opacity: 1}
+    66% {top: 15px; opacity: 0}
+    100% {top: -15px; opacity: 0}
+}
