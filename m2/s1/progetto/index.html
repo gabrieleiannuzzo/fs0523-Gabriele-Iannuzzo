@@ -24,11 +24,11 @@
 <body>
     <!-- HEADER -->
     <header class="transition-background-color">
-        <div class="container">
+        <div class="container flex">
             <img src="assets/imgs/svg/logo.svg" alt="logo">
 
-            <nav>
-                <ul>
+            <nav class="flex">
+                <ul class="flex">
                     <li class="hide1"><a href="#">Our story</a></li>
                     <li class="hide1"><a href="#">Membership</a></li>
                     <li class="hide1"><a href="#">Write</a></li>
@@ -39,6 +39,7 @@
         </div>
     </header>
 
+    <!-- HERO SECTION -->
     <div id="hero-section">
         <div class="container">
             <h1>Stay curious.</h1>
@@ -5290,21 +5291,38 @@
         </div>
     </div>
 
+    <!-- TRENDING SECTION -->
     <main id="trending">
         <div class="container">
-            <div class="info">
+            <div class="info flex">
                 <img src="assets/imgs/svg/trending.svg" alt="trending">
                 <h3>Trending on Medium</h3>
             </div>
 
-            <div class="flex-container">
+            <div class="flex-container flex">
                 <div class="trending-post">
                     <p>01</p>
 
                     <div class="post-info">
                         <div class="author">
                             <img src="assets/imgs/image01.jpeg" alt="author-img1">
-                            <p>Tom Cooper</p>
+                            <p><span class="author-hover">
+                                Tom Cooper
+                                <!-- <div id="hover-card">
+                                    <div id="pointer"></div>
+                                    <div id="hover-author-info">
+                                        <img src="assets/imgs/image01.jpeg" alt="">
+                                        <p>Tom Cooper</p>
+                                    </div>
+                                    <div id="cover"></div>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    <div id="hover-line"></div>
+                                    <div id="hover-author-social-info">
+                                        <p id="followers">230K Followers</p>
+                                        <a href="#" id="follow">Follow</a>
+                                    </div>
+                                </div> -->
+                            </span></p>
                         </div>
 
                         <p class="post-text">Ukraine War, 23 October 2022</p>
@@ -5319,7 +5337,7 @@
                     <div class="post-info">
                         <div class="author">
                             <img src="assets/imgs/image02.png" alt="author-img2">
-                            <p>Arthur Hayes <span>in </span><span class="hover">Entrepreneur's Handbook</span></p>
+                            <p><span class="author-hover">Arthur Hayes</span> <span>in </span><span class="hover">Entrepreneur's Handbook</span></p>
                         </div>
 
                         <p class="post-text">Comeback</p>
@@ -5334,7 +5352,7 @@
                     <div class="post-info">
                         <div class="author">
                             <img src="assets/imgs/image03.jpeg" alt="author-img3">
-                            <p>Erin A Ross <span>in </span><span class="hover">Slackjaw</span></p>
+                            <p><span class="author-hover">Erin A Ross</span> <span>in </span><span class="hover">Slackjaw</span></p>
                         </div>
 
                         <p class="post-text">How I Learned to Love My Breasts Even Though One Is A Horcrux For Voldemort</p>
@@ -5349,7 +5367,7 @@
                     <div class="post-info">
                         <div class="author">
                             <img src="assets/imgs/image04.png" alt="author-img4">
-                            <p>Frank Mastropolo <span>in </span><span class="hover">The Riff</span></p>
+                            <p><span class="author-hover">Frank Mastropolo</span> <span>in </span><span class="hover">The Riff</span></p>
                         </div>
 
                         <p class="post-text">The Night Paul McCartney Donned a Disguise at Fillmore East</p>
@@ -5364,7 +5382,7 @@
                     <div class="post-info">
                         <div class="author">
                             <img src="assets/imgs/image05.jpeg" alt="author-img5">
-                            <p>Frank Andrade <span>in </span><span class="hover">Towards Data Science</span></p>
+                            <p><span class="author-hover">Frank Andrade</span> <span>in </span><span class="hover">Towards Data Science</span></p>
                         </div>
 
                         <p class="post-text">5 Python Projects to Automate Your Life: From Beginner to Advanced</p>
@@ -5379,7 +5397,7 @@
                     <div class="post-info">
                         <div class="author">
                             <img src="assets/imgs/image06.png" alt="author-img6">
-                            <p>Wesley Smits <span>in </span><span class="hover">Javascript in Plain English</span></p>
+                            <p><span class="author-hover">Wesley Smits</span> <span>in </span><span class="hover">Javascript in Plain English</span></p>
                         </div>
 
                         <p class="post-text">How To Make Visual Studio Code Look Amazing</p>
@@ -5391,15 +5409,16 @@
         </div>
     </main>
 
+    <!-- POST SECTION AND ASIDE -->
     <div id="flex-container2">
-        <div class="container">
-            <div id="posts">
+        <div class="container flex">
+            <div id="posts" class="flex">
 
                 <div class="post">
                     <div class="post-container">
                         <div class="post-author">
                             <img src="assets/imgs/image07.jpeg" alt="post-author">
-                            <p>Robert Roy Britt</p>
+                            <p><span class="author-hover">Robert Roy Britt</span></p>
                         </div>
 
                         <p class="post-title">How Old is Old?</p>
@@ -5420,7 +5439,7 @@
                     <div class="post-container">
                         <div class="post-author">
                             <img src="assets/imgs/image09.jpeg" alt="post-author">
-                            <p>Taru Anniina Liikanen</p>
+                            <p><span class="author-hover">Taru Anniina Liikanen</span></p>
                         </div>
 
                         <p class="post-title">Is Taylor Swift Allowed to Speak About Fat?</p>
@@ -5441,7 +5460,7 @@
                     <div class="post-container">
                         <div class="post-author">
                             <img src="assets/imgs/image11.jpeg" alt="post-author">
-                            <p>David Rodenas, PH. D.</p>
+                            <p><span class="author-hover">David Rodenas, PH. D.</span></p>
                         </div>
 
                         <p class="post-title">Don't Screw Up, You Will Be Found Guilty</p>
@@ -5462,7 +5481,7 @@
                     <div class="post-container">
                         <div class="post-author">
                             <img src="assets/imgs/image13.png" alt="post-author">
-                            <p>Microsoft Design</p>
+                            <p><span class="author-hover">Microsoft Design</span></p>
                         </div>
 
                         <p class="post-title">Leave No Trace</p>
@@ -5483,7 +5502,7 @@
                     <div class="post-container">
                         <div class="post-author">
                             <img src="assets/imgs/image15.jpeg" alt="post-author">
-                            <p>Scott H. Young</p>
+                            <p><span class="author-hover">Scott H. Young</span></p>
                         </div>
 
                         <p class="post-title">Variability, Not Repetition, is the Key to Mastery</p>
@@ -5504,7 +5523,7 @@
                     <div class="post-container">
                         <div class="post-author">
                             <img src="assets/imgs/image17.png" alt="post-author">
-                            <p>Paul A. DeStefano <span>in </span><span class="span2">Human Parts</span></p>
+                            <p><span class="author-hover">Paul A. DeStefano</span> <span>in </span><span class="span2">Human Parts</span></p>
                         </div>
 
                         <p class="post-title">What I Overheard as an Escape Room Actor</p>
@@ -5525,7 +5544,7 @@
                     <div class="post-container">
                         <div class="post-author">
                             <img src="assets/imgs/image19.jpeg" alt="post-author">
-                            <p>Kim Scott</p>
+                            <p><span class="author-hover">Kim Scott</span></p>
                         </div>
 
                         <p class="post-title">6 Steps for Setting Measurable Goals to Avoid "Productivity Paranoia"</p>
@@ -5546,7 +5565,7 @@
             <aside>
                 <h3>DISCOVER MORE OF WHAT MATTERS TO YOU</h3>
                 
-                <div id="aside-container">
+                <div id="aside-container" class="flex">
                     <a href="#" class="aside-links">Programming</a>
                     <a href="#" class="aside-links">Data Science</a>
                     <a href="#" class="aside-links">Technology</a>
@@ -5562,7 +5581,7 @@
 
                 <div id="line"></div>
 
-                <div id="aside-footer">
+                <div id="aside-footer" class="flex">
                     <a href="#">Help</a>
                     <a href="#">Status</a>
                     <a href="#">Writers</a>
@@ -5577,11 +5596,12 @@
         </div>
     </div>
 
+    <!-- FOOTER -->
     <footer>
         <div class="container">
             <img src="assets/imgs/svg/logo.svg" alt="logo">
             <nav>
-                <ul>
+                <ul class="flex">
                     <li><a href="#">About</a></li>
                     <li><a href="#">Help</a></li>
                     <li><a href="#">Terms</a></li>
@@ -5593,14 +5613,14 @@
 
             <p>Get the Medium app</p>
             <div id="store">
-                <div id="app-store-div">
+                <div id="app-store-div" class="flex">
                     <i class="fab fa-app-store-ios apple"></i>
                     <div>
                         <p id="p1">Download on the</p>
                         <p>App Store</p>
                     </div>
                 </div>
-                <div id="google-play-div">
+                <div id="google-play-div" class="flex">
                     <i class="fab fa-google-play google"></i>
                     <div>
                         <p id="p2">GET IT ON</p>
@@ -5611,8 +5631,9 @@
         </div>
     </footer>
 
+    <!-- POPUP AND PANEL -->
     <div id="popup" class="transition-display">
-        <h3>Join Medium</h3>
+        <h3>Join Medium.</h3>
         <nav>
             <ul>
                 <li><a href="#">Sign up with Google</a></li>
@@ -5624,6 +5645,24 @@
         <p id="sign-up">Click “Sign Up” to agree to Medium’s <a href="#">Terms of Service</a> and acknowledge that Medium’s <a href="#">Privacy Policy</a> applies to you.</p>
         <div id="close">+</div>
     </div>
+
+    <!-- TEMPLATE HOVER CARD -->
+    <!-- <template>
+        <div id="hover-card">
+            <div id="pointer"></div>
+            <div id="hover-author-info">
+                <img src="" alt="author img">
+                <p>Tom Cooper</p>
+            </div>
+            <div id="cover"></div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            <div id="hover-line"></div>
+            <div id="hover-author-social-info">
+                <p id="followers">230K Followers</p>
+                <a href="#" id="follow">Follow</a>
+            </div>
+        </div>
+    </template> -->
 
     <div id="panel"></div>
 

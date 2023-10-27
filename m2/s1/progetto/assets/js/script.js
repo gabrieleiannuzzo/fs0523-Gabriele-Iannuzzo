@@ -1,3 +1,4 @@
+// FUNZIONE PER L'HEADER DINAMICO
 let header = document.querySelector("header");
 let headerButton = document.querySelector("header nav button");
 
@@ -13,6 +14,7 @@ window.addEventListener("scroll", () => {
     }
 });
 
+// FUNZIONE PER LE M
 let gs = document.querySelectorAll(".g-pattern > g");
 let max = gs.length;
 let array = [];
@@ -69,4 +71,26 @@ for (b of buttons) {
 close.addEventListener("click", () => {
     popup.style.display = "none";
     panel.style.display = "none";
-})
+});
+
+// FUNZIONE PER L'APPARIZIONE DEL DIV ALL'HOVER DEI NOMI DEGLI AUTORI DEI POST
+// let hoverDivs = document.querySelectorAll(".author-hover");
+// console.log(hoverDivs);
+
+// for (element of hoverDivs) {
+//     element.addEventListener("mouseenter", () => {
+//         let template = document.querySelector("template");
+//         let clone = document.importNode(template.content, true);
+//         let photo = element.parentElement.previousElementSibling.getAttribute("src");
+//         element.append(clone);
+//         let photoHover = document.querySelector("#hover-card #hover-author-info img");
+
+//         photoHover.src = photo;
+//         console.log(photo)
+
+//     });
+
+//     element.addEventListener("mouseleave", () => {
+//         document.getElementById("hover-card").remove();
+//     })
+// }
