@@ -18,14 +18,16 @@ let max = gs.length;
 let array = [];
 
 fill();
-console.log(array)
+hide();
+show();
+
 setInterval(() => {
     hide();
     show();
-}, 3500);
+}, 5500);
 
 function fill () {
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 50; i++) {
         let random;
 
         do {
@@ -37,7 +39,7 @@ function fill () {
 }
 
 function hide () {
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 50; i++) {
         setTimeout(() => {
             gs[array[i]].style.opacity = "0";
         }, 50 + 50*i);
@@ -48,6 +50,23 @@ function show () {
     for (let i = 0; i < 30; i++) {
         setTimeout(() => {
             gs[array[i]].style.opacity = "1";
-        }, 1600 + 50*i);
+        }, 2550 + 50*i);
     }
 }
+
+let buttons = document.querySelectorAll("#hero-section button, header button");
+let popup = document.getElementById("popup");
+let close = document.getElementById("close");
+let panel = document.getElementById("panel");
+
+for (b of buttons) {
+    b.addEventListener("click", () => {
+        popup.style.display = "flex";
+        panel.style.display = "block";
+    });
+}
+
+close.addEventListener("click", () => {
+    popup.style.display = "none";
+    panel.style.display = "none";
+})
