@@ -230,7 +230,7 @@ header nav button {
 
 #trending .flex-container {
     flex-wrap: wrap;
-    row-gap: 10px;
+    row-gap: 30px;
 }
 
 #trending .trending-post {
@@ -357,6 +357,10 @@ header nav button {
     font-size: 0.8rem;
     font-weight: 700;
     color: var(--black);
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 #posts .post .post-container .post-author span {
@@ -394,6 +398,10 @@ header nav button {
 #posts .post .post-container .post-text-info2 p {
     font-size: 0.8rem;
     color: #666666;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 #posts .post .post-container .post-text-info2 a {
@@ -494,6 +502,14 @@ header nav button {
     
     #posts .post .post-container {
         flex-basis: calc(100% - 100px);
+    }
+
+    #posts .post .post-container .post-text-info2 a {
+        display: none;
+    }
+
+    #posts .post .post-container .post-text-info2 .remove {
+        display: none;
     }
 }
 
