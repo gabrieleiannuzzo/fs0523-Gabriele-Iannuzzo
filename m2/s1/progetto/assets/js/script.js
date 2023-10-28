@@ -56,6 +56,7 @@ function show () {
     }
 }
 
+// FUNZIONE PER IL POPUP AL CLICK DEI PULSANTI
 let buttons = document.querySelectorAll("#hero-section button, header button");
 let popup = document.getElementById("popup");
 let close = document.getElementById("close");
@@ -74,23 +75,71 @@ close.addEventListener("click", () => {
 });
 
 // FUNZIONE PER L'APPARIZIONE DEL DIV ALL'HOVER DEI NOMI DEGLI AUTORI DEI POST
-// let hoverDivs = document.querySelectorAll(".author-hover");
-// console.log(hoverDivs);
+let hoverDivs = document.querySelectorAll(".author-hover");
+console.log(hoverDivs);
 
-// for (element of hoverDivs) {
-//     element.addEventListener("mouseenter", () => {
-//         let template = document.querySelector("template");
-//         let clone = document.importNode(template.content, true);
-//         let photo = element.parentElement.previousElementSibling.getAttribute("src");
-//         element.append(clone);
-//         let photoHover = document.querySelector("#hover-card #hover-author-info img");
+for (let i = 0; i < hoverDivs.length; i++) {
+    let name = hoverDivs[i].innerHTML;
+    let random = Math.floor(Math.random() * 1000); // ASSOCIO RANDOMICAMENTE UN NUMERO DI FOLLOWERS ALL'AUTORE, E QUESTO NUMERO NON CAMBIA FINCHE NON SI REFRESHA LA PAGINA
+    
+    hoverDivs[i].addEventListener("mouseenter", () => {
+        // CREAZIONE CARD
+        let template = document.querySelector("template");
+        let clone = document.importNode(template.content, true);
+        hoverDivs[i].append(clone);
+        
+        // CUSTOMIZZAZIONE CARD
+        let photo = hoverDivs[i].parentElement.previousElementSibling.getAttribute("src");
+        let photoHover = document.querySelector("#hover-card #hover-author-info img");
+        let nameHover = document.querySelector("#hover-card #hover-author-info p");
+        let followers = document.querySelector("#hover-card #followers");
+    
+        photoHover.src = photo;
+        nameHover.innerHTML = name;
+        followers.innerText = `${random}K Followers`;
 
-//         photoHover.src = photo;
-//         console.log(photo)
+        let hoverCard = document.getElementById("hover-card");
+        switch (name) {
+            case "Arthur Hayes":
+                hoverCard.style.left = "95px";
+                break;
+            case "Erin A Ross":
+                hoverCard.style.left = "85px";
+                break;
+            case "Frank Mastropolo":
+                hoverCard.style.left = "120px";
+                break;
+            case "Frank Andrade":
+                hoverCard.style.left = "102px";
+                break;
+            case "Wesley Smits":
+                hoverCard.style.left = "96px";
+                break;
+            case "Robert Roy Britt":
+                hoverCard.style.left = "110px";
+                break;
+            case "Taru Anniina Liikanen":
+                hoverCard.style.left = "142px";
+                break;
+            case "David Rodenas, PH. D.":
+                hoverCard.style.left = "145px";
+                break;
+            case "Microsoft Design":
+                hoverCard.style.left = "116px";
+                break;
+            case "Scott H. Young":
+                hoverCard.style.left = "105px";
+                break;
+            case "Paul A. DeStefano":
+                hoverCard.style.left = "122px";
+                break;
+            case "Kim Scott":
+                hoverCard.style.left = "75px";
+                break;
+        }
+    })
 
-//     });
-
-//     element.addEventListener("mouseleave", () => {
-//         document.getElementById("hover-card").remove();
-//     })
-// }
+    hoverDivs[i].addEventListener("mouseleave", () => {
+        document.getElementById("hover-card").remove();
+    });
+}
