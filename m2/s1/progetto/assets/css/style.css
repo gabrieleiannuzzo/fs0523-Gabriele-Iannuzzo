@@ -670,7 +670,7 @@ footer #google-play-div #p2 {
     background-color: white;
     z-index: 3;
     padding: 100px 0;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: space-between;
     text-align: center;
