@@ -137,7 +137,7 @@ for (let i = 0; i < hoverDivs.length; i++) {
                 hoverCard.style.left = "75px";
                 break;
         }
-    })
+    });
 
     hoverDivs[i].addEventListener("mouseleave", () => {
         document.getElementById("hover-card").remove();
