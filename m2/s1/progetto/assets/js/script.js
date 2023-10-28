@@ -59,19 +59,21 @@ function show () {
 // FUNZIONE PER IL POPUP AL CLICK DEI PULSANTI
 let buttons = document.querySelectorAll("#hero-section button, header button");
 let popup = document.getElementById("popup");
-let close = document.getElementById("close");
+let closeButton = document.getElementById("close");
 let panel = document.getElementById("panel");
 
 for (b of buttons) {
     b.addEventListener("click", () => {
         popup.style.display = "flex";
         panel.style.display = "block";
+        document.body.style.overflow = 'hidden';
     });
 }
 
-close.addEventListener("click", () => {
+closeButton.addEventListener("click", () => {
     popup.style.display = "none";
     panel.style.display = "none";
+    document.body.style.overflow = '';
 });
 
 // FUNZIONE PER L'APPARIZIONE DEL DIV ALL'HOVER DEI NOMI DEGLI AUTORI DEI POST
