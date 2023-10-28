@@ -903,7 +903,7 @@ footer #google-play-div #p2 {
 
     #posts .post .post-container .post-author p {
         display: -webkit-box;
-        -webkit-line-clamp: 2;
+        -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
         overflow: hidden;
     }
