@@ -875,8 +875,8 @@ footer #google-play-div #p2 {
     border-radius: 50px;
 }
 
-/* @media screen and (max-width: 1400px) {
+@media screen and (max-width: 1400px) {
     #hover-card {
         display: none;
     }
-} */
+}
