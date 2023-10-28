@@ -371,10 +371,18 @@ header nav button {
     font-size: 1.2rem;
     font-weight: 700;
     color: var(--black);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 #posts .post .post-container .post-text2 {
     color: #666666;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 #posts .post .post-container .post-text-info2 {
