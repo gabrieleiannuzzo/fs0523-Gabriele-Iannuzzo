@@ -357,10 +357,6 @@ header nav button {
     font-size: 0.8rem;
     font-weight: 700;
     color: var(--black);
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
 }
 
 #posts .post .post-container .post-author span {
@@ -903,5 +899,12 @@ footer #google-play-div #p2 {
 @media screen and (max-width: 1400px) {
     #hover-card {
         display: none;
+    }
+
+    #posts .post .post-container .post-author p {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
 }
