@@ -729,6 +729,7 @@ footer #google-play-div #p2 {
 #popup ul li a {
     text-decoration: none;
     color: var(--black);
+    font-size: 0.9rem;
 }
 
 #sign-in a {
