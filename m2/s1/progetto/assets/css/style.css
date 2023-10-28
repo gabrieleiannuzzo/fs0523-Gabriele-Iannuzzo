@@ -109,6 +109,12 @@ header nav button {
     }
 }
 
+@media screen and (max-width: 340px) {
+    header {
+        padding: 0 10px;
+    }
+}
+
 /* HERO SECTION */
 #hero-section {
     height: 455px;
@@ -436,6 +442,11 @@ header nav button {
     #flex-container2 aside {
         order: 1;
         flex-basis: 100%;
+        margin-bottom: 50px;
+    }
+
+    #flex-container2 aside #aside-footer {
+        display: none;
     }
 
     #flex-container2 #posts {
@@ -457,7 +468,11 @@ header nav button {
         width: 150px;
         height: auto;
     }
-
+    
+    #posts .post .post-container {
+        flex-basis: calc(100% - 150px);
+    }
+    
     #posts .post .post-container .post-text2 {
         display: none;
     }
@@ -467,6 +482,10 @@ header nav button {
     #posts .post > img {
         width: 100px;
         height: auto;
+    }
+    
+    #posts .post .post-container {
+        flex-basis: calc(100% - 100px);
     }
 }
 
@@ -478,7 +497,7 @@ aside {
 }
 
 aside h3 {
-    font-weight: 700;
+    font-weight: 500;
     color: var(--black);
 }
 
@@ -492,11 +511,11 @@ aside #aside-container {
 
 aside #aside-container a {
     padding: 10px 15px;
-    color: rgb(148, 148, 148);
-    background-color: white;
-    border: 1px solid rgb(215, 215, 215);
-    border-radius: 3px;
+    color: black;
+    background-color: #f2f2f2;
+    border-radius: 50px;
     text-decoration: none;
+    font-size: 0.85rem;
 }
 
 aside #more-topics {
@@ -511,7 +530,7 @@ aside #more-topics:hover {
 
 aside #line {
     height: 1px;
-    background-color: rgb(220, 220, 220);
+    background-color: rgb(243, 243, 243);
     margin-top: 40px;
 }
 
@@ -577,6 +596,7 @@ footer .google, footer .apple {
 footer #store {
     column-gap: 10px;
     display: none;
+    align-items: center;
 }
 
 footer #store div:hover {
@@ -588,6 +608,7 @@ footer #google-play-div, #app-store-div {
     border-radius: 5px;
     margin-top: 20px;
     padding: 10px;
+    width: 145px;
 }
 
 footer #google-play-div p, #app-store-div p {
@@ -595,7 +616,21 @@ footer #google-play-div p, #app-store-div p {
     display: block;
 }
 
-#p1, #p2 {
+footer #app-store-div div, footer #google-play-div div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+footer #app-store-div p {
+    font-size: 1.1rem;
+}
+
+footer #app-store-div #p1 {
+    font-size: 0.6rem;
+}
+
+footer #google-play-div #p2 {
     font-size: 0.7rem;
 }
 
@@ -635,7 +670,7 @@ footer #google-play-div p, #app-store-div p {
     background-color: white;
     z-index: 3;
     padding: 100px 0;
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
     text-align: center;
@@ -665,6 +700,30 @@ footer #google-play-div p, #app-store-div p {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+}
+
+#popup nav ul li span {
+    position: absolute;
+    left: 10px;
+    font-size: 1.2rem;
+}
+
+#popup #google {
+    top: 25%;
+}
+
+#popup #google img {
+    max-width: 20px;
+}
+
+#popup #facebook {
+    color: #1877f2;
+    font-size: 1.3rem;
+}
+
+#popup #email {
+    color: var(--black);
 }
 
 #popup ul li a {
@@ -683,6 +742,7 @@ footer #google-play-div p, #app-store-div p {
 
 #popup #sign-up {
     width: 450px;
+    max-width: 100%;
     display: block;
     margin: 0 auto;
     font-size: 0.8rem;
