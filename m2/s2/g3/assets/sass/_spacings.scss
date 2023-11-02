@@ -1,0 +1,49 @@
+$measures: 1, 2, 3, 4, 5;
+@each $measure in $measures {
+    .mt-#{$measure}{
+        margin-top: $measure + rem;
+    }
+    .mr-#{$measure}{
+        margin-right: $measure + rem;
+    }
+    .mb-#{$measure}{
+        margin-bottom: $measure + rem;
+    }
+    .ml-#{$measure}{
+        margin-left: $measure + rem;
+    }
+    .mx-#{$measure}{
+        margin-right: $measure + rem;
+        margin-left: $measure + rem;
+    }
+    .my-#{$measure}{
+        margin-top: $measure + rem;
+        margin-bottom: $measure + rem;
+    }
+    .m-#{$measure}{
+        margin: $measure + rem;
+    }
+    .pt-#{$measure}{
+        padding-top: $measure + rem;
+    }
+    .pr-#{$measure}{
+        padding-right: $measure + rem;
+    }
+    .pb-#{$measure}{
+        padding-bottom: $measure + rem;
+    }
+    .pl-#{$measure}{
+        padding-left: $measure + rem;
+    }
+    .px-#{$measure}{
+        padding-right: $measure + rem;
+        padding-left: $measure + rem;
+    }
+    .py-#{$measure}{
+        padding-top: $measure + rem;
+        padding-bottom: $measure + rem;
+    }
+    .p-#{$measure}{
+        padding: $measure + rem;
+    }
+}

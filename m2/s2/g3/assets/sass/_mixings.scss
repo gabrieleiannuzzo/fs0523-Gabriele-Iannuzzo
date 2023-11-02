@@ -1,0 +1,9 @@
+@mixin floating($br:"10px", $bs:"0 0 10px black", $b:"2px solid white"){
+    border-radius: $br;
+    box-shadow: $bs;
+    border: $b;
+}
+
+@mixin grid($elements){
+    flex: 1 0 calc(100%/$elements);
+}

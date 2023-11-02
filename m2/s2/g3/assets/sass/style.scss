@@ -1,0 +1,67 @@
+@import 'reset';
+@import 'colors';
+@import 'fonts';
+@import 'spacings';
+@import 'buttons';
+@import 'mixings';
+@import 'animations';
+
+body{
+    font-family: $poppins;
+}
+
+header{
+    background-color: $bg-hero-color;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    p{
+        color: white;
+        font-size: map-get($font-sizes, secondary-titles);
+        font-weight: 700;
+    }
+    nav ul{
+        display: flex;
+        a{
+            color: white;
+            text-decoration: none;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+#hero-section{
+    background-color: $bg-hero-color;
+    display: flex;
+    #info{
+        @include grid(2);
+        @include animation(3,-50,0,1,"animazione1");
+        h1{
+            @include title-big;
+        }
+        h2{
+            color: white;
+            font-size: map-get($font-sizes, secondary-titles)
+        }
+    }
+    #image{
+        @include grid(2);
+        @include animation(3,-50,0,1,"animazione2");
+        img{
+            max-width: 100%;
+        }
+    }
+}
+
+#flex-section{
+    display: flex;
+    justify-content: space-between;
+    .image-div{
+        flex: 0 0 calc(100%/4 - 0.5rem);
+        img{
+            max-width: 100%;
+        }
+    }
+}

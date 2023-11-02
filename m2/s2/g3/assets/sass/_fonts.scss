@@ -1,0 +1,11 @@
+$poppins: 'Poppins', sans-serif;
+$font-sizes: (
+    main-titles: 2.5rem,
+    secondary-titles: 1.5rem,
+);
+@mixin title-big{
+    font-size: map-get($font-sizes, main-titles);
+    color: white;
+    text-align: center;
+    font-weight: 700;
+}

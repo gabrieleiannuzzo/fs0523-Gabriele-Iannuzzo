@@ -1,0 +1,13 @@
+@for $i from 1 to 4 {
+    .button#{$i}{
+        background-color: nth($buttons-colors, $i);
+        color: white;
+        height: 30px;
+        padding: 0 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        &:hover{
+            background-color: lighten(nth($buttons-colors, $i), 15);
+        }
+    }
+}

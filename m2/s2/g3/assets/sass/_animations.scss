@@ -1,0 +1,20 @@
+@mixin animation($duration, $sp, $fp, $delay, $name){
+    animation-name: #{$name};
+    animation-duration: $duration + s;
+    animation-delay: $delay + s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+    opacity: 0;
+
+    @keyframes #{$name} {
+        0%{
+            opacity: 0;
+            margin-top: $sp + px;
+        }
+        100%{
+            opacity: 1;
+            margin-top: $fp + px;
+        }
+    }
+}
