@@ -1,0 +1,222 @@
+@import '../../node_modules/bootstrap/scss/functions';
+@import 'variables';
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+@import 'fonts';
+
+.hide {
+    display: none;
+}
+
+.dropdown-toggle::after {
+    color: white;
+}
+
+header {
+    .header-navbar {
+        padding: 0;
+    }
+
+    .navbar-brand {
+        img {
+            background-color: transparent;
+            border: none;
+            padding: 0;
+            width: 120px;
+        }
+    }
+
+    .text-grey {
+        color: rgb(153, 153, 153);
+
+        &:hover {
+            color: red;
+        }
+    }
+
+    .this-page {
+        color: white;
+        font-weight: 700;
+    }
+
+    .nav-box {
+        row-gap: 15px;
+
+        i {
+            cursor: pointer;
+        }
+
+        .hover-red:hover {
+            color: red !important;
+        }
+
+        a:hover {
+            color: white;
+        }
+
+        .margin-12 {
+            margin-right: 12px;
+
+            @media screen and (min-width: 992px) {
+                margin-right: 0;
+                margin-left: 12px;
+            }
+        }
+
+        #search-input {
+            margin-right: 12px;
+
+            @media screen and (min-width:992px) {
+                margin-right: 0;
+            }
+        }
+    }
+
+    .transparent {
+        background-color: transparent;
+        border: none;
+        padding-left: 0;
+
+        @media screen and (min-width: 992px) {
+            padding-left: 12px;
+        }
+
+        &:hover {
+            background-color: transparent;
+        }
+
+        &:active {
+            background-color: transparent;
+        }
+
+        img {
+            width: 40px;
+        }
+    }
+}
+
+#first-div {
+    #div1 {
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        select {
+            font-weight: 700;
+            height: 30px;
+            border: 1px solid rgb(153, 153, 153);
+        }
+    }
+
+    #div2 {
+        .flex-div {
+            width: 35px;
+            height: 25px;
+            border: 1px solid rgb(153, 153, 153);
+            cursor: pointer;
+
+            &:hover {
+                border: 1px solid white;
+            }
+
+            &:hover i {
+                color: white;
+            }
+
+            div {
+                height: 50%;
+            }
+
+            i {
+                color: rgb(153, 153, 153);
+            }
+        }
+
+        .flex-div-active {
+            border: 1px solid white;
+
+            i {
+                color: white;
+            }
+        }
+
+        div:last-child {
+            #div-pt {
+                padding-top: 1.5rem;
+                margin-top: 0.1rem;
+            }
+
+            #div-pb {
+                padding-bottom: 1.5rem;
+                margin-bottom: 0.1rem;
+            }
+
+            i {
+                font-size: 0.2rem;
+            }
+
+            .i-mr {
+                margin-right: 0.15rem;
+            }
+        }
+    }
+}
+
+.carousel-container {
+    overflow: hidden;
+
+    h2 {
+        color: white;
+        font-size: 1.4rem;
+    }
+
+    .carousel-div {
+        position: relative;
+        height: 140px;
+
+        .carousel {
+            display: flex;
+            column-gap: 4px;
+            transition: all 0.5s;
+
+            img {
+                height: 140px;
+                width: auto;
+                opacity: 0.6;
+                &:hover{
+                    opacity: 1;
+                }
+            }
+        }
+
+        button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+            border-radius: 100%;
+            width: 50px;
+            height: 50px;
+            border: none;
+            background-color: transparent;
+            color: white;
+
+            &:hover {
+                background-color: rgba(255, 0, 0, 0.5);
+            }
+
+            i {
+                font-size: 1.5rem;
+            }
+        }
+        button.hover{
+            background-color: rgba(255, 0, 0, 0.5);
+        }
+        .previous-movie {
+            left: 20px;
+        }
+        .next-movie {
+            right: 20px;
+        }
+    }
+}
