@@ -14,6 +14,9 @@
 header {
     .header-navbar {
         padding: 0;
+        #toggler-icon{
+            color: white;
+        }
     }
 
     .navbar-brand {
@@ -218,5 +221,39 @@ header {
         .next-movie {
             right: 20px;
         }
+    }
+}
+footer{
+    max-width: 1000px;
+    margin-top: 50px;
+    @media screen and (min-width: 620px){
+        margin-top: 100px;
+    }
+    #social-div{
+        i{
+            color: rgb(153, 153, 153);
+            font-size: 1.5rem;
+        }
+    }
+    #footer-div nav{
+        flex: 0 0 50%;
+        @media screen and (min-width: 620px){
+            flex: 0 0 25%;
+        }
+        a{
+            color: rgb(153, 153, 153);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+    }
+    #service-code{
+        color: rgb(153, 153, 153);
+        border: 1px solid rgb(153, 153, 153);
+        border-radius: 2px;
+        font-size: 0.9rem;
+    }
+    #copyright{
+        font-size: 0.8rem;
+        color: rgb(153, 153, 153);
     }
 }

@@ -11866,6 +11866,9 @@ textarea.form-control-lg {
 header .header-navbar {
   padding: 0;
 }
+header .header-navbar #toggler-icon {
+  color: white;
+}
 header .navbar-brand img {
   background-color: transparent;
   border: none;
@@ -12029,6 +12032,43 @@ header .transparent img {
 }
 .carousel-container .carousel-div .next-movie {
   right: 20px;
+}
+
+footer {
+  max-width: 1000px;
+  margin-top: 50px;
+}
+@media screen and (min-width: 620px) {
+  footer {
+    margin-top: 100px;
+  }
+}
+footer #social-div i {
+  color: rgb(153, 153, 153);
+  font-size: 1.5rem;
+}
+footer #footer-div nav {
+  flex: 0 0 50%;
+}
+@media screen and (min-width: 620px) {
+  footer #footer-div nav {
+    flex: 0 0 25%;
+  }
+}
+footer #footer-div nav a {
+  color: rgb(153, 153, 153);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+footer #service-code {
+  color: rgb(153, 153, 153);
+  border: 1px solid rgb(153, 153, 153);
+  border-radius: 2px;
+  font-size: 0.9rem;
+}
+footer #copyright {
+  font-size: 0.8rem;
+  color: rgb(153, 153, 153);
 }
 
 /*# sourceMappingURL=style.css.map */
