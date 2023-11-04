@@ -11933,15 +11933,31 @@ header .transparent:active {
 header .transparent img {
   width: 40px;
 }
+header #custom-position {
+  top: calc(100% + 10px);
+}
+@media screen and (min-width: 992px) {
+  header #custom-position {
+    left: -100px;
+  }
+}
+header #custom-position .list-item:hover {
+  background-color: #141414;
+  color: white;
+}
 
 #first-div #div1 h1, #first-div #div1 .h1 {
   font-size: 2rem;
   font-weight: 700;
 }
-#first-div #div1 select {
+#first-div #div1 button {
   font-weight: 700;
   height: 30px;
   border: 1px solid rgb(153, 153, 153);
+  color: rgb(153, 153, 153);
+}
+#first-div #div1 button i {
+  font-size: 0.6rem;
 }
 #first-div #div2 .flex-div {
   width: 35px;
@@ -11961,10 +11977,10 @@ header .transparent img {
 #first-div #div2 .flex-div i {
   color: rgb(153, 153, 153);
 }
-#first-div #div2 .flex-div-active {
+#first-div #div2 .layout-selection {
   border: 1px solid white;
 }
-#first-div #div2 .flex-div-active i {
+#first-div #div2 .layout-selection i {
   color: white;
 }
 #first-div #div2 div:last-child #div-pt {

@@ -95,6 +95,16 @@ header {
             width: 40px;
         }
     }
+    #custom-position{
+        top: calc(100% + 10px);
+        @media screen and (min-width: 992px){
+            left: -100px;
+        }
+        .list-item:hover{
+            background-color: $blue;
+            color: white;
+        }
+    }
 }
 
 #first-div {
@@ -104,10 +114,14 @@ header {
             font-weight: 700;
         }
 
-        select {
+        button {
             font-weight: 700;
             height: 30px;
             border: 1px solid rgb(153, 153, 153);
+            color: rgb(153, 153, 153);
+            i{
+                font-size: 0.6rem;
+            }
         }
     }
 
@@ -134,11 +148,9 @@ header {
                 color: rgb(153, 153, 153);
             }
         }
-
-        .flex-div-active {
+        .layout-selection{
             border: 1px solid white;
-
-            i {
+            i{
                 color: white;
             }
         }
