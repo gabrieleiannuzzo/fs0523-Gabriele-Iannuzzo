@@ -12182,6 +12182,12 @@ footer #copyright {
   border-bottom: 1px solid rgb(153, 153, 153);
 }
 
+#my-container2 {
+  max-width: 1000px;
+}
+#my-container2 h2, #my-container2 .h2 {
+  font-size: 1.2rem;
+}
 #my-container2 .bold {
   font-weight: 700;
 }
@@ -12189,7 +12195,6 @@ footer #copyright {
   text-decoration: none;
   color: dodgerblue;
   font-weight: 700;
-  display: block;
 }
 #my-container2 a:hover {
   text-decoration: underline;
@@ -12198,9 +12203,52 @@ footer #copyright {
   background-color: #dddddd;
   border: none;
   font-size: 0.8rem;
+  color: #141414;
+}
+#my-container2 button:hover {
+  background-color: red;
+  color: white;
 }
 #my-container2 img {
   width: 40px;
+}
+#my-container2 .my-flex-div2 {
+  column-gap: 20px;
+}
+#my-container2 .my-flex-div2 div:first-child {
+  flex: 0 0 25%;
+}
+#my-container2 .my-flex-div2 div:last-child {
+  flex: 0 0 calc(75% - 20px);
+}
+#my-container2 .my-flex-div3 p {
+  flex: 1 0 30%;
+}
+#my-container2 .my-flex-div3 #my-flex-div-div {
+  flex: 0 0 auto;
+}
+#my-container2 #tight-div {
+  width: 60%;
+}
+#my-container2 #tight-div div:first-child {
+  flex: 0 0 50%;
+}
+#my-container2 #tight-div div:last-child {
+  flex: 0 0 50%;
+}
+#my-container2 #paypal {
+  font-style: italic;
+  font-family: "Open Sans", sans-serif;
+}
+#my-container2 #ultra-hd {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  border: 2px solid #141414;
+  border-radius: 3px;
+  padding: 2px;
+}
+#my-container2 #ultra-hd span {
+  font-weight: 700;
 }
 
 /*# sourceMappingURL=style.css.map */

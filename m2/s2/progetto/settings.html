@@ -4,17 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Netflix settings page</title>
+
+    <!-- GOOGLE FONTS (PER I LOGHI DI PAYPAL E ULTRA HD) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:ital,wght@1,700&display=swap"
+        rel="stylesheet">
 
     <!-- CSS -->
     <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.min.css">
 </head>
 
 <body>
     <!-- HEADER -->
-    <header class="bg-black">
-        <div class="container-fluid">
+    <div class="container-fluid bg-black">
+        <header>
             <nav class="navbar navbar-expand-lg bg-black header-navbar">
                 <a class="navbar-brand" href="#">
                     <img src="Netflix-assets/assets/netflix_logo.png" alt="netflix logo" class="img-thumbnail">
@@ -24,7 +31,7 @@
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon" id="toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse pb-3" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link text-grey" href="#">Home</a>
@@ -65,86 +72,119 @@
                     </div>
                 </div>
             </nav>
-        </div>
-    </header>
+        </header>
+    </div>
 
     <!-- SETTINGS SECTION -->
     <div id="my-container2" class="mt-4 px-3 pb-5 mx-auto">
         <h1>Account</h1>
-        <div>
+        <div class="d-sm-flex my-flex-div2">
             <div>
                 <h2 class="grey-text">MEMBERSHIP & BILLING</h2>
-                <button class="text-primary bold p-2 px-4">Cancel Membership</button>
+                <button class="bold p-2 px-4">Cancel Membership</button>
             </div>
             <div>
-                <div>
-                    <p class="text-primary bold mb-0 mt-3">student@strive.school</p>
-                    <a href="#">Change account email</a>
+                <div class="d-md-flex justify-content-md-between">
+                    <p class="text-primary bold mb-0 mt-3 mt-sm-0">student@strive.school</p>
+                    <a href="#" class="mt-1 mt-sm-0">Change account email</a>
                 </div>
-                <div>
-                    <p class="grey-text bold mb-0 mt-3">Password: ********</p>
-                    <a href="#">Change password</a>
+                <div class="d-md-flex justify-content-md-between mt-md-2">
+                    <p class="grey-text bold mb-0 mt-3 mt-md-0">Password: ********</p>
+                    <a href="#" class="mt-1 mt-sm-0">Change password</a>
                 </div>
-                <div>
-                    <p class="grey-text bold mb-0 mt-3">Phone: 321 044 1279</p>
-                    <a href="#">Change phone number</a>
+                <div class="d-md-flex justify-content-md-between mt-md-2">
+                    <p class="grey-text bold mb-0 mt-3 mt-md-0">Phone: 321 044 1279</p>
+                    <a href="#" class="mt-1 mt-sm-0">Change phone number</a>
                 </div>
-                <div>
-                    <p class="text-primary bold mb-0 mt-3">admin@strive.school</p>
-                    <a href="#">Update payment info</a>
+                <div class="d-md-flex justify-content-md-between mt-md-2 pt-md-2 border-p">
+                    <p class="text-primary bold mb-0 mt-3 mt-md-0"><i class="bi bi-paypal me-1"></i><span class="me-2"
+                            id="paypal">PayPal</span>admin@strive.school</p>
+                    <a href="#" class="mt-1 mt-md-0">Update payment info</a>
                 </div>
-                <div>
-                    <a href="#">Billing details</a>
+                <div class="text-md-end  mt-md-2">
+                    <a href="#" class="mt-1 mt-md-0">Billing details</a>
                 </div>
-                <div class="mt-2 pt-2 border-p">
-                    <a href="#">Redeem gift card or promo code</a>
-                    <a href="#" class="mt-1"">Where to buy gift cards</a>
+                <div class="mt-3 pt-3 border-p mt-md-2 pt-md-2 text-md-end">
+                    <div>
+                        <a href="#">Redeem gift card or promo code</a>
+                    </div>
+                    <div class="mt-1 mt-sm-0 mt-md-2">
+                        <a href="#">Where to buy gift cards</a>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="mt-3 pt-3 border-p">
+        <div class="mt-3 pt-3 border-p d-sm-flex my-flex-div2">
             <div>
                 <h2 class="grey-text">PLAN DETAILS</h2>
             </div>
-            <div>
-                <p class="text-primary bold mb-0 mt-3">Premium <span>ULTRA <span>HD</span></span></p>
+            <div class="d-md-flex justify-content-md-between">
+                <p class="text-primary bold mb-0 mt-3 mt-sm-0">Premium <span id="ultra-hd" class="ms-2">ULTRA
+                        <span>HD</span></span></p>
                 <a href="#">Change plan</a>
             </div>
         </div>
-        <div>
-            <div class="mt-3 pt-3 border-p">
+        <div class="d-sm-flex my-flex-div2 mt-3 pt-3 border-p">
+            <div>
                 <h2 class="grey-text">SETTINGS</h2>
             </div>
             <div>
-                <a href="#" class="mt-1">Parental controls</a>
-                <a href="#" class="mt-1">Test participation</a>
-                <a href="#" class="mt-1">Manage download devices</a>
-                <a href="#" class="mt-1">Activate a device</a>
-                <a href="#" class="mt-1">Recent device streaming activity</a>
-                <a href="#" class="mt-1">Sign out of all devices</a>
+                <div class="mt-1 mt-sm-0">
+                    <a href="#">Parental controls</a>
+                </div>
+                <div class="mt-1 mt-md-2">
+                    <a href="#">Test participation</a>
+                </div>
+                <div class="mt-1 mt-md-2">
+                    <a href="#">Manage download devices</a>
+                </div>
+                <div class="mt-1 mt-md-2">
+                    <a href="#">Activate a device</a>
+                </div>
+                <div class="mt-1 mt-md-2">
+                    <a href="#">Recent device streaming activity</a>
+                </div>
+                <div class="mt-1 mt-md-2">
+                    <a href="#">Sign out of all devices</a>
+                </div>
             </div>
         </div>
-        <div>
-            <div class="mt-3 pt-3 border-p">
+        <div class="d-sm-flex my-flex-div2 mt-3 pt-3 border-p">
+            <div>
                 <h2 class="grey-text">MY PROFILE</h2>
             </div>
             <div>
-                <div>
-                    <p class="text-primary bold mb-0 mt-3"><img src="Netflix-assets/assets/avatar.png" alt="avatar" class="me-2">Strive Student</p>
-                    <div>
-                        <a href="#" class="mt-1">Manage profiles</a>
-                        <a href="#" class="mt-1">Add profile email</a>
+                <div class="d-md-flex justify-content-md-between align-items-md-center my-flex-div3">
+                    <p class="text-primary bold mb-0 mt-3 mt-sm-0"><img src="Netflix-assets/assets/avatar.png"
+                            alt="avatar" class="me-2">Strive Student</p>
+                    <div class="text-md-end" id="my-flex-div-div">
+                        <div class="mt-1">
+                            <a href="#">Manage profiles</a>
+                        </div>
+                        <div class="mt-1 mt-md-0">
+                            <a href="#">Add profile email</a>
+                        </div>
                     </div>
                 </div>
-                <div>
+                <div class="d-md-flex" id="tight-div">
                     <div>
-                        <a href="#" class="mt-1">Language</a>
-                        <a href="#" class="mt-1">Playback settings</a>
-                        <a href="#" class="mt-1">Subtitle appearance</a>
+                        <div class="mt-1 mt-md-2">
+                            <a href="#">Language</a>
+                        </div>
+                        <div class="mt-1 mt-md-2">
+                            <a href="#">Playback settings</a>
+                        </div>
+                        <div class="mt-1 mt-md-2">
+                            <a href="#">Subtitle appearance</a>
+                        </div>
                     </div>
-                    <div>
-                        <a href="#" class="mt-1">Viewing activity</a>
-                        <a href="#" class="mt-1">Ratings</a>
+                    <div class="text-md-end">
+                        <div class="mt-1 mt-md-2">
+                            <a href="#">Viewing activity</a>
+                        </div>
+                        <div class="mt-1 mt-md-2">
+                            <a href="#">Ratings</a>
+                        </div>
                     </div>
                 </div>
             </div>

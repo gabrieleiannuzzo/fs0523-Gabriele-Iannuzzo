@@ -368,6 +368,10 @@ footer{
     }
 }
 #my-container2{
+    max-width: 1000px;
+    h2{
+        font-size: 1.2rem;
+    }
     .bold{
         font-weight: 700;
     }
@@ -375,7 +379,6 @@ footer{
         text-decoration: none;
         color: dodgerblue;
         font-weight: 700;
-        display: block;
         &:hover{
             text-decoration: underline;
         }
@@ -384,8 +387,53 @@ footer{
         background-color: #dddddd;
         border: none;
         font-size: 0.8rem;
+        color: $blue;
+        &:hover{
+            background-color: red;
+            color: white;
+        }
     }
     img{
         width: 40px;
+    }
+    .my-flex-div2{
+        column-gap: 20px;
+        div:first-child{
+            flex: 0 0 25%;
+        }
+        div:last-child{
+            flex: 0 0 calc(75% - 20px)
+        }
+    }
+    .my-flex-div3{
+        p{
+            flex: 1 0 30%;
+        }
+        #my-flex-div-div{
+            flex: 0 0 auto;
+        }
+    }
+    #tight-div{
+        width: 60%;
+        div:first-child{
+            flex: 0 0 50%;
+        }
+        div:last-child{
+            flex: 0 0 50%;
+        }
+    }
+    #paypal{
+        font-style: italic;
+        font-family: 'Open Sans', sans-serif;
+    }
+    #ultra-hd{
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        border: 2px solid $blue;
+        border-radius: 3px;
+        padding: 2px;
+        span{
+            font-weight: 700;
+        }
     }
 }
