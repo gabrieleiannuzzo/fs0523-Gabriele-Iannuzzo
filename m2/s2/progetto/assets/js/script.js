@@ -55,16 +55,14 @@ for (let i = 0; i < carousels.length; i++) {
 
             carousels[i].style.transform = `translateX(-${translate[i]}px)`;
     });
-}
-
-// CON QUESTA FUNZIONE EVITO CHE, SE IL CAROSELLO SI TROVA ALL'ULTIMA FOTO, ALL'AUMENTARE DELLA LARGHEZZA DELLO SCHERMO APPAIA DELLO SPAZIO NERO. cON QUESTA FUNZIONE IL CAROSELLO, SE SI TROVA ALLE ULTIME FOTO, VERRA SPOSTATO SEMPRE IN MANIERA TALE DA COPRIRE TUTTO LO SCHERMO
-window.addEventListener("resize", () => {
-    containerWidth = carouselContainer.offsetWidth;
-    for (let j = 0; j < carousels.length; j++) {
-        max = (moviesNumber[j]*width) + (4*(moviesNumber[j]-2)) - containerWidth;
-        if (translate[j] > max) {
-            translate[j] = max;
-            carousels[j].style.transform = `translateX(-${translate[j]}px)`;
+    
+    // CON QUESTA FUNZIONE EVITO CHE, SE IL CAROSELLO SI TROVA ALL'ULTIMA FOTO, ALL'AUMENTARE DELLA LARGHEZZA DELLO SCHERMO APPAIA DELLO SPAZIO NERO. cON QUESTA FUNZIONE IL CAROSELLO, SE SI TROVA ALLE ULTIME FOTO, VERRA SPOSTATO SEMPRE IN MANIERA TALE DA COPRIRE TUTTO LO SCHERMO
+    window.addEventListener("resize", () => {
+        containerWidth = carouselContainer.offsetWidth;
+        max = (moviesNumber[i]*width) + (4*(moviesNumber[i]-2)) - containerWidth;
+        if (translate[i] > max) {
+            translate[i] = max;
+            carousels[i].style.transform = `translateX(-${translate[i]}px)`;
         }
-    }
-});
+    });
+}
