@@ -11859,8 +11859,32 @@ textarea.form-control-lg {
   display: none;
 }
 
-.dropdown-toggle::after {
+.buttons {
+  font-weight: 700;
+  height: 30px;
+  border: 1px solid rgb(153, 153, 153);
+  color: rgb(153, 153, 153);
+}
+.buttons i {
+  font-size: 0.6rem;
+}
+
+.secondary-button, footer #service-code {
+  color: rgb(153, 153, 153);
+  border: 1px solid rgb(153, 153, 153);
+  font-size: 0.9rem;
+}
+.secondary-button:hover, footer #service-code:hover {
+  border: 1px solid white;
   color: white;
+}
+
+.grey-text {
+  color: rgb(153, 153, 153);
+}
+
+.border-p {
+  border-top: 1px solid rgb(153, 153, 153);
 }
 
 header .header-navbar {
@@ -11933,6 +11957,12 @@ header .transparent:active {
 header .transparent img {
   width: 40px;
 }
+header #toggle::after {
+  color: white;
+}
+header #toggler-icon {
+  filter: invert(1);
+}
 header #custom-position {
   top: calc(100% + 10px);
 }
@@ -11946,18 +11976,13 @@ header #custom-position .list-item:hover {
   color: white;
 }
 
+#gradient-header {
+  background-image: linear-gradient(to bottom, black, #141414);
+}
+
 #first-div #div1 h1, #first-div #div1 .h1 {
   font-size: 2rem;
   font-weight: 700;
-}
-#first-div #div1 button {
-  font-weight: 700;
-  height: 30px;
-  border: 1px solid rgb(153, 153, 153);
-  color: rgb(153, 153, 153);
-}
-#first-div #div1 button i {
-  font-size: 0.6rem;
 }
 #first-div #div2 .flex-div {
   width: 35px;
@@ -12077,14 +12102,105 @@ footer #footer-div nav a {
   font-size: 0.9rem;
 }
 footer #service-code {
-  color: rgb(153, 153, 153);
-  border: 1px solid rgb(153, 153, 153);
   border-radius: 2px;
-  font-size: 0.9rem;
 }
 footer #copyright {
   font-size: 0.8rem;
   color: rgb(153, 153, 153);
+}
+
+#my-container {
+  max-width: 650px;
+}
+#my-container h1, #my-container .h1 {
+  font-size: 2.5rem;
+  border-bottom: 1px solid rgb(153, 153, 153);
+}
+#my-container figure img {
+  width: 150px;
+}
+#my-container figure button {
+  bottom: 10px;
+  left: 10px;
+  border-radius: 100%;
+  border: 2px solid white;
+  background-color: #141414;
+}
+#my-container figure button i {
+  color: white;
+}
+#my-container figure button:hover {
+  background-color: white;
+  border: 2px solid #141414;
+}
+#my-container figure button:hover i {
+  color: #141414;
+}
+#my-container #settings-div #box1 {
+  background-color: rgb(153, 153, 153);
+}
+#my-container #settings-div .settings {
+  color: rgb(153, 153, 153);
+  font-size: 1.2rem;
+}
+#my-container #settings-div .tertiary-button {
+  background-color: #333333;
+}
+#my-container #settings-div label {
+  cursor: pointer;
+}
+#my-container #settings-div label div {
+  border: 1px solid rgb(153, 153, 153);
+  width: 22px;
+  height: 22px;
+}
+#my-container #settings-div label div i {
+  font-size: 1.3rem;
+}
+#my-container #buttons {
+  row-gap: 10px;
+  column-gap: 10px;
+  max-width: 540px;
+}
+#my-container #buttons button {
+  height: 35px;
+  font-size: 1rem;
+  flex: 1 0 auto;
+  letter-spacing: 0.2rem;
+}
+#my-container #buttons .white-button {
+  font-weight: 700;
+  color: #141414;
+  background-color: white;
+}
+#my-container #buttons .white-button:hover {
+  color: white;
+  background-color: red;
+}
+#my-container .my-flex-div {
+  column-gap: 20px;
+  border-bottom: 1px solid rgb(153, 153, 153);
+}
+
+#my-container2 .bold {
+  font-weight: 700;
+}
+#my-container2 a {
+  text-decoration: none;
+  color: dodgerblue;
+  font-weight: 700;
+  display: block;
+}
+#my-container2 a:hover {
+  text-decoration: underline;
+}
+#my-container2 button {
+  background-color: #dddddd;
+  border: none;
+  font-size: 0.8rem;
+}
+#my-container2 img {
+  width: 40px;
 }
 
 /*# sourceMappingURL=style.css.map */

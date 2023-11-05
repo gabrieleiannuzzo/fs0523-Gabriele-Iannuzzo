@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix profile page</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="assets/css/style.min.css">
+</head>
+
+<body class="bg-primary">
+    <!-- HEADER -->
+    <header id="gradient-header">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="Netflix-assets/assets/netflix_logo.png" alt="netflix logo" class="img-thumbnail">
+            </a>
+        </div>
+    </header>
+
+    <!-- PROFILE SECTION -->
+    <div id="my-container" class="mt-4 px-3 pb-5 mx-auto">
+        <h1 class="text-light pb-3 mb-3">Edit Profile</h1>
+        <div class="d-sm-flex my-flex-div pb-3 mb-3">
+            <div class="text-center">
+                <div class="d-inline-block">
+                    <figure class="position-relative">
+                        <img src="Netflix-assets/assets/avatar.png" alt="avatar">
+                        <button class="position-absolute"><i class="bi bi-pencil-fill"></i></button>
+                    </figure>
+                </div>
+            </div>
+            <div id="settings-div">
+                <p id="box1" class="text-light py-2 px-2">Strive Student</p>
+                <p class="settings mb-1">Language:</p>
+                <button class="text-white bg-black px-2 mb-3 buttons">English <i class="bi bi-caret-down-fill ms-3"></i></button>
+                <p class="settings pt-3 mb-3 border-p">Maturity Settings:</p>
+                <p id="box2" class="p-1 px-3 tertiary-button text-white d-inline">ALL MATURITY RATINGS</p>
+                <p class="grey-text mt-3">Show titles of all maturity ratings for this profile</p>
+                <button class="p-1 px-4 mt-1 bg-transparent secondary-button">EDIT</button>
+                <p class="grey-text mt-4 pt-4 border-p settings">Autoplay controls</p>
+                <label class="grey-text d-flex mb-2">
+                    <input type="checkbox" class="d-none checkbox"><div class="d-flex justify-content-center align-items-center me-2"><i class="bi bi-check-lg"></i></div> Autoplay next episode in a series on all devices
+                </label>
+                <label class="grey-text d-flex">
+                    <input type="checkbox" class="d-none checkbox"><div class="d-flex justify-content-center align-items-center me-2"><i class="bi bi-check-lg"></i></div> Autoplay previews while browsing on all devices
+                </label>
+            </div>
+        </div>
+        <div id="buttons" class="d-flex flex-wrap justify-content-sm-center">
+            <button class="p-1 px-3 border-0 white-button">SAVE</button>
+            <button class="p-1 px-3 bg-transparent text-decoration-none secondary-button height-custom">CANCEL</button>
+            <button class="p-1 px-3 bg-transparent text-decoration-none secondary-button height-custom">DELETE PROFILE</button>
+        </div>
+    </div>
+
+    <script src="assets/js/profile.js"></script>
+</body>
+
+</html>

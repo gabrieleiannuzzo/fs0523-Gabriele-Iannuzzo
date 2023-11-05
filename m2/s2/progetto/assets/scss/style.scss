@@ -7,8 +7,31 @@
     display: none;
 }
 
-.dropdown-toggle::after {
-    color: white;
+.buttons {
+    font-weight: 700;
+    height: 30px;
+    border: 1px solid rgb(153, 153, 153);
+    color: rgb(153, 153, 153);
+    i{
+        font-size: 0.6rem;
+    }
+}
+
+.secondary-button{
+    color: rgb(153, 153, 153);
+    border: 1px solid rgb(153, 153, 153);
+    font-size: 0.9rem;
+    &:hover{
+        border: 1px solid white;
+        color: white;
+    }
+}
+
+.grey-text{
+    color: $grey;
+}
+.border-p{
+    border-top: 1px solid $grey;
 }
 
 header {
@@ -95,6 +118,12 @@ header {
             width: 40px;
         }
     }
+    #toggle::after{
+        color: white;
+    }
+    #toggler-icon{
+        filter: invert(1);
+    }
     #custom-position{
         top: calc(100% + 10px);
         @media screen and (min-width: 992px){
@@ -107,21 +136,15 @@ header {
     }
 }
 
+#gradient-header{
+    background-image: linear-gradient(to bottom, black, $blue);
+}
+
 #first-div {
     #div1 {
         h1 {
             font-size: 2rem;
             font-weight: 700;
-        }
-
-        button {
-            font-weight: 700;
-            height: 30px;
-            border: 1px solid rgb(153, 153, 153);
-            color: rgb(153, 153, 153);
-            i{
-                font-size: 0.6rem;
-            }
         }
     }
 
@@ -259,13 +282,110 @@ footer{
         }
     }
     #service-code{
-        color: rgb(153, 153, 153);
-        border: 1px solid rgb(153, 153, 153);
+        @extend .secondary-button;
         border-radius: 2px;
-        font-size: 0.9rem;
     }
     #copyright{
         font-size: 0.8rem;
         color: rgb(153, 153, 153);
+    }
+}
+
+#my-container{
+    max-width: 650px;
+    h1{
+        font-size: 2.5rem;
+        border-bottom: 1px solid rgb(153, 153, 153);
+    }
+    figure{
+        img{
+            width: 150px;
+        }
+        button{
+            bottom: 10px;
+            left: 10px;
+            border-radius: 100%;
+            border: 2px solid white;
+            background-color: $blue;
+            i{
+                color: white;
+            }
+            &:hover{
+                background-color: white;
+                border: 2px solid $blue;
+                i{
+                    color: $blue;
+                }
+            }
+        }
+    }
+    #settings-div{
+        #box1{
+            background-color: $grey;
+        }
+        .settings{
+            color: $grey;
+            font-size: 1.2rem;
+        }
+        .tertiary-button{
+            background-color: #333333;
+        }
+        label{
+            cursor: pointer;
+            div{
+                border: 1px solid $grey;
+                width: 22px;
+                height: 22px;
+                i{
+                    font-size: 1.3rem;
+                }
+            }
+        }
+    }
+    #buttons{
+        row-gap: 10px;
+        column-gap: 10px;
+        max-width: 540px;
+        button{
+            height: 35px;
+            font-size: 1rem;
+            flex: 1 0 auto;
+            letter-spacing: 0.2rem;
+        }
+        .white-button{
+            font-weight: 700;
+            color: $blue;
+            background-color: white;
+            &:hover{
+                color: white;
+                background-color: red;
+            }
+        }
+    }
+    .my-flex-div{
+        column-gap: 20px;
+        border-bottom: 1px solid $grey;
+    }
+}
+#my-container2{
+    .bold{
+        font-weight: 700;
+    }
+    a{
+        text-decoration: none;
+        color: dodgerblue;
+        font-weight: 700;
+        display: block;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+    button{
+        background-color: #dddddd;
+        border: none;
+        font-size: 0.8rem;
+    }
+    img{
+        width: 40px;
     }
 }
