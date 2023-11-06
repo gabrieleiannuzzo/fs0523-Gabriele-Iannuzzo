@@ -66,3 +66,67 @@ for (let i = 0; i < carousels.length; i++) {
         }
     });
 }
+
+// GESTIONE LAYOUT
+let layoutButton1 = document.getElementById("layout-button1");
+let layoutButton2 = document.getElementById("layout-button2");
+let genres = document.querySelectorAll("section h2");
+let buttons = document.querySelectorAll(".previous-movie i, .next-movie i");
+let lenghts = [];
+let films;
+let originalLength = carousels[0].querySelectorAll("a").length;
+
+for (let i = 1; i < carousels.length; i++) {
+    films = carousels[i].querySelectorAll("a");
+    lenghts[i] = films.length;
+}
+
+layoutButton1.addEventListener("click", () => {
+    layoutButton1.classList.add("layout-selection");
+    layoutButton2.classList.remove("layout-selection");
+    films = Array.from(carousels[0].querySelectorAll("a"));
+    
+    for (let genre of genres) genre.classList.remove("hide");
+    for (let button of buttons) button.classList.remove("hide");
+
+    for (let i = 0; i < carousels.length; i++) {
+        for (let j = 0; j < lenghts[i]; j++) {
+            console.log(Array.isArray(films));
+            carousels[i].append(films[originalLength]);
+            films.splice(originalLength, 1);
+        }
+    }
+
+    carousels[0].classList.remove("flex-wrap");
+    carousels[0].classList.remove("justify-content-center");
+    carousels[0].parentElement.classList.remove("height-auto");
+    carousels[0].parentElement.parentElement.classList.remove("overflow-visible");
+});
+
+layoutButton2.addEventListener("click", () => {
+    layoutButton1.classList.remove("layout-selection");
+    layoutButton2.classList.add("layout-selection");
+
+    for (i = 1; i < carousels.length; i++) {
+        films = carousels[i].querySelectorAll("a");
+        for (let film of films) carousels[0].append(film);
+        carousels[i].parentElement.style.height = "auto";
+    }
+
+    for (let genre of genres) genre.classList.add("hide");
+    for (let button of buttons) button.classList.add("hide");
+
+    carousels[0].classList.add("flex-wrap");
+    carousels[0].classList.add("justify-content-center");
+    carousels[0].parentElement.classList.add("height-auto");
+    carousels[0].parentElement.parentElement.classList.add("overflow-visible");
+});
+
+function handleClasses (el, list) {
+    action = list ? "remove" : "add";
+
+    el.classList[action]("flex-wrap");
+    el.classList[action]("justify-content-center");
+    el.parentElement.classList[action]("height-auto");
+    el.parentElement.parentElement.classList[action]("overflow-visible");
+}

@@ -202,12 +202,10 @@ header {
 
 .carousel-container {
     overflow: hidden;
-
     h2 {
         color: white;
         font-size: 1.4rem;
     }
-
     .carousel-div {
         position: relative;
         height: 140px;
@@ -215,6 +213,7 @@ header {
         .carousel {
             display: flex;
             column-gap: 4px;
+            row-gap: 4px;
             transition: all 0.5s;
 
             img {
@@ -257,13 +256,13 @@ header {
             right: 20px;
         }
     }
+    .height-auto{
+        height: auto;
+    }
 }
 footer{
     max-width: 1000px;
     margin-top: 50px;
-    @media screen and (min-width: 620px){
-        margin-top: 100px;
-    }
     #social-div{
         i{
             color: rgb(153, 153, 153);
