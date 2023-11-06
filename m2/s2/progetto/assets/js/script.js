@@ -16,6 +16,8 @@ const translate = []; // ARRAY CHE TIENE IN MEMORIA LO STATO DELLO SPOSTAMENTO D
 const moviesNumber = []; // ARRAY CHE TIENE CONTO DELLA QUANTITA DI FILM DI OGNI CATEGORIA (PER RENDELO DINAMICO IN CASO OGNI CATEGORIA AVESSE UN NUMERO DIVERSO DI FILM)
 const scrollX = [];
 let movies, containerWidth, max, touchStart, touchEnd; // DICHIARO QUI LE VARIABILI CHE USO AD OGNI ITERAZIONE PER EVITARE DI DOVERLE DICHIARE OGNI VOLTA CON LET ALL'INTERNO DEL FOR
+let layoutButton1 = document.getElementById("layout-button1");
+let layoutButton2 = document.getElementById("layout-button2"); // DICHIARO QUI I BOTTONI CHE SERVIRANNO PER IL LAYOUT IN MANIERA TALE DA METTERE UN CONTROLLO SULLA FUNZIONE DEL TOUCH SCREEN, CHE SI DEVE ATTIVARE SOLO SE LA VISUALIZZAZIONE è SOTTO FORMA DI CAROSELLO
 
 
 for (let i = 0; i < carousels.length; i++) {
@@ -40,10 +42,13 @@ for (let i = 0; i < carousels.length; i++) {
     });
 
     carousels[i].addEventListener("touchstart", (e) => {
-        touchStart = e.touches[0].clientX;
+        if (layoutButton1.classList.contains("layout-selection")) {
+            touchStart = e.touches[0].clientX;
+        }
     });
 
     carousels[i].addEventListener("touchmove", (e) => {
+        if (layoutButton1.classList.contains("layout-selection")) {
             touchEnd = e.touches[0].clientX;
             delta = touchEnd - touchStart;
             translate[i] -= delta * 1.2;
@@ -52,8 +57,9 @@ for (let i = 0; i < carousels.length; i++) {
             max = (moviesNumber[i]*width) + (4*(moviesNumber[i]-2)) - containerWidth;
             if (translate[i] > max) translate[i] = max;
             if (translate[i] < 0) translate[i] = 0;
-
+    
             carousels[i].style.transform = `translateX(-${translate[i]}px)`;
+        }
     });
     
     // CON QUESTA FUNZIONE EVITO CHE, SE IL CAROSELLO SI TROVA ALL'ULTIMA FOTO, ALL'AUMENTARE DELLA LARGHEZZA DELLO SCHERMO APPAIA DELLO SPAZIO NERO. cON QUESTA FUNZIONE IL CAROSELLO, SE SI TROVA ALLE ULTIME FOTO, VERRA SPOSTATO SEMPRE IN MANIERA TALE DA COPRIRE TUTTO LO SCHERMO
@@ -68,65 +74,68 @@ for (let i = 0; i < carousels.length; i++) {
 }
 
 // GESTIONE LAYOUT
-let layoutButton1 = document.getElementById("layout-button1");
-let layoutButton2 = document.getElementById("layout-button2");
 let genres = document.querySelectorAll("section h2");
 let buttons = document.querySelectorAll(".previous-movie i, .next-movie i");
-let lenghts = [];
+let lengths = [];
 let films;
 let originalLength = carousels[0].querySelectorAll("a").length;
 
+// SALVO NELL'ARRAY LENGTHS IL NUMERO DI FILM DI OGNI CAROSELLO
 for (let i = 1; i < carousels.length; i++) {
     films = carousels[i].querySelectorAll("a");
-    lenghts[i] = films.length;
+    lengths[i] = films.length;
 }
 
+// GESTIONE LAYOUT A LISTA
 layoutButton1.addEventListener("click", () => {
-    layoutButton1.classList.add("layout-selection");
-    layoutButton2.classList.remove("layout-selection");
+    handleClasses (layoutButton1, layoutButton2, carousels[0], genres, buttons);
     films = Array.from(carousels[0].querySelectorAll("a"));
-    
-    for (let genre of genres) genre.classList.remove("hide");
-    for (let button of buttons) button.classList.remove("hide");
 
     for (let i = 0; i < carousels.length; i++) {
-        for (let j = 0; j < lenghts[i]; j++) {
-            console.log(Array.isArray(films));
+        carousels[i].parentElement.classList.remove("height-auto");
+        for (let j = 0; j < lengths[i]; j++) {
             carousels[i].append(films[originalLength]);
             films.splice(originalLength, 1);
         }
     }
-
-    carousels[0].classList.remove("flex-wrap");
-    carousels[0].classList.remove("justify-content-center");
-    carousels[0].parentElement.classList.remove("height-auto");
-    carousels[0].parentElement.parentElement.classList.remove("overflow-visible");
 });
 
+// GESTIONE LAYOUT A GRIGLIA
 layoutButton2.addEventListener("click", () => {
-    layoutButton1.classList.remove("layout-selection");
-    layoutButton2.classList.add("layout-selection");
+    handleClasses (layoutButton1, layoutButton2, carousels[0], genres, buttons, false);
 
     for (i = 1; i < carousels.length; i++) {
+        carousels[i].parentElement.classList.add("height-auto");
         films = carousels[i].querySelectorAll("a");
         for (let film of films) carousels[0].append(film);
-        carousels[i].parentElement.style.height = "auto";
     }
-
-    for (let genre of genres) genre.classList.add("hide");
-    for (let button of buttons) button.classList.add("hide");
-
-    carousels[0].classList.add("flex-wrap");
-    carousels[0].classList.add("justify-content-center");
-    carousels[0].parentElement.classList.add("height-auto");
-    carousels[0].parentElement.parentElement.classList.add("overflow-visible");
+    
 });
 
-function handleClasses (el, list) {
-    action = list ? "remove" : "add";
+// CON QUESTA FUNZIONE VADO A FARE CLASSLIST.ADD O CLASSLIST.REMOVE AGLI STESSI ELEMENTI IN BASE AL BOTTONE CHE CLICCO
+function handleClasses (layoutButton1, layoutButton2, carousel, genres, buttons, list = true) {
+    action1 = list ? "remove" : "add";
+    action2 = list ? "add" : "remove";
 
-    el.classList[action]("flex-wrap");
-    el.classList[action]("justify-content-center");
-    el.parentElement.classList[action]("height-auto");
-    el.parentElement.parentElement.classList[action]("overflow-visible");
+    layoutButton1.classList[action2]("layout-selection");
+    layoutButton2.classList[action1]("layout-selection");
+
+    carousel.classList[action1]("flex-wrap");
+    carousel.classList[action1]("justify-content-center");
+    carousel.parentElement.classList[action1]("height-auto");
+    carousel.parentElement.parentElement.classList[action1]("overflow-visible");
+
+    for (let genre of genres) genre.classList[action1]("hide");
+    for (let button of buttons) button.classList[action1]("hide");
 }
+
+// PER VEDERE IL SITO DA MOBILE https://www.gabrieleiannuzzo.com
+// PER VEDERE IL SITO DA MOBILE https://www.gabrieleiannuzzo.com
+// PER VEDERE IL SITO DA MOBILE https://www.gabrieleiannuzzo.com
+// PER VEDERE IL SITO DA MOBILE https://www.gabrieleiannuzzo.com
+// PER VEDERE IL SITO DA MOBILE https://www.gabrieleiannuzzo.com
+// PER VEDERE IL SITO DA MOBILE https://www.gabrieleiannuzzo.com
+// PER VEDERE IL SITO DA MOBILE https://www.gabrieleiannuzzo.com
+// PER VEDERE IL SITO DA MOBILE https://www.gabrieleiannuzzo.com
+// PER VEDERE IL SITO DA MOBILE https://www.gabrieleiannuzzo.com
+// PER VEDERE IL SITO DA MOBILE https://www.gabrieleiannuzzo.com
