@@ -13,6 +13,12 @@ class Form {
         this.form = document.createElement("form");
         this.submitButton = document.createElement("button");
         this.deleteButton = document.createElement("button");
+        const name = localStorage.getItem("name");
+        if (name) {
+            const p = document.createElement("p");
+            p.innerText = `Ciao ${name}`;
+            this.target.append(p);
+        }
 
         this.submitButton.innerText = "SUBMIT";
         this.deleteButton.innerText = "DELETE";
@@ -61,17 +67,17 @@ class Input {
     }
 }
 
-class Counter {
-    constructor () {
-        const storedCounter = sessionStorage.getItem("counter");
-        this.counter = storedCounter ? parseInt(storedCounter, 10) : 0;
-        this.startCounter();
-    }
+// class Counter {
+//     constructor () {
+//         const storedCounter = sessionStorage.getItem("counter");
+//         this.counter = storedCounter ? parseInt(storedCounter, 10) : 0;
+//         this.startCounter();
+//     }
 
-    startCounter () {
-        setInterval(() => {
-            this.counter += 1;
-            sessionStorage.setItem("counter", this.counter);
-        }, 1000);
-    }
-}
+//     startCounter () {
+//         setInterval(() => {
+//             this.counter += 1;
+//             sessionStorage.setItem("counter", this.counter);
+//         }, 1000);
+//     }
+// }

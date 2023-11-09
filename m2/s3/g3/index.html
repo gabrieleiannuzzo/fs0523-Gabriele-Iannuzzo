@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <style>
+        .row {
+            justify-content: center;
+        }
+
+        .column {
+            display: flex;
+            justify-content: center;
+        }
+
+        .card button {
+            border: none;
+            background-color: blue;
+            color: white;
+            font-weight: 700;
+        }
+
+        .card button:hover {
+            background-color: purple;
+        }
+
+        .shopping-cart-button {
+            margin-bottom: 10px;
+        }
+
+        h4 {
+            margin-top: 50px;
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        ul {
+            list-style: none;
+            padding-bottom: 50px;
+        }
+
+        ul li {
+            color: white;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid bg-primary w-100 h-100" id="shop"></div>
+
+    <template id="card-template">
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 my-1 column">
+            <div class="card" style="width: 18rem;">
+                <img src="" class="card-img-top book-img" alt="book">
+                <div class="card-body">
+                  <h5 class="card-title book-title"></h5>
+                  <p class="card-text book-price"></p>
+                  <button class="shopping-cart-button">ADD TO SHOPPING CART</button>
+                  <button class="delete-button">DELETE</button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="shopping-cart-template">
+        <div id="shopping-cart">
+            <h4>SHOPPING CART</h4>
+            <ul></ul>
+        </div>
+    </template>
+
+    <script src="script.js"></script>
+</body>
+</html>
