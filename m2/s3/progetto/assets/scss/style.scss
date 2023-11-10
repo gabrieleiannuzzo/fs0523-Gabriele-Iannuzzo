@@ -38,6 +38,9 @@ main{
         }
         .btn-orange{
             background-color: orange;
+            &:hover{
+                background-color: rgb(234, 152, 0);
+            }
         }
     }
 }
@@ -87,4 +90,10 @@ main{
 .error-message{
     background-color: rgba(198, 0, 0, 0.8);
     border: 2px solid rgb(135, 0, 0)
+}
+
+#product-info{
+    input{
+        height: 30px;
+    }
 }

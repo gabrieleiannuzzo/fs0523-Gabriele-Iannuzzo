@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop online</title>
+    <title>Shop online | Dettagli</title>
 
     <!-- FONTAWESOME -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- CSS -->
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.min.css">
 </head>
+
 <body>
     <header>
         <div class="container-fluid py-2">
@@ -19,6 +23,34 @@
         </div>
     </header>
 
-    <script src="assets/js/script.js"></script>
+    <main>
+        <div class="container px-sm-0">
+            <div class="title d-flex justify-content-between align-items-center py-2 mb-3">
+                <div class="d-flex align-items-center">
+                    <h1 class="m-0">Dettagli</h1>
+                    <div class="spinner-border ms-3 d-none" role="status" id="loader"></div>
+                </div>
+            </div>
+
+            <section class="row">
+                <div class="col-12 col-md-6">
+                    <img src="" alt="foto prodotto" class="img-fluid rounded-2" id="img">
+                </div>
+
+                <div class="col-12 col-md-6 mt-2" id="product-info">
+                    <h2 class="mb-2" id="title"></h2>
+                    <h3 class="mb-2" id="brand"></h3>
+                    <p class="mb-2" id="description"></p>
+                    <h3 class="mb-2" id="price"></h3>
+                    <input type="number" placeholder="Quantità" class="mb-2 d-block">
+                    <button class="btn btn-primary">AGGIUNGI AL CARRELLO</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="assets/js/funzioni.js"></script>
+    <script src="assets/js/dettagli.js"></script>
 </body>
+
 </html>
