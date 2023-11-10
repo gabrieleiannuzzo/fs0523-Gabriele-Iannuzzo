@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop online | Crea prodotto</title>
+
+    <!-- FONTAWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="container-fluid py-2">
+            <img src="assets/images/logo.png">
+        </div>
+    </header>
+
+    <main id="crea-prodotto-main">
+        <div class="container pb-5">
+            <h1 class="py-2 title">Crea nuovo prodotto</h1>
+
+            <form>
+                <p class="mt-2 mb-1">Nome</p>
+                <input type="text" placeholder="Inserisci il nome del prodotto">
+
+                <p class="mt-2 mb-1">Brand</p>
+                <input type="text" placeholder="Inserisci il brand del prodotto">
+
+                <p class="mt-2 mb-1">Prezzo (€)</p>
+                <input type="number">
+
+                <p class="mt-2 mb-1">URL immagine</p>
+                <input type="text" placeholder="Inserisci l'immagine del prodotto">
+
+                <p class="mt-2 mb-1">Descrizione prodotto</p>
+                <textarea name="textarea" id="description" rows="5"
+                    placeholder="Inserisci la descrizione del prodotto"></textarea>
+
+                <div id="buttons-div" class="d-md-flex justify-content-md-end mt-md-2">
+                    <div class="d-flex order-md-2 my-2 my-md-0">
+                        <button class="btn btn-outline-dark reset-btn" type="button" data-bs-toggle="modal" data-bs-target="#reset-modal">Reset</button>
+                        <button class="btn btn-warning save-btn" type="button">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Modal -->
+    <div class="modal fade" id="reset-modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modalLabel">Sei sicuro di voler resettare il form?</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Annulla</button>
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal" id="reset-confirm-btn">Conferma</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/crea-prodotto.js"></script>
+</body>
+
+</html>

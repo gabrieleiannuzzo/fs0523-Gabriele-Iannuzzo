@@ -22,3 +22,15 @@ async function getPhoto () {
     authorLink.href = photo.photographer_url;
     document.body.style.backgroundColor = photo.avg_color;
 }
+
+function Person (nome, cognome) {
+    this.nome = nome;
+    this.cognome = cognome;
+}
+
+class Person {
+    constructor (nome, cognome) {
+        this.nome = nome;
+        this.cognome = cognome;
+    }
+}
