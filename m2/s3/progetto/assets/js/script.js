@@ -18,13 +18,13 @@ class Product {
         let title = this.clone.querySelector(".product-title");
         let price = this.clone.querySelector(".product-price");
         let img = this.clone.querySelector("img");
-        this.clone.setAttribute("product-id", id);
+        this.clone.setAttribute("product-id", this.id);
 
-        img.src = this.imgUrl;
         title.innerHTML = `${this.name} | <span>${this.brand}</span>`;
         price.innerHTML = `${this.price}€`;
-
-        this.target.append(clone);
+        img.src = this.imgUrl;
+        
+        this.target.append(this.clone);
     }
 }
 
@@ -39,6 +39,7 @@ async function getProducts () {
     let target = document.getElementById("row");
 
     for (let i = 0; i < products.length; i++) {
+        new Product(products[i].name, products[i].brand, setPoints(products[i].price), products[i].imageUrl, products[i]["_id"], template, target);
         // let clone = document.importNode(template.content, true).firstElementChild;
         // let title = clone.querySelector(".product-title");
         // let price = clone.querySelector(".product-price");

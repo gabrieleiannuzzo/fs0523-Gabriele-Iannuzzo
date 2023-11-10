@@ -25,34 +25,41 @@
 
     <main id="crea-prodotto-main">
         <div class="container pb-5">
-            <h1 class="py-2 title">Crea nuovo prodotto</h1>
+            <div class="d-flex title align-items-center">
+                <h1 class="py-2">Crea nuovo prodotto</h1>
+                <div class="spinner-border ms-3 d-none" role="status" id="loader"></div>
+            </div>
 
             <form>
                 <p class="mt-2 mb-1">Nome</p>
-                <input type="text" placeholder="Inserisci il nome del prodotto">
+                <input type="text" placeholder="Inserisci il nome del prodotto" id="name-input">
 
                 <p class="mt-2 mb-1">Brand</p>
-                <input type="text" placeholder="Inserisci il brand del prodotto">
+                <input type="text" placeholder="Inserisci il brand del prodotto" id="brand-input">
 
                 <p class="mt-2 mb-1">Prezzo (€)</p>
-                <input type="number">
+                <input type="number" id="price-input">
 
                 <p class="mt-2 mb-1">URL immagine</p>
-                <input type="text" placeholder="Inserisci l'immagine del prodotto">
+                <input type="text" placeholder="Inserisci l'immagine del prodotto" id="image-url-input">
 
                 <p class="mt-2 mb-1">Descrizione prodotto</p>
-                <textarea name="textarea" id="description" rows="5"
+                <textarea name="textarea" id="description-input" rows="5"
                     placeholder="Inserisci la descrizione del prodotto"></textarea>
 
                 <div id="buttons-div" class="d-md-flex justify-content-md-end mt-md-2">
                     <div class="d-flex order-md-2 my-2 my-md-0">
-                        <button class="btn btn-outline-dark reset-btn" type="button" data-bs-toggle="modal" data-bs-target="#reset-modal">Reset</button>
-                        <button class="btn btn-warning save-btn" type="button">Save</button>
+                        <button class="btn btn-outline-dark" id="reset-btn" type="button" data-bs-toggle="modal"
+                            data-bs-target="#reset-modal">Reset</button>
+                        <button class="btn btn-warning" id="save-btn" type="button">Save</button>
                     </div>
                 </div>
             </form>
         </div>
     </main>
+
+    <!-- Messages -->
+    <div class="alert alert-success position-fixed mb-0 text-white d-none my-alert" role="alert"></div>
 
     <!-- Modal -->
     <div class="modal fade" id="reset-modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
@@ -64,7 +71,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Annulla</button>
-                    <button type="button" class="btn btn-success" data-bs-dismiss="modal" id="reset-confirm-btn">Conferma</button>
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal"
+                        id="reset-confirm-btn">Conferma</button>
                 </div>
             </div>
         </div>

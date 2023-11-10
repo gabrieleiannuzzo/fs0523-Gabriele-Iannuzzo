@@ -46,6 +46,15 @@ main{
     input, textarea{
         width: 100%;
     }
+    p.red{
+        color: red;
+    }
+    input.red, textarea.red{
+        border: 1px solid red;
+        &::placeholder{
+            color: red;
+        }
+    }
     #buttons-div{
         div{
             column-gap: 10px;
@@ -62,4 +71,20 @@ main{
             }
         }
     }
+}
+
+.my-alert{
+    left: 5px;
+    right: 5px;
+    bottom: 10px;
+}
+
+.success-message{
+    background-color: rgba(0, 184, 0, 0.8);
+    border: 2px solid #008300;
+}
+
+.error-message{
+    background-color: rgba(198, 0, 0, 0.8);
+    border: 2px solid rgb(135, 0, 0)
 }
