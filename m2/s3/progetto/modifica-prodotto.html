@@ -27,26 +27,26 @@
         <div class="container pb-5">
             <div class="title py-2 d-flex align-items-center">
                 <h1>Modifica prodotto</h1>
-                <div class="spinner-border ms-3" role="status">
+                <div class="spinner-border ms-3" role="status" id="loader">
                     <span class="sr-only">Loading...</span>
                 </div>
             </div>
 
             <form>
                 <p class="mt-2 mb-1">Nome</p>
-                <input type="text" placeholder="Inserisci il nome del prodotto">
+                <input type="text" placeholder="Inserisci il nome del prodotto" id="name-input">
 
                 <p class="mt-2 mb-1">Brand</p>
-                <input type="text" placeholder="Inserisci il brand del prodotto">
+                <input type="text" placeholder="Inserisci il brand del prodotto" id="brand-input">
 
                 <p class="mt-2 mb-1">Prezzo (€)</p>
-                <input type="number">
+                <input type="number" id="price-input">
 
                 <p class="mt-2 mb-1">URL immagine</p>
-                <input type="text" placeholder="Inserisci l'immagine del prodotto">
+                <input type="text" placeholder="Inserisci l'immagine del prodotto" id="image-url-input">
 
                 <p class="mt-2 mb-1">Descrizione prodotto</p>
-                <textarea name="textarea" id="description" rows="5"
+                <textarea name="textarea" id="description-input" rows="5"
                     placeholder="Inserisci la descrizione del prodotto"></textarea>
 
                 <div id="buttons-div" class="d-md-flex justify-content-md-between mt-md-2">
@@ -96,7 +96,7 @@
     </div>
 
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/script.js"></script>
+    <script src="assets/js/modifica-prodotto.js"></script>
 </body>
 
 </html>

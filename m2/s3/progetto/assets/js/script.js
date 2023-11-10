@@ -1,5 +1,5 @@
-let apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTRlMTEyZTMyNWM5NzAwMTg3ZjlmZTYiLCJpYXQiOjE2OTk2MTUwMjIsImV4cCI6MTcwMDgyNDYyMn0.R5RBuhRA3qqu2SpJbbKquMjlimyliws3H3IK9JwOFV0";
-let url = "https://striveschool-api.herokuapp.com/api/product/";
+const apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTRlMTEyZTMyNWM5NzAwMTg3ZjlmZTYiLCJpYXQiOjE2OTk2MTUwMjIsImV4cCI6MTcwMDgyNDYyMn0.R5RBuhRA3qqu2SpJbbKquMjlimyliws3H3IK9JwOFV0";
+const url = "https://striveschool-api.herokuapp.com/api/product/";
 
 class Product {
     constructor(name, brand, price, imgUrl, id, template, target){
@@ -15,43 +15,41 @@ class Product {
     }
 
     HTMLInit () {
-        let title = this.clone.querySelector(".product-title");
-        let price = this.clone.querySelector(".product-price");
-        let img = this.clone.querySelector("img");
+        const title = this.clone.querySelector(".product-title");
+        const price = this.clone.querySelector(".product-price");
+        const img = this.clone.querySelector("img");
+        const detailsBtn = this.clone.querySelector(".details-btn");
+        const editBtn = this.clone.querySelector(".edit-btn");
         this.clone.setAttribute("product-id", this.id);
 
         title.innerHTML = `${this.name} | <span>${this.brand}</span>`;
         price.innerHTML = `${this.price}€`;
         img.src = this.imgUrl;
+
+        detailsBtn.href = `./dettagli.html?productId=${this.id}`;
+        editBtn.href = `./modifica-prodotto.html?productId=${this.id}`;
         
         this.target.append(this.clone);
     }
 }
 
 async function getProducts () {
-    let response = await fetch (url, {
+    const loader = document.getElementById("loader");
+    loader.classList.remove("d-none");
+
+    const response = await fetch (url, {
         headers: {
             "Authorization": `Bearer ${apiKey}`,
         }
     });
-    let products = await response.json();
-    let template = document.getElementById("product-template");
-    let target = document.getElementById("row");
+    const products = await response.json();
+
+    loader.classList.add("d-none");
+    const template = document.getElementById("product-template");
+    const target = document.getElementById("row");
 
     for (let i = 0; i < products.length; i++) {
         new Product(products[i].name, products[i].brand, setPoints(products[i].price), products[i].imageUrl, products[i]["_id"], template, target);
-        // let clone = document.importNode(template.content, true).firstElementChild;
-        // let title = clone.querySelector(".product-title");
-        // let price = clone.querySelector(".product-price");
-        // let img = clone.querySelector("img");
-        // let id = products[i]["_id"];
-        // clone.setAttribute("product-id", id);
-
-        // img.src = products[i].imageUrl;
-        // title.innerHTML = `${products[i].name} | <span>${products[i].brand}</span>`;
-        // price.innerHTML = `${setPoints(products[i].price)}€`;
-
-        // target.append(clone);
     }
 }
 
@@ -60,9 +58,9 @@ getProducts();
 // FUNZIONE PER INSERIRE IL PUNTO DALLE MIGLIAIA IN POI
 function setPoints(number){
     if (number < 100) return number;
-    let stringNumber = number.toString();
+    const stringNumber = number.toString();
+    const arr = [];
     let tempString = "";
-    let arr = [];
     
     for (let i = 0; i < stringNumber.length; i++) {
         tempString += stringNumber[i];
