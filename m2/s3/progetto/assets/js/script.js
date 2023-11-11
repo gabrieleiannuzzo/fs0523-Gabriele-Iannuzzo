@@ -1,3 +1,6 @@
+const apiKey = " Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTRlMTEyZTMyNWM5NzAwMTg3ZjlmZTYiLCJpYXQiOjE2OTk2MTUwMjIsImV4cCI6MTcwMDgyNDYyMn0.R5RBuhRA3qqu2SpJbbKquMjlimyliws3H3IK9JwOFV0";
+const url = "https://striveschool-api.herokuapp.com/api/product/";
+
 // CLASSE DEI PRODOTTI DELLA HOMEPAGE
 class Product {
     constructor(name, brand, price, imgUrl, id, template, target){
@@ -37,7 +40,7 @@ async function getProducts () {
 
     const response = await fetch (url, {
         headers: {
-            "Authorization": `Bearer ${apiKey}`,
+            "Authorization": apiKey,
         }
     });
     const products = await response.json();

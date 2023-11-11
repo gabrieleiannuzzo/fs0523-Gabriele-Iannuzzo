@@ -3,31 +3,25 @@ const url = "https://striveschool-api.herokuapp.com/api/product/";
 const searchParams = new URLSearchParams(window.location.search);
 const productId = searchParams.get("productId");
 
-const img = document.getElementById("img");
-const title = document.getElementById("title");
-const brand = document.getElementById("brand");
-const description = document.getElementById("description");
-const price = document.getElementById("price");
 
-// fillPage();
 
-// async function fillPage () {
-//     const response = await fetch(url + productId, {
-//         headers: {
-//             "Authorization": `Bearer ${apiKey}`,
-//         }
-//     });
-//     const product = await response.json();
 
-//     img.src = product.imageUrl;
-//     title.innerText = product.name;
-//     brand.innerText = product.brand;
-//     description.innerText = product.description;
-//     price.innerText = `${setPoints(product.price)}€`;
-// }
 
-let dataFetch = new Fetch (url + productId, apiKey);
-dataFetch.fetchData("GET");
+async function fillPage (data) {
+    const img = document.getElementById("img");
+    const title = document.getElementById("title");
+    const brand = document.getElementById("brand");
+    const description = document.getElementById("description");
+    const price = document.getElementById("price");
+
+    img.src = data.imageUrl;
+    title.innerText = data.name;
+    brand.innerText = data.brand;
+    description.innerText = data.description;
+    price.innerText = `${setPoints(data.price)}€`;
+}
+
+
 
 class Fetch {
     constructor (url, apiKey) {
@@ -46,22 +40,20 @@ class Fetch {
                 method: method,
                 headers: headers,
             });
-
-            const data = await response.json();
         } else {
             const response = await fetch (url, {
                 method: method,
                 headers: headers,
                 body: JSON.stringify(obj),
             });
-
-            const data = await response.json()
         }
-
+        
+        const data = await response.json();
+        console.log(data)
         return data;
     }
-
-    handleDataFunction (data, handleData) {
-        handleData(data);
-    }
 }
+
+const data = new Fetch (url + productId, apiKey).fetchData("GET");
+console.log(data);
+fillPage(data);
