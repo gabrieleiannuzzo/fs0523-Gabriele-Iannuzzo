@@ -22,15 +22,17 @@ async function fillPage() {
 }
 
 function HTMLHandle(data) {
+    const h1 = document.querySelector("h1");
     const img = document.getElementById("img");
     const title = document.getElementById("title");
     const brand = document.getElementById("brand");
     const description = document.getElementById("description");
     const price = document.getElementById("price");
 
+    h1.innerText = `Dettagli - "${data.name}"`;
     img.src = data.imageUrl;
     title.innerText = data.name;
-    brand.innerText = data.brand;
+    brand.innerText = `(${data.brand})`;
     description.innerText = data.description;
     price.innerText = `${setPoints(data.price)}€`;
 }

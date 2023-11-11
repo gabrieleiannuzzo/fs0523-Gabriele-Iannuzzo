@@ -56,3 +56,5 @@ async function getProducts () {
 }
 
 getProducts();
+
+// PROVARE A METTERE TUTTI I FETCH DENTRO UN'UNICA FUNZIONE
