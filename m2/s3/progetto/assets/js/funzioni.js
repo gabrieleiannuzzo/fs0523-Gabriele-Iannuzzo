@@ -15,3 +15,19 @@ function setPoints(number){
 
     return arr.join(".");
 }
+
+// FUNZIONE PER GESTIRE I MESSAGGI DI ERRORE
+function messageHandle (c, text, fade = false) {
+    let message = document.querySelector(".my-alert");
+
+    message.innerHTML = text;
+    message.classList.remove("d-none");
+    message.classList.add(c);
+
+    if (fade) {
+        setTimeout(() => {
+            message.classList.add("d-none");
+            message.classList.remove(c);
+        }, 3000);
+    }
+}

@@ -1,4 +1,4 @@
-let apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTRlMTEyZTMyNWM5NzAwMTg3ZjlmZTYiLCJpYXQiOjE2OTk2MTUwMjIsImV4cCI6MTcwMDgyNDYyMn0.R5RBuhRA3qqu2SpJbbKquMjlimyliws3H3IK9JwOFV0";
+let apiKey = " Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTRlMTEyZTMyNWM5NzAwMTg3ZjlmZTYiLCJpYXQiOjE2OTk2MTUwMjIsImV4cCI6MTcwMDgyNDYyMn0.R5RBuhRA3qqu2SpJbbKquMjlimyliws3H3IK9JwOFV0";
 let url = "https://striveschool-api.herokuapp.com/api/product/";
 
 let main = document.querySelector("main");
@@ -40,47 +40,30 @@ saveBtn.addEventListener("click", () => {
             description: descriptionInput.value
         }
 
-        try {
-            createProduct();
-        } catch (error) {
-
-        }
-
-        async function createProduct () {
-            let loader = document.getElementById("loader");
-            loader.classList.remove("d-none");
-
-            try {
-                await fetch(url, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": `Bearer ${apiKey}`,
-                    },
-                    body: JSON.stringify(product),
-                });
-    
-                loader.classList.add("d-none");
-    
-                let message = 'Prodotto creato con successo. Controlla la <a href="index.html" class="text-white">Pagina Prodotti</a>'
-                elementsHandle("success-message", message);
-            } catch (error) {
-                let message = `Errore: ${error}`;
-                elementsHandle("error-message", message)
-            }
-        }
+        createProduct(product);
     }
 });
 
-function elementsHandle (c, message) {
-    inputs.forEach(input => input.value = "");
-    let messageAlert = document.querySelector(".my-alert");
+async function createProduct (product) {
+    let loader = document.getElementById("loader");
+    loader.classList.remove("d-none");
 
-    messageAlert.innerHTML = message;
-    messageAlert.classList.remove("d-none");
-    messageAlert.classList.add(c);
-    setTimeout(() => {
-        messageAlert.classList.add("d-none");
-        messageAlert.classList.remove(c);
-    }, 3000);
+    try {
+        await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": apiKey,
+            },
+            body: JSON.stringify(product),
+        });
+
+        loader.classList.add("d-none");
+        inputs.forEach(input => input.value = "");
+        
+        messageHandle("success-message", "Prodotto creato con successo", true);
+    } catch (error) {
+        loader.classList.add("d-none");
+        messageHandle("error-message", "Si è verificato un errore nella creazione del prodotto. Riprova", true);
+    }
 }

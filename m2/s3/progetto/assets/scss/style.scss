@@ -77,9 +77,10 @@ main{
 }
 
 .my-alert{
-    left: 5px;
     right: 5px;
     bottom: 10px;
+    @media screen and (min-width: 200px){
+    }
 }
 
 .success-message{

@@ -1,4 +1,4 @@
-const apiKey = " Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTRlMTEyZTMyNWM5NzAwMTg3ZjlmZTYiLCJpYXQiOjE2OTk2MTUwMjIsImV4cCI6MTcwMDgyNDYyMn0.R5RBuhRA3qqu2SpJbbKquMjlimyliws3H3IK9JwOFV0";
+const apiKey = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTRlMTEyZTMyNWM5NzAwMTg3ZjlmZTYiLCJpYXQiOjE2OTk2MTUwMjIsImV4cCI6MTcwMDgyNDYyMn0.R5RBuhRA3qqu2SpJbbKquMjlimyliws3H3IK9JwOFV0";
 const url = "https://striveschool-api.herokuapp.com/api/product/";
 
 // CLASSE DEI PRODOTTI DELLA HOMEPAGE
@@ -34,23 +34,27 @@ class Product {
     }
 }
 
+// FETCH E FUNZIONALITA DELLA PAGINA NON APPENA IL FETCH VIENE ESEGUITO
 async function getProducts () {
-    const loader = document.getElementById("loader");
-    loader.classList.remove("d-none");
-
-    const response = await fetch (url, {
-        headers: {
-            "Authorization": apiKey,
+    try {
+        const loader = document.getElementById("loader");
+        loader.classList.remove("d-none");
+        const response = await fetch (url, {
+            headers: {
+                "Authorization": apiKey,
+            }
+        });
+        const products = await response.json();
+    
+        loader.classList.add("d-none");
+        const template = document.getElementById("product-template");
+        const target = document.getElementById("row");
+    
+        for (let i = 0; i < products.length; i++) {
+            new Product(products[i].name, products[i].brand, setPoints(products[i].price), products[i].imageUrl, products[i]["_id"], template, target);
         }
-    });
-    const products = await response.json();
-
-    loader.classList.add("d-none");
-    const template = document.getElementById("product-template");
-    const target = document.getElementById("row");
-
-    for (let i = 0; i < products.length; i++) {
-        new Product(products[i].name, products[i].brand, setPoints(products[i].price), products[i].imageUrl, products[i]["_id"], template, target);
+    } catch (error) {
+        messageHandle("error-message", "Si è verificato un errore nel caricamento dei prodotti. Prova a ricaricare la pagina");
     }
 }
 
