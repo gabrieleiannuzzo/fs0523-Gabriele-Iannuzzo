@@ -1,5 +1,3 @@
-const apiKey = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTRlMTEyZTMyNWM5NzAwMTg3ZjlmZTYiLCJpYXQiOjE2OTk2MTUwMjIsImV4cCI6MTcwMDgyNDYyMn0.R5RBuhRA3qqu2SpJbbKquMjlimyliws3H3IK9JwOFV0";
-const url = "https://striveschool-api.herokuapp.com/api/product/";
 const searchParams = new URLSearchParams(window.location.search);
 const productId = searchParams.get("productId");
 
@@ -20,14 +18,20 @@ resetConfirmBtn.addEventListener("click", () => {
 showProduct();
 
 async function deleteProduct() {
-    const response = await fetch(url + productId, {
-        method: "DELETE",
-        headers: {
-            "Authorization": apiKey,
-        }
-    });
-
-    location.href = "index.html";
+    try {
+        loader.classList.remove("d-none");
+        const response = await fetch(url + productId, {
+            method: "DELETE",
+            headers: {
+                "Authorization": apiKey,
+            }
+        });
+    
+        location.href = "index.html";
+    } catch (error) {
+        loader.classList.add("d-none");
+        messageHandle("error-message", "Si è verificato un errore nell'eliminazione del prodotto. Riprova", true);
+    }
 }
 
 async function showProduct() {
@@ -46,7 +50,6 @@ async function showProduct() {
         updateProduct(product);
     } catch (error) {
         messageHandle("error-message", "Si è verificato un errore nel caricamento del prodotto. Prova a ricaricare la pagina");
-        console.log(error)
     }
 }
 
@@ -101,7 +104,7 @@ async function sendData (obj) {
         await fetch (url + productId, {
             method: "PUT",
             headers: {
-                "Content-Type": "application:json",
+                "Content-Type": "application/json",
                 "Authorization": apiKey,
             },
             body: JSON.stringify(obj),
@@ -109,7 +112,7 @@ async function sendData (obj) {
         loader.classList.add("d-none");
         messageHandle("success-message", "Prodotto modificato con successo", true);
     } catch (error) {
+        loader.classList.add("d-none");
         messageHandle("error-message", "Si è verificato un errore nella modifica del prodotto. Riprova", true);
-        console.log(error)
     }
 }

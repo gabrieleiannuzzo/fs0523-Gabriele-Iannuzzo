@@ -1,8 +1,4 @@
-let apiKey = " Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTRlMTEyZTMyNWM5NzAwMTg3ZjlmZTYiLCJpYXQiOjE2OTk2MTUwMjIsImV4cCI6MTcwMDgyNDYyMn0.R5RBuhRA3qqu2SpJbbKquMjlimyliws3H3IK9JwOFV0";
-let url = "https://striveschool-api.herokuapp.com/api/product/";
-
-let main = document.querySelector("main");
-let inputs = main.querySelectorAll("form input, form textarea");
+let inputs = document.querySelectorAll("main form input, main form textarea");
 let resetConfirmBtn = document.getElementById("reset-confirm-btn");
 let saveBtn = document.getElementById("save-btn");
 
@@ -44,11 +40,10 @@ saveBtn.addEventListener("click", () => {
     }
 });
 
-async function createProduct (product) {
-    let loader = document.getElementById("loader");
-    loader.classList.remove("d-none");
-
+async function createProduct (product) {    
     try {
+        let loader = document.getElementById("loader");
+        loader.classList.remove("d-none");
         await fetch(url, {
             method: "POST",
             headers: {

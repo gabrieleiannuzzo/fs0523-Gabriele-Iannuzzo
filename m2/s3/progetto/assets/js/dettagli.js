@@ -1,20 +1,24 @@
-const apiKey = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTRlMTEyZTMyNWM5NzAwMTg3ZjlmZTYiLCJpYXQiOjE2OTk2MTUwMjIsImV4cCI6MTcwMDgyNDYyMn0.R5RBuhRA3qqu2SpJbbKquMjlimyliws3H3IK9JwOFV0";
-const url = "https://striveschool-api.herokuapp.com/api/product/";
 const searchParams = new URLSearchParams(window.location.search);
 const productId = searchParams.get("productId");
 
 fillPage();
 
 async function fillPage() {
-    let response = await fetch(url + productId, {
-        headers: {
-            "Authorization": apiKey,
-        }
-    });
-
-    let data = await response.json();
-
-    HTMLHandle(data);
+    try {
+        const loader = document.getElementById("loader");
+        loader.classList.remove("d-none");
+        let response = await fetch(url + productId, {
+            headers: {
+                "Authorization": apiKey,
+            }
+        });
+        loader.classList.add("d-none");
+    
+        let data = await response.json();
+        HTMLHandle(data);
+    } catch (error) {
+        messageHandle("error-message", "Si è verificato un errore nel trovare i dati del prodotto. Prova a ricaricare la pagina");
+    }
 }
 
 function HTMLHandle(data) {
