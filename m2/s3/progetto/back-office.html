@@ -2,93 +2,97 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shop online</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop online</title>
 
-  <!-- FONTAWESOME -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- FONTAWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!-- FONTS -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Orbitron&display=swap" rel="stylesheet">
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Orbitron&display=swap" rel="stylesheet">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/css/style.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.min.css">
 </head>
 
 <body>
-  <header>
-    <div class="container-fluid py-2">
-      <div class="d-inline-block text-center">
-        <p id="iannuzzo" class="text-white mb-0 h5">IANNUZZO</p>
-        <p id="auto" class="text-white mb-0 h6">AUTO</p>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <div class="container px-sm-0">
-      <div class="title d-flex justify-content-between align-items-center py-2 mb-3">
-        <div class="d-flex align-items-center">
-          <h1 class="m-0">Back office</h1>
-          <div class="spinner-border ms-3 d-none" role="status" id="loader"></div>
-        </div>
-
-        <a href="crea-prodotto.html" class="edit d-block">
-          <div class="d-flex justify-content-center align-items-center">
-            <i class="fas fa-plus"></i>
-          </div>
-        </a>
-      </div>
-
-      <div id="back-office-div">
-        <div class="product row">
-            <p class="col-4 col-md-3 product-name">F1-75</p>
-            <p class="col-4 col-md-3 product-brand">Ferrari</p>
-            <p class="col-4 col-md-3 product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad sint possimus, perferendis eius ut unde iste omnis distinctio commodi. Assumenda eos deserunt dolore vero quae cumque sunt itaque aut saepe?</p>
-            <div class="col-4 col-md-3 text-end">
-                <button><i class="fas fa-pen"></i></button>
-                <button><i class="fas fa-trash-alt"></i></button>
+    <header>
+        <div class="container-fluid py-2">
+            <div class="d-inline-block text-center">
+                <p id="iannuzzo" class="text-white mb-0 h5">IANNUZZO</p>
+                <p id="auto" class="text-white mb-0 h6">AUTO</p>
             </div>
         </div>
-        <div class="product row">
-            <p class="col-4 col-md-3 product-name">F1-75</p>
-            <p class="col-4 col-md-3 product-brand">Ferrari</p>
-            <p class="col-4 col-md-3 product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad sint possimus, perferendis eius ut unde iste omnis distinctio commodi. Assumenda eos deserunt dolore vero quae cumque sunt itaque aut saepe?</p>
-            <div class="col-4 col-md-3 text-end">
-                <button><i class="fas fa-pen"></i></button>
-                <button><i class="fas fa-trash-alt"></i></button>
+    </header>
+
+    <main class="pb-5">
+        <div class="container px-sm-0">
+            <div class="title d-flex justify-content-between align-items-center py-2 mb-3">
+                <div class="d-flex align-items-center">
+                    <h1 class="m-0">Back office</h1>
+                    <div class="spinner-border ms-3 d-none" role="status" id="loader"></div>
+                </div>
+
+                <a href="crea-prodotto.html" class="edit d-block">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <i class="fas fa-plus"></i>
+                    </div>
+                </a>
+            </div>
+
+            <div id="back-office-div" class="pb-3 mb-3">
+                <div class="product row first py-2 px-2 g-0 align-items-center car">
+                    <p class="col-4 col-md-2 mb-0 product-name">MODELLO</p>
+                    <p class="col-4 col-md-2 mb-0 product-brand">MARCA</p>
+                    <p class="col-4 col-md-6 mb-0 hide product-description">DESCRIZIONE</p>
+                </div>
+            </div>
+            <a href="index.html" class="text-black" id="shop-link">Vai allo shop</a>
+        </div>
+    </main>
+
+    <!-- Messages -->
+    <div class="alert alert-success position-fixed mb-0 text-white d-none my-alert" role="alert"></div>
+
+    <!-- Modals -->
+    <div class="modal fade" id="delete-modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modalLabel">Sei sicuro di voler eliminare il prodotto?</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Annulla</button>
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal"
+                        id="delete-confirm-btn">Conferma</button>
+                </div>
             </div>
         </div>
-      </div>
     </div>
-  </main>
 
-  <!-- Messages -->
-  <div class="alert alert-success position-fixed mb-0 text-white d-none my-alert" role="alert"></div>
-
-  <template id="product-template">
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center mb-2">
-      <div class="card" style="width: 18rem;">
-        <img src="https://picsum.photos/1920/1080" class="card-img-top" alt="foto prodotto">
-        <div class="card-body">
-          <h5 class="card-title product-title"></h5>
-          <p class="card-text product-price"></p>
-          <a href="#" class="btn btn-warning text-white me-1 details-btn">DETTAGLI</a>
-          <a href="#" class="btn btn-primary edit-btn">MODIFICA</a>
-          <button class="btn btn-orange text-white mt-2 add-to-cart-btn">ACQUISTA AUTO</button>
+    <template id="product-template">
+        <div class="product row py-2 px-2 g-0 align-items-center car">
+            <p class="col-4 col-md-2 mb-0 product-name"></p>
+            <p class="col-4 col-md-2 mb-0 product-brand"></p>
+            <p class="col-4 col-md-6 mb-0 hide product-description"></p>
+            <div class="col-4 col-md-2 text-end">
+                <button class="edit-btn"><i class="fas fa-pen"></i></button>
+                <button class="delete-btn" type="button" data-bs-toggle="modal"
+                data-bs-target="#delete-modal"><i class="fas fa-trash-alt"></i></button>
+            </div>
         </div>
-      </div>
-    </div>
-  </template>
+    </template>
 
-  <script src="assets/js/funzioni.js"></script>
-  <script src="assets/js/back-office.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/funzioni.js"></script>
+    <script src="assets/js/back-office.js"></script>
 </body>
 
 </html>

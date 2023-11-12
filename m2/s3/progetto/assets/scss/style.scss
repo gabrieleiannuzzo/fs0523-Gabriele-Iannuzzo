@@ -112,19 +112,70 @@ main{
 }
 
 #back-office-div{
+    border-bottom: 1px solid black;
     .product{
         p, div{
-            // flex: 0 0 25%;
             font-weight: 700;
         }
-        .product-description{
-            display: none;
+        .product-name, .product-brand, .product-description{
             -webkit-box-orient: vertical;
             overflow: hidden;
             -webkit-line-clamp: 1;
+        }
+        .product-description{
+            display: none;
             @media screen and (min-width: 768px){
                 display: -webkit-box;
             }
         }
+        .edit-btn{
+            background-color: blue;
+            color: white;
+            border: none;
+            height: 30px;
+            width: 30px;
+            &:hover{
+                background-color: lighten(blue, 15);
+            }
+        }
+        .delete-btn{
+            background-color: red;
+            color: white;
+            border: none;
+            height: 30px;
+            width: 30px;
+            &:hover{
+                background-color: lighten(red, 15);
+            }
+        }
+    }
+    .car{
+        border: 1px solid black;
+        border-top: none;
+    }
+    .first{
+        border-top: 1px solid black;
+    }
+    .grey{
+        background-color: rgba(214, 214, 214, 0.5);
+    }
+}
+
+#legend{
+    font-weight: 700;
+    background-color: blue;
+    .product-description-legend{
+        display: none;
+        @media screen and (min-width: 768px){
+            display: block;
+        }
+    }
+}
+
+#shop-link{
+    text-decoration: none;
+    font-weight: 500;
+    &:hover{
+        text-decoration: underline;
     }
 }
