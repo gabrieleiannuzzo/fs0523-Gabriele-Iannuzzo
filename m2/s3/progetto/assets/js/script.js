@@ -14,14 +14,16 @@ class Car {
 
     HTMLInit () {
         const title = this.clone.querySelector(".product-title");
+        const brand = this.clone.querySelector(".car-brand");
         const price = this.clone.querySelector(".product-price");
         const img = this.clone.querySelector("img");
         const detailsBtn = this.clone.querySelector(".details-btn");
         const editBtn = this.clone.querySelector(".edit-btn");
         this.clone.setAttribute("product-id", this.id);
 
-        title.innerHTML = `${this.name} | <span>${this.brand}</span>`;
-        price.innerHTML = `${this.price}€`;
+        title.innerText = this.name;
+        brand.innerText = this.brand;
+        price.innerText = `${this.price}€`;
         img.src = this.imgUrl;
 
         detailsBtn.href = `./dettagli.html?productId=${this.id}`;

@@ -35,11 +35,15 @@ main{
         border-bottom: 1px solid black;
     }
     .card{
+        .car-photo{
+            height: 200px;
+            object-fit: cover;
+        }
+        .car-brand{
+            font-weight: 400;
+        }
         .card-title{
             font-weight: 700;
-            span{
-                font-weight: 400;
-            }
         }
         .product-price{
             font-weight: bold;
@@ -182,4 +186,9 @@ main{
     &:hover{
         text-decoration: underline;
     }
+}
+
+.car-photo {
+    height: 200px;
+    object-fit: cover;
 }
