@@ -1,5 +1,5 @@
 // CLASSE DEI PRODOTTI DELLA HOMEPAGE
-class Product {
+class Car {
     constructor(name, brand, price, imgUrl, id, template, target){
         this.name = name;
         this.brand = brand;
@@ -48,7 +48,7 @@ async function getProducts () {
         const target = document.getElementById("row");
     
         for (let i = 0; i < products.length; i++) {
-            new Product(products[i].name, products[i].brand, setPoints(products[i].price), products[i].imageUrl, products[i]["_id"], template, target);
+            new Car(products[i].name, products[i].brand, setPoints(products[i].price), products[i].imageUrl, products[i]["_id"], template, target);
         }
     } catch (error) {
         messageHandle("error-message", "Si è verificato un errore nel caricamento dei prodotti. Prova a ricaricare la pagina");
@@ -58,3 +58,4 @@ async function getProducts () {
 getProducts();
 
 // PROVARE A METTERE TUTTI I FETCH DENTRO UN'UNICA FUNZIONE
+// AGGIUNGERE TRY/CATCH E LOADER NEL BACK OFFICE

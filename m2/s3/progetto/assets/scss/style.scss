@@ -113,17 +113,32 @@ main{
 
 #back-office-div{
     border-bottom: 1px solid black;
-    .product{
+    #legend{
         p, div{
             font-weight: 700;
+        }
+    }
+    .product{
+        p, div{
+            font-weight: 500;
+        }
+        .product-name, .product-brand{
+            display: -webkit-box;
         }
         .product-name, .product-brand, .product-description{
             -webkit-box-orient: vertical;
             overflow: hidden;
             -webkit-line-clamp: 1;
         }
-        .product-description{
+        .product-price, .product-description{
             display: none;
+        }
+        .product-price{
+            @media screen and (min-width: 576px){
+                display: -webkit-box;
+            }
+        }
+        .product-description{
             @media screen and (min-width: 768px){
                 display: -webkit-box;
             }
@@ -158,17 +173,6 @@ main{
     }
     .grey{
         background-color: rgba(214, 214, 214, 0.5);
-    }
-}
-
-#legend{
-    font-weight: 700;
-    background-color: blue;
-    .product-description-legend{
-        display: none;
-        @media screen and (min-width: 768px){
-            display: block;
-        }
     }
 }
 
