@@ -25,30 +25,26 @@ class Car {
         img.src = this.imgUrl;
 
         detailsBtn.href = `./dettagli.html?productId=${this.id}`;
-        editBtn.href = `./modifica-prodotto.html?productId=${this.id}`;
+        editBtn.href = `./modifica-auto.html?productId=${this.id}`;
         
         this.target.append(this.clone);
     }
 }
 
 // FETCH E FUNZIONALITA DELLA PAGINA NON APPENA IL FETCH VIENE ESEGUITO
-async function getProducts () {
+async function getCars () {
     try {
         const loader = document.getElementById("loader");
         loader.classList.remove("d-none");
-        const response = await fetch (url, {
-            headers: {
-                "Authorization": apiKey,
-            }
-        });
-        const products = await response.json();
+
+        const data = await new DataLoader(url, apiKey).fetchData();
     
         loader.classList.add("d-none");
         const template = document.getElementById("product-template");
         const target = document.getElementById("row");
     
-        for (let i = 0; i < products.length; i++) {
-            new Car(products[i].name, products[i].brand, setPoints(products[i].price), products[i].imageUrl, products[i]["_id"], template, target);
+        for (let i = 0; i < data.length; i++) {
+            new Car(data[i].name, data[i].brand, setPoints(data[i].price), data[i].imageUrl, data[i]["_id"], template, target);
         }
     } catch (error) {
         // IN ALCUNI CATCH AGGIUNGERO LA CLASSE "D-NONE" MENTRE IN ALTRI NO, IN BASE ALLE TIPOLOGIE DI ERRORE
@@ -56,4 +52,4 @@ async function getProducts () {
     }
 }
 
-getProducts();
+getCars();

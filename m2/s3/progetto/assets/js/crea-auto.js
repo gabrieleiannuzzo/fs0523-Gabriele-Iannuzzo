@@ -3,7 +3,7 @@ let resetConfirmBtn = document.getElementById("reset-confirm-btn");
 let saveBtn = document.getElementById("save-btn");
 
 resetConfirmBtn.addEventListener("click", () => {
-    for (let input of inputs) input.value = "";
+    inputs.forEach(input => input.value = "");
 });
 
 saveBtn.addEventListener("click", () => {
@@ -28,7 +28,7 @@ saveBtn.addEventListener("click", () => {
         let imageUrlInput = document.getElementById("image-url-input");
         let descriptionInput = document.getElementById("description-input");
 
-        let product = {
+        let car = {
             name: nameInput.value,
             brand: brandInput.value,
             price: priceInput.value,
@@ -36,22 +36,16 @@ saveBtn.addEventListener("click", () => {
             description: descriptionInput.value
         }
 
-        createProduct(product);
+        createCar(car);
     }
 });
 
-async function createProduct (product) {    
+async function createCar (car) {    
     try {
         let loader = document.getElementById("loader");
         loader.classList.remove("d-none");
-        await fetch(url, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": apiKey,
-            },
-            body: JSON.stringify(product),
-        });
+
+        await new DataLoader(url, apiKey, "POST", car).fetchData();
 
         loader.classList.add("d-none");
         inputs.forEach(input => input.value = "");

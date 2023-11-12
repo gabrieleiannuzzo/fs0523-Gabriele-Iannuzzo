@@ -3,57 +3,47 @@ const productId = searchParams.get("productId");
 
 const deleteConfirmBtn = document.getElementById("delete-confirm-btn");
 const resetConfirmBtn = document.getElementById("reset-confirm-btn");
-const main = document.querySelector("main");
-const inputs = main.querySelectorAll("form input, form textarea");
+const inputs = document.querySelectorAll("main form input, main form textarea");
 const loader = document.getElementById("loader");
 
 deleteConfirmBtn.addEventListener("click", () => {
-    deleteProduct();
+    deleteCar();
 });
 
 resetConfirmBtn.addEventListener("click", () => {
-    for (let input of inputs) input.value = "";
+    inputs.forEach(input => input.value = "");
 });
 
-showProduct();
+showCar();
 
-async function deleteProduct() {
+async function deleteCar() {
     try {
         loader.classList.remove("d-none");
-        const response = await fetch(url + productId, {
-            method: "DELETE",
-            headers: {
-                "Authorization": apiKey,
-            }
-        });
+
+        await new DataLoader(url + productId, apiKey, "DELETE").fetchData();
     
-        location.href = "index.html";
+        location.href = "./index.html";
     } catch (error) {
         loader.classList.add("d-none");
         messageHandle("error-message", "Si è verificato un errore nell'eliminazione dell'auto. Riprova", true);
     }
 }
 
-async function showProduct() {
+async function showCar() {
     try {
         loader.classList.remove("d-none");
 
-        const response = await fetch(url + productId, {
-            headers: {
-                "Authorization": apiKey,
-            }
-        });
-        const product = await response.json();
+        const car = await new DataLoader(url + productId, apiKey).fetchData();
 
         loader.classList.add("d-none");
 
-        updateProduct(product);
+        updateCar(car);
     } catch (error) {
-        messageHandle("error-message", "Si è verificato un errore nel caricamento del prodotto. Prova a ricaricare la pagina");
+        messageHandle("error-message", "Si è verificato un errore nel caricamento dei dati dell'auto. Prova a ricaricare la pagina");
     }
 }
 
-function updateProduct (product) {
+function updateCar (car) {
     const h1 = document.querySelector("h1");
     const nameInput = document.getElementById("name-input");
     const brandInput = document.getElementById("brand-input");
@@ -62,12 +52,12 @@ function updateProduct (product) {
     const descriptionInput = document.getElementById("description-input");
     const saveBtn = document.querySelector(".save-btn");
 
-    h1.innerText = `Modifica auto: "${product.name}"`;
-    nameInput.value = product.name;
-    brandInput.value = product.brand;
-    priceInput.value = product.price;
-    imageUrlInput.value = product.imageUrl;
-    descriptionInput.value = product.description;
+    h1.innerText = `Modifica auto: "${car.name}"`;
+    nameInput.value = car.name;
+    brandInput.value = car.brand;
+    priceInput.value = car.price;
+    imageUrlInput.value = car.imageUrl;
+    descriptionInput.value = car.description;
 
     saveBtn.addEventListener("click", () => {
         let formValid = true;
@@ -85,7 +75,7 @@ function updateProduct (product) {
         }
 
         if (formValid) {
-            let obj = {
+            const car = {
                 name: nameInput.value,
                 brand: brandInput.value,
                 price: priceInput.value,
@@ -93,22 +83,17 @@ function updateProduct (product) {
                 description: descriptionInput.value
             }
 
-            sendData(obj);
+            sendData(car);
         }
     });
 }
 
-async function sendData (obj) {
+async function sendData (car) {
     try {
         loader.classList.remove("d-none");
-        await fetch (url + productId, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": apiKey,
-            },
-            body: JSON.stringify(obj),
-        });
+
+        await new DataLoader(url + productId, apiKey, "PUT", car).fetchData();
+
         loader.classList.add("d-none");
         messageHandle("success-message", "Auto modificata con successo", true);
     } catch (error) {

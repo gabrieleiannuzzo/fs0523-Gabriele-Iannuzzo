@@ -7,17 +7,13 @@ async function fillPage() {
     try {
         const loader = document.getElementById("loader");
         loader.classList.remove("d-none");
-        let response = await fetch(url + productId, {
-            headers: {
-                "Authorization": apiKey,
-            }
-        });
+
+        const data = await new DataLoader(url + productId, apiKey).fetchData();
+
         loader.classList.add("d-none");
-    
-        let data = await response.json();
         HTMLHandle(data);
     } catch (error) {
-        messageHandle("error-message", "Si è verificato un errore nel recuperare i dati dell'auto. Prova a ricaricare la pagina");
+        messageHandle("error-message", "Si è verificato un errore nel caricamento dei dati dell'auto. Prova a ricaricare la pagina");
     }
 }
 
@@ -32,7 +28,7 @@ function HTMLHandle(data) {
     h1.innerText = `Dettagli - "${data.name}"`;
     img.src = data.imageUrl;
     title.innerText = data.name;
-    brand.innerText = `(${data.brand})`;
+    brand.innerText = data.brand;
     description.innerText = data.description;
     price.innerText = `${setPoints(data.price)}€`;
 }

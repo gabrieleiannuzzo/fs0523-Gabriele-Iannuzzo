@@ -24,11 +24,6 @@ class Car {
         const deleteBtn = this.clone.querySelector(".delete-btn");
         this.clone.setAttribute("product-id", this.id);
         const modal = document.getElementById("delete-modal");
-        console.log(name)
-        console.log(brand)
-        console.log(price)
-        console.log(description)
-        console.log(deleteBtn)
 
         if (this.grey) this.clone.classList.add("grey");
         name.innerText = this.name;
@@ -36,7 +31,7 @@ class Car {
         price.innerText = `${setPoints(this.price)}€`;
         description.innerText = this.description;
 
-        editBtn.href = `./modifica-prodotto.html?productId=${this.id}`;
+        editBtn.href = `./modifica-auto.html?productId=${this.id}`;
         deleteBtn.addEventListener("click", () => {
             modal.setAttribute("product-id", this.id);
         })
@@ -52,22 +47,16 @@ async function fetchData() {
         // DISTRUGGO E RICREO SEMPRE LA LISTA DI MACCHINE PER 2 MOTIVI:
         // - SE QUALCHE ALTRO IPOTETICO ADMIN, CONTEMPORANEAMENTE A ME, HA AGGIUNTO O RIMOSSO ALTRE MACCHINE, DEVO AVERE IL DATO AGGIORNATO
         // - L'ALTERNANZA DI COLORI GRIGIO/BIANCO DELLA LISTA RIMANE CORRETTA
-        let products = document.querySelectorAll(".product:not(#legend)");
+        const products = document.querySelectorAll(".product:not(#legend)");
         for (let product of products) product.remove();
 
-        const response = await fetch(url, {
-            headers: {
-                "Authorization": apiKey,
-            }
-        });
-        const data = await response.json();
+        const data = await new DataLoader(url, apiKey).fetchData();
 
         loader.classList.add("d-none");
 
         const template = document.getElementById("car-template");
         const target = document.getElementById("back-office-div");
         let grey;
-        console.log(data);
 
         for (let i = 0; i < data.length; i++) {
             if (i % 2 == 0) {
@@ -87,12 +76,7 @@ async function deleteCar(id) {
     try {
         loader.classList.remove("d-none");
         
-        await fetch(url + id, {
-            method: "DELETE",
-            headers: {
-                "Authorization": apiKey,
-            }
-        });
+        await new DataLoader(url + id, apiKey, "DELETE").fetchData();
 
         messageHandle("success-message", "Auto eliminata con successo", true);
         
