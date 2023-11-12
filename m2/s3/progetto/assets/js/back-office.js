@@ -1,6 +1,8 @@
+const loader = document.getElementById("loader");
+
 // CLASSE DELLE MACCHINE DEL BACK OFFICE
 class Car {
-    constructor(name, brand, price, description, id, template, target, grey){
+    constructor(name, brand, price, description, id, template, target, grey) {
         this.name = name;
         this.brand = brand;
         this.price = price;
@@ -13,7 +15,7 @@ class Car {
         this.HTMLInit();
     }
 
-    HTMLInit () {
+    HTMLInit() {
         const name = this.clone.querySelector(".product-name");
         const brand = this.clone.querySelector(".product-brand");
         const price = this.clone.querySelector(".product-price");
@@ -38,50 +40,68 @@ class Car {
         deleteBtn.addEventListener("click", () => {
             modal.setAttribute("product-id", this.id);
         })
-        
+
         this.target.append(this.clone);
     }
 }
 
-async function fetchData () {
-    // DISTRUGGO E RICREO SEMPRE LA LISTA DI MACCHINE PER 2 MOTIVI:
-    // - SE QUALCHE ALTRO IPOTETICO ADMIN, CONTEMPORANEAMENTE A ME, HA AGGIUNTO O RIMOSSO ALTRE MACCHINE, DEVO AVERE IL DATO AGGIORNATO
-    // - L'ALTERNANZA DI COLORI GRIGIO/BIANCO DELLA LISTA RIMANE CORRETTA
-    let products = document.querySelectorAll(".product:not(#legend)");
-    for (let product of products) product.remove();
+async function fetchData() {
+    try {
+        loader.classList.remove("d-none");
 
-    const response = await fetch(url, {
-        headers: {
-            "Authorization": apiKey,
+        // DISTRUGGO E RICREO SEMPRE LA LISTA DI MACCHINE PER 2 MOTIVI:
+        // - SE QUALCHE ALTRO IPOTETICO ADMIN, CONTEMPORANEAMENTE A ME, HA AGGIUNTO O RIMOSSO ALTRE MACCHINE, DEVO AVERE IL DATO AGGIORNATO
+        // - L'ALTERNANZA DI COLORI GRIGIO/BIANCO DELLA LISTA RIMANE CORRETTA
+        let products = document.querySelectorAll(".product:not(#legend)");
+        for (let product of products) product.remove();
+
+        const response = await fetch(url, {
+            headers: {
+                "Authorization": apiKey,
+            }
+        });
+        const data = await response.json();
+
+        loader.classList.add("d-none");
+
+        const template = document.getElementById("car-template");
+        const target = document.getElementById("back-office-div");
+        let grey;
+        console.log(data);
+
+        for (let i = 0; i < data.length; i++) {
+            if (i % 2 == 0) {
+                grey = true;
+            } else {
+                grey = false;
+            }
+
+            new Car(data[i].name, data[i].brand, data[i].price, data[i].description, data[i]["_id"], template, target, grey);
         }
-    });
-    const data = await response.json();
-
-    const template = document.getElementById("car-template");
-    const target = document.getElementById("back-office-div");
-    let grey;
-    console.log(data);
-
-    for (let i = 0; i < data.length; i++) {
-        if (i % 2 == 0) {
-            grey = true;
-        } else {
-            grey = false;
-        }
-
-        new Car(data[i].name, data[i].brand, data[i].price, data[i].description, data[i]["_id"], template, target, grey);
+    } catch (error) {
+        messageHandle("error-message", "Si è verificato un errore nel caricamento dei contenuti. Prova a ricaricare la pagina");
     }
 }
 
-async function deleteCar (id) {
-    await fetch(url + id, {
-        method: "DELETE",
-        headers: {
-            "Authorization": apiKey,
-        }
-    });
+async function deleteCar(id) {
+    try {
+        loader.classList.remove("d-none");
+        
+        await fetch(url + id, {
+            method: "DELETE",
+            headers: {
+                "Authorization": apiKey,
+            }
+        });
 
-    fetchData();
+        messageHandle("success-message", "Auto eliminata con successo", true);
+        
+        // NON AGGIUNGO NUOVAMENTE LA CLASSE "D-NONE" AL LOADER PERCHE TANTO DEVE PARTIRE NUOVAMENTE LA FUNZIONE FETCHDATA, CHE COME PRIMA AZIONE RIMUOVE LA CLASSE "D-NONE". DI CONSEGUENZA, AGGIUNGO LA CLASSE DIRETTAMENTE NEL CATCH
+        fetchData();
+    } catch {
+        loader.classList.add("d-none");
+        messageHandle("error-message", "Si è verificato un errore nell'eliminazione dell'auto. Riprova", true);
+    }
 }
 
 const modal = document.getElementById("delete-modal");

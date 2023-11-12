@@ -30,7 +30,7 @@ async function deleteProduct() {
         location.href = "index.html";
     } catch (error) {
         loader.classList.add("d-none");
-        messageHandle("error-message", "Si è verificato un errore nell'eliminazione del prodotto. Riprova", true);
+        messageHandle("error-message", "Si è verificato un errore nell'eliminazione dell'auto. Riprova", true);
     }
 }
 
@@ -110,9 +110,9 @@ async function sendData (obj) {
             body: JSON.stringify(obj),
         });
         loader.classList.add("d-none");
-        messageHandle("success-message", "Prodotto modificato con successo", true);
+        messageHandle("success-message", "Auto modificata con successo", true);
     } catch (error) {
         loader.classList.add("d-none");
-        messageHandle("error-message", "Si è verificato un errore nella modifica del prodotto. Riprova", true);
+        messageHandle("error-message", "Si è verificato un errore nella modifica dell'auto. Riprova", true);
     }
 }

@@ -51,11 +51,9 @@ async function getProducts () {
             new Car(products[i].name, products[i].brand, setPoints(products[i].price), products[i].imageUrl, products[i]["_id"], template, target);
         }
     } catch (error) {
-        messageHandle("error-message", "Si è verificato un errore nel caricamento dei prodotti. Prova a ricaricare la pagina");
+        // IN ALCUNI CATCH AGGIUNGERO LA CLASSE "D-NONE" MENTRE IN ALTRI NO, IN BASE ALLE TIPOLOGIE DI ERRORE
+        messageHandle("error-message", "Si è verificato un errore nel caricamento dei contenuti. Prova a ricaricare la pagina");
     }
 }
 
 getProducts();
-
-// PROVARE A METTERE TUTTI I FETCH DENTRO UN'UNICA FUNZIONE
-// AGGIUNGERE TRY/CATCH E LOADER NEL BACK OFFICE

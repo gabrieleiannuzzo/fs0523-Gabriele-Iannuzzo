@@ -17,7 +17,7 @@ async function fillPage() {
         let data = await response.json();
         HTMLHandle(data);
     } catch (error) {
-        messageHandle("error-message", "Si è verificato un errore nel trovare i dati del prodotto. Prova a ricaricare la pagina");
+        messageHandle("error-message", "Si è verificato un errore nel recuperare i dati dell'auto. Prova a ricaricare la pagina");
     }
 }
 
