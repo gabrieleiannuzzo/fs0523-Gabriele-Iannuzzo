@@ -62,7 +62,7 @@ function updateProduct (product) {
     const descriptionInput = document.getElementById("description-input");
     const saveBtn = document.querySelector(".save-btn");
 
-    h1.innerText = `Modifica prodotto: "${product.name}"`;
+    h1.innerText = `Modifica auto: "${product.name}"`;
     nameInput.value = product.name;
     brandInput.value = product.brand;
     priceInput.value = product.price;

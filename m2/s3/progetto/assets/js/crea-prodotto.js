@@ -56,9 +56,9 @@ async function createProduct (product) {
         loader.classList.add("d-none");
         inputs.forEach(input => input.value = "");
         
-        messageHandle("success-message", "Prodotto creato con successo", true);
+        messageHandle("success-message", "Auto inserita con successo", true);
     } catch (error) {
         loader.classList.add("d-none");
-        messageHandle("error-message", "Si è verificato un errore nella creazione del prodotto. Riprova", true);
+        messageHandle("error-message", "Si è verificato un errore nell'inserimento dell'auto. Riprova", true);
     }
 }

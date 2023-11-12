@@ -4,7 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop online | Crea prodotto</title>
+    <title>Shop online | Inserisci prodotto</title>
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Orbitron&display=swap" rel="stylesheet">
 
     <!-- CSS -->
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
@@ -13,15 +18,19 @@
 
 <body>
     <header>
-        <div class="container-fluid py-2">
-            <img src="assets/images/logo.png">
+        <div class="container-fluid py-2 d-flex justify-content-between align-items-center">
+            <div class="d-inline-block text-center">
+                <p id="iannuzzo" class="text-white mb-0 h5">IANNUZZO</p>
+                <p id="auto" class="text-white mb-0 h6">AUTO</p>
+            </div>
+            <a href="#" class="text-white" id="back-office-link">BACK OFFICE</a>
         </div>
     </header>
 
     <main id="crea-prodotto-main">
         <div class="container pb-5">
             <div class="d-flex title align-items-center">
-                <h1 class="py-2">Crea nuovo prodotto</h1>
+                <h1 class="py-2">Inserisci nuova auto</h1>
                 <div class="spinner-border ms-3 d-none" role="status" id="loader"></div>
             </div>
 

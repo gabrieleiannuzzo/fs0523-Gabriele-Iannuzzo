@@ -23,12 +23,11 @@
 
 <body>
   <header>
-    <div class="container-fluid py-2 d-flex justify-content-between align-items-center">
+    <div class="container-fluid py-2">
       <div class="d-inline-block text-center">
         <p id="iannuzzo" class="text-white mb-0 h5">IANNUZZO</p>
         <p id="auto" class="text-white mb-0 h6">AUTO</p>
       </div>
-      <a href="#" class="text-white" id="back-office-link">BACK OFFICE</a>
     </div>
   </header>
 
@@ -36,7 +35,7 @@
     <div class="container px-sm-0">
       <div class="title d-flex justify-content-between align-items-center py-2 mb-3">
         <div class="d-flex align-items-center">
-          <h1 class="m-0">Le nostre auto</h1>
+          <h1 class="m-0">Back office</h1>
           <div class="spinner-border ms-3 d-none" role="status" id="loader"></div>
         </div>
 
@@ -47,7 +46,25 @@
         </a>
       </div>
 
-      <div class="row g-0" id="row">
+      <div id="back-office-div">
+        <div class="product row">
+            <p class="col-4 col-md-3 product-name">F1-75</p>
+            <p class="col-4 col-md-3 product-brand">Ferrari</p>
+            <p class="col-4 col-md-3 product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad sint possimus, perferendis eius ut unde iste omnis distinctio commodi. Assumenda eos deserunt dolore vero quae cumque sunt itaque aut saepe?</p>
+            <div class="col-4 col-md-3 text-end">
+                <button><i class="fas fa-pen"></i></button>
+                <button><i class="fas fa-trash-alt"></i></button>
+            </div>
+        </div>
+        <div class="product row">
+            <p class="col-4 col-md-3 product-name">F1-75</p>
+            <p class="col-4 col-md-3 product-brand">Ferrari</p>
+            <p class="col-4 col-md-3 product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad sint possimus, perferendis eius ut unde iste omnis distinctio commodi. Assumenda eos deserunt dolore vero quae cumque sunt itaque aut saepe?</p>
+            <div class="col-4 col-md-3 text-end">
+                <button><i class="fas fa-pen"></i></button>
+                <button><i class="fas fa-trash-alt"></i></button>
+            </div>
+        </div>
       </div>
     </div>
   </main>
@@ -71,7 +88,7 @@
   </template>
 
   <script src="assets/js/funzioni.js"></script>
-  <script src="assets/js/script.js"></script>
+  <script src="assets/js/back-office.js"></script>
 </body>
 
 </html>

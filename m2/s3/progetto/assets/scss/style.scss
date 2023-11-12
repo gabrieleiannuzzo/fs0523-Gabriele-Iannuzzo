@@ -1,7 +1,16 @@
 header{
-    background-color: #232f3e;
-    img{
-        width: 120px;
+    background-color: #0a131e;
+    #iannuzzo{
+        font-family: 'Abril Fatface', serif;
+    }
+    #auto{
+        font-family: 'Orbitron', sans-serif;
+    }
+    a{
+        text-decoration: none;
+        &:hover{
+            text-decoration: underline;
+        }
     }
 }
 
@@ -37,7 +46,7 @@ main{
             font-size: 1.2rem;
         }
         .btn-orange{
-            background-color: orange;
+            background-color: red;
             &:hover{
                 background-color: rgb(234, 152, 0);
             }
@@ -94,6 +103,28 @@ main{
 
 #product-info{
     input{
-        height: 30px;
+        height: 25px;
+        width: 100px;
+    }
+    .section{
+        border-bottom: 1px solid black;
+    }
+}
+
+#back-office-div{
+    .product{
+        p, div{
+            // flex: 0 0 25%;
+            font-weight: 700;
+        }
+        .product-description{
+            display: none;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            -webkit-line-clamp: 1;
+            @media screen and (min-width: 768px){
+                display: -webkit-box;
+            }
+        }
     }
 }
