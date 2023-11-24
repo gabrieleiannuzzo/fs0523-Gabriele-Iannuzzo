@@ -151,11 +151,11 @@ class Table {
         const chiamate:Chiamata[] = array;
 
         chiamate.forEach(chiamata => {
-            const tr = document.createElement("tr");
-            const idTd = document.createElement("td");
-            const durationTd = document.createElement("td");
-            const dataTd = document.createElement("td");
-            const oraTd = document.createElement("td");
+            const tr:HTMLTableRowElement = document.createElement("tr");
+            const idTd:HTMLTableCellElement = document.createElement("td");
+            const durationTd:HTMLTableCellElement = document.createElement("td");
+            const dataTd:HTMLTableCellElement = document.createElement("td");
+            const oraTd:HTMLTableCellElement = document.createElement("td");
 
             idTd.innerText = String(chiamata.id);
             durationTd.innerText = String(chiamata.durata);
@@ -208,7 +208,6 @@ function numeriCorretti (numero:number):string {
     if (numero < 10) return "0" + numero;
     return numero.toString();
 }
-
 
 const telefono = new Smartphone(2);
 
