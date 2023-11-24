@@ -18,6 +18,8 @@ class Phone {
                 this.telephoneNumber.innerText = this.telephoneNumber.innerText.slice(0, -1);
         });
         this.call(telefono);
+        this.charge(telefono);
+        this.showCredit(telefono);
     }
     static call(telefono) {
         const callBtn = document.getElementById("call-btn");
@@ -26,6 +28,30 @@ class Phone {
             if (this.telephoneNumber)
                 this.telephoneNumber.innerText = "";
             new Table(telefono);
+        });
+    }
+    static charge(telefono) {
+        const chargeBtn = document.querySelector("header button");
+        const chargeAmount = document.querySelector("header input");
+        chargeBtn === null || chargeBtn === void 0 ? void 0 : chargeBtn.addEventListener("click", () => {
+            if (chargeAmount) {
+                if (chargeAmount.value) {
+                    telefono.ricarica(Number(chargeAmount.value));
+                    chargeAmount.value = "";
+                }
+            }
+        });
+    }
+    static showCredit(telefono) {
+        const creditBtn = document.querySelector("#credit-div button");
+        const credit = document.querySelector("#credit-div p");
+        creditBtn === null || creditBtn === void 0 ? void 0 : creditBtn.addEventListener("mouseenter", () => {
+            if (credit)
+                credit.innerText = telefono.numero404().replace("Credito residuo: ", "");
+            credit === null || credit === void 0 ? void 0 : credit.classList.remove("d-none");
+        });
+        creditBtn === null || creditBtn === void 0 ? void 0 : creditBtn.addEventListener("mouseleave", () => {
+            credit === null || credit === void 0 ? void 0 : credit.classList.add("d-none");
         });
     }
 }
@@ -41,21 +67,26 @@ class Smartphone {
         this.carica += euro;
     }
     numero404() {
-        return "Credito residuo: " + this.carica.toFixed(2) + "€";
+        return ("Credito residuo: " + this.carica.toFixed(2) + "€").replace(".", ",");
     }
     get getNumeroChiamate() {
         return this.numeroChiamate;
     }
     chiamata(min) {
-        this.numeroChiamate++;
-        const costoChiamata = min * this.costoMinuto;
-        this.carica -= costoChiamata;
-        const obj = {
-            id: this.registroChiamate.length + 1,
-            durata: min,
-            dataEOra: new Date().getTime(),
-        };
-        this.registroChiamate.push(obj);
+        if (this.carica >= 0.20) {
+            this.numeroChiamate++;
+            if ((min * this.costoMinuto) > this.carica) {
+                min = Math.floor(this.carica / this.costoMinuto);
+            }
+            const costoChiamata = min * this.costoMinuto;
+            this.carica -= costoChiamata;
+            const obj = {
+                id: this.numeroChiamate,
+                durata: min,
+                dataEOra: new Date().getTime(),
+            };
+            this.registroChiamate.push(obj);
+        }
     }
     azzeraChiamate() {
         this.numeroChiamate = 0;
@@ -92,13 +123,13 @@ class Table {
             idTd.innerText = String(chiamata.id);
             durationTd.innerText = String(chiamata.durata);
             const dataEOra = new Date(chiamata.dataEOra);
-            const giorno = Number(numeriCorretti(dataEOra.getDate()));
-            const mese = Number(numeriCorretti(dataEOra.getMonth() + 1));
-            const anno = Number(numeriCorretti(dataEOra.getFullYear()));
-            const ore = Number(numeriCorretti(dataEOra.getHours()));
-            const minuti = Number(numeriCorretti(dataEOra.getMinutes()));
-            const secondi = Number(numeriCorretti(dataEOra.getSeconds()));
-            dataTd.innerText = `${giorno}/${mese}/${anno}`;
+            const giorno = numeriCorretti(dataEOra.getDate());
+            const mese = numeriCorretti(dataEOra.getMonth() + 1);
+            const anno = numeriCorretti(dataEOra.getFullYear());
+            const ore = numeriCorretti(dataEOra.getHours());
+            const minuti = numeriCorretti(dataEOra.getMinutes());
+            const secondi = numeriCorretti(dataEOra.getSeconds());
+            dataTd.innerText = `${giorno}-${mese}-${anno}`;
             oraTd.innerText = `${ore}:${minuti}:${secondi}`;
             tr.append(idTd, durationTd, dataTd, oraTd);
             (_a = this.tbody) === null || _a === void 0 ? void 0 : _a.append(tr);
@@ -107,6 +138,7 @@ class Table {
     buttonsHandle() {
         const saveBtn = document.getElementById("save-btn");
         const resetBtn = document.getElementById("reset-btn");
+        const clearBtn = document.getElementById("clear-btn");
         const date1 = document.getElementById("date1");
         const date2 = document.getElementById("date2");
         saveBtn === null || saveBtn === void 0 ? void 0 : saveBtn.addEventListener("click", (e) => {
@@ -123,6 +155,11 @@ class Table {
                 date1.value = "";
             if (date2)
                 date2.value = "";
+        });
+        clearBtn === null || clearBtn === void 0 ? void 0 : clearBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            this.mobile.azzeraChiamate();
+            this.HTMLInit(this.mobile.mostraRegistroChiamate());
         });
     }
 }

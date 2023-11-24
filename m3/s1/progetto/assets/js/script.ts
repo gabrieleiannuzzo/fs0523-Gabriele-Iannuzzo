@@ -21,15 +21,45 @@ class Phone {
         });
 
         this.call(telefono);
+        this.charge(telefono);
+        this.showCredit(telefono);
     }
 
-    static call (telefono:Smartphone) {
+    private static call (telefono:Smartphone) {
         const callBtn:HTMLElement|null = document.getElementById("call-btn");
 
         callBtn?.addEventListener("click", () => {
             telefono.chiamata(Math.floor(Math.random() * 7) + 2); // inserisco un numero random di minuti compreso tra 2 e 8 perchè la durata delle chiamate con i call center si può aggirare intorno a questo intervallo, in base all'interesse verso il servizio
             if (this.telephoneNumber) this.telephoneNumber.innerText = "";
             new Table(telefono)
+        })
+    }
+
+    private static charge (telefono:Smartphone) {
+        const chargeBtn:HTMLButtonElement|null = document.querySelector("header button");
+        const chargeAmount:HTMLInputElement|null = document.querySelector("header input");
+
+        chargeBtn?.addEventListener("click", () => {
+            if (chargeAmount) {
+                if (chargeAmount.value) {
+                    telefono.ricarica(Number(chargeAmount.value));
+                    chargeAmount.value = "";
+                }
+            }
+        })
+    }
+
+    private static showCredit (telefono:Smartphone) {
+        const creditBtn:HTMLButtonElement|null = document.querySelector("#credit-div button");
+        const credit:HTMLParagraphElement|null = document.querySelector("#credit-div p") as HTMLParagraphElement|null;
+        
+        creditBtn?.addEventListener("mouseenter", () => {
+            if (credit) credit.innerText = telefono.numero404().replace("Credito residuo: ", "");
+            credit?.classList.remove("d-none");
+        })
+
+        creditBtn?.addEventListener("mouseleave", () => {
+            credit?.classList.add("d-none");
         })
     }
 }
@@ -42,7 +72,7 @@ interface ISim {
     ricarica(euro:number):void;
     numero404():string;
     get getNumeroChiamate():number;
-    chiamata(min:number, date:Date):void;
+    chiamata(min:number):void;
     azzeraChiamate():void;
 }
 
@@ -64,7 +94,7 @@ class Smartphone implements ISim {
     }
 
     public numero404():string {
-        return "Credito residuo: " + this.carica.toFixed(2) + "€";
+        return ("Credito residuo: " + this.carica.toFixed(2) + "€").replace(".", ",");
     }
 
     public get getNumeroChiamate():number {
@@ -72,16 +102,22 @@ class Smartphone implements ISim {
     }
 
     public chiamata(min:number):void {
-        this.numeroChiamate++;
-        const costoChiamata:number = min * this.costoMinuto;
-        this.carica -= costoChiamata;
+        if (this.carica >= 0.20) {
+            this.numeroChiamate++;
+            if ((min * this.costoMinuto) > this.carica) {
+                min = Math.floor(this.carica / this.costoMinuto);
+            }
 
-        const obj:Chiamata = {
-            id: this.registroChiamate.length + 1,
-            durata: min,
-            dataEOra: new Date().getTime(),
+            const costoChiamata:number = min * this.costoMinuto;
+            this.carica -= costoChiamata;
+    
+            const obj:Chiamata = {
+                id: this.numeroChiamate,
+                durata: min,
+                dataEOra: new Date().getTime(),
+            }
+            this.registroChiamate.push(obj);
         }
-        this.registroChiamate.push(obj);
     }
 
     public azzeraChiamate():void {
@@ -124,13 +160,13 @@ class Table {
             idTd.innerText = String(chiamata.id);
             durationTd.innerText = String(chiamata.durata);
             const dataEOra = new Date(chiamata.dataEOra);
-            const giorno:number = Number(numeriCorretti(dataEOra.getDate()));
-            const mese:number = Number(numeriCorretti(dataEOra.getMonth() + 1));
-            const anno:number = Number(numeriCorretti(dataEOra.getFullYear()));
-            const ore:number = Number(numeriCorretti(dataEOra.getHours()));
-            const minuti:number = Number(numeriCorretti(dataEOra.getMinutes()));
-            const secondi:number = Number(numeriCorretti(dataEOra.getSeconds()));
-            dataTd.innerText = `${giorno}/${mese}/${anno}`;
+            const giorno:string = numeriCorretti(dataEOra.getDate());
+            const mese:string = numeriCorretti(dataEOra.getMonth() + 1);
+            const anno:string = numeriCorretti(dataEOra.getFullYear());
+            const ore:string = numeriCorretti(dataEOra.getHours());
+            const minuti:string = numeriCorretti(dataEOra.getMinutes());
+            const secondi:string = numeriCorretti(dataEOra.getSeconds());
+            dataTd.innerText = `${giorno}-${mese}-${anno}`;
             oraTd.innerText = `${ore}:${minuti}:${secondi}`;
 
             tr.append(idTd, durationTd, dataTd, oraTd);
@@ -141,6 +177,7 @@ class Table {
     buttonsHandle () {
         const saveBtn:HTMLElement|null = document.getElementById("save-btn");
         const resetBtn:HTMLElement|null = document.getElementById("reset-btn");
+        const clearBtn:HTMLElement|null = document.getElementById("clear-btn");
         const date1:HTMLInputElement|null = document.getElementById("date1") as HTMLInputElement;
         const date2:HTMLInputElement|null = document.getElementById("date2") as HTMLInputElement;
 
@@ -157,6 +194,12 @@ class Table {
             e.preventDefault();
             if (date1) date1.value = "";
             if (date2) date2.value = "";
+        });
+
+        clearBtn?.addEventListener("click", (e) => {
+            e.preventDefault();
+            this.mobile.azzeraChiamate();
+            this.HTMLInit(this.mobile.mostraRegistroChiamate());
         })
     }
 }
