@@ -1,0 +1,76 @@
+.logo{
+    font-weight: 700;
+}
+main > div{
+    width: 45%;
+    background-color: rgb(218, 218, 218);
+    height: calc(100vh - 72px);
+}
+#telephone i{
+    cursor: pointer;
+}
+#telephone > div{
+    margin-bottom: 16px;
+    font-size: 1.5rem;
+    max-width: 692px;
+}
+#telephone div div{
+    font-size: 2.5rem;
+    background-color: #333;
+    color: white;
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    cursor: pointer;
+}
+#telephone div div:hover{
+    background-color: dodgerblue;
+}
+#div1{
+    border-right: 2px solid white;
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.5);
+}
+#div2{
+    box-shadow: 10px 0 10px rgba(0, 0, 0, 0.5);
+}
+#number{
+    height: 20px;
+}
+#telephone button{
+    background-color: #00ff00;
+    width: 272px;
+    height: 50px;
+    border-radius: 50px;
+    border: none;
+}
+#telephone button:hover{
+    background-color: green;
+}
+#table-container{
+    width: 80%;
+    height: 80%;
+    background-color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+form button{
+    background-color: rgb(41, 41, 255);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+form button:hover{
+    background-color: dodgerblue;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+    max-height: calc(100% - 96.8px);
+}
+table, th, td{
+    border: 1px solid black;
+}
+th, td{
+    padding: 0 5px;
+}

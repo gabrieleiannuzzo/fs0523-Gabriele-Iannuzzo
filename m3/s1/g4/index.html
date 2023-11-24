@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: space-between;
+        }
+        .card{
+            background-color: dodgerblue;
+            color: white;
+            padding: 20px;
+        }
+        h1, h2, p{
+            margin: 0;
+            margin-bottom: 10px;
+        }
+        p{
+            display: inline;
+            margin-right: 20px;
+            font-size: 1.5rem;
+        }
+        .deleted{
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <template>
+        <div class="card">
+            <h1 class="title"></h1>
+            <h2 class="color"></h2>
+            <h2 class="collection"></h2>
+            <p class="deleted"></p>
+            <p class="discounted"></p>
+        </div>
+    </template>
+
+    <script type="module" src="assets/js/script.js"></script>
+</body>
+</html>

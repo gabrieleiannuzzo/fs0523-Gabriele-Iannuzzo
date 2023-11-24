@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form{
+            display: flex;
+            flex-direction: column;
+            row-gap: 5px;
+            width: 40%;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        form > * {
+            height: 20px;
+        }
+        form button {
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+            height: 30px;
+        }
+        form button:hover{
+            background-color: dodgerblue;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <input type="text" placeholder="Inserisci il tuo nome">
+        <input type="text" placeholder="Inserisci il tuo cognome">
+        <select>
+            <option value=""></option>
+            <option value="web-developer">Web developer</option>
+            <option value="agente-immobiliare">Agente immobiliare</option>
+            <option value="commercialista">Commercialista</option>
+            <option value="imprenditore">Imprenditore</option>
+            <option value="ristoratore">Ristoratore</option>
+        </select>
+        <button>INVIA</button>
+    </form>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
