@@ -132,7 +132,7 @@ class Smartphone implements ISim {
     public filtraChiamatePerDataOra(data1:Date, data2:Date):Chiamata[] {
         const timeStamp1:number = data1.getTime();
         const timeStamp2:number = data2.getTime();
-        const arrayFiltrato:Chiamata[] = this.registroChiamate.filter(chiamata => chiamata.dataEOra >= timeStamp1 && chiamata.dataEOra <= timeStamp2);
+        const arrayFiltrato:Chiamata[] = this.registroChiamate.filter(chiamata => chiamata.dataEOra >= timeStamp1 && chiamata.dataEOra < timeStamp2 + (1000 * 60 * 60 * 24));
         return arrayFiltrato;
     }
 }

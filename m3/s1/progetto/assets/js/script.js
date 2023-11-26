@@ -98,7 +98,7 @@ class Smartphone {
     filtraChiamatePerDataOra(data1, data2) {
         const timeStamp1 = data1.getTime();
         const timeStamp2 = data2.getTime();
-        const arrayFiltrato = this.registroChiamate.filter(chiamata => chiamata.dataEOra >= timeStamp1 && chiamata.dataEOra <= timeStamp2);
+        const arrayFiltrato = this.registroChiamate.filter(chiamata => chiamata.dataEOra >= timeStamp1 && chiamata.dataEOra < timeStamp2 + (1000 * 60 * 60 * 24));
         return arrayFiltrato;
     }
 }
