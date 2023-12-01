@@ -1,0 +1,11 @@
+<main class="container mt-3">
+  <div class="card text-bg-primary mb-3 mx-auto" [ngClass]="setClass(p)" style="max-width: 18rem;" *ngFor="let p of posts, let i = index">
+    <div class="card-header">POST</div>
+    <div class="card-body">
+      <h5 class="card-title">{{p.title}}</h5>
+      <p class="card-text">{{p.body}}</p>
+      <h6 class="mb-3">{{p.category}}, id: {{p.id}}</h6>
+      <button class="btn btn-light" (click)="postsToggle(p)">{{p.active ? "DISATTIVA" : "ATTIVA"}}</button>
+    </div>
+  </div>
+</main>

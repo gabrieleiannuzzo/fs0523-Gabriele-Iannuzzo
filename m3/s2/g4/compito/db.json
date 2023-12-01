@@ -1,0 +1,21 @@
+{
+  "posts": [
+    {
+      "active": true,
+      "title": "guiuiuo",
+      "body": "gohop",
+      "category": "news",
+      "author": "buih",
+      "id": 1
+    },
+    {
+      "active": true,
+      "title": "bkj",
+      "body": "hiop",
+      "category": "politic",
+      "author": "buoh",
+      "id": 2
+    }
+  ],
+  "users": []
+}

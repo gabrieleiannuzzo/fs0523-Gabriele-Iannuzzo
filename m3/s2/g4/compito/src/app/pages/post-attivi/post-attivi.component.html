@@ -1,0 +1,56 @@
+<div class="container">
+  <h1 class="text-center mt-3">Post attivi</h1>
+
+  <div class="row">
+    <div class="col-3"></div>
+
+    <div class="col-6">
+      <div class="d-flex justify-content-center column-gap-3 pt-2">
+        <button class="btn btn-primary" (click)="creaPostHandle()">NUOVO POST</button>
+        <button class="btn btn-primary" (click)="creaUserHandle()">NUOVO UTENTE</button>
+      </div>
+
+      <div class="card mt-3 mx-auto" [ngClass]="classHandle(p)" style="max-width: 18rem;" *ngFor="let p of posts">
+        <div class="card-header">POST</div>
+        <div class="card-body">
+          <h5 class="card-title">{{p.title}}</h5>
+          <p class="card-text">{{p.body}}</p>
+          <h6 class="mb-3">{{p.author}} | {{p.category}}</h6>
+          <button class="btn btn-light" (click)="deactivatePost(p.id)">{{p.active ? "DISATTIVA" : "ATTIVA"}}</button>
+          <button class="btn btn-danger ms-3" (click)="deletePost(p.id)">ELIMINA</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <form class="pt-3" *ngIf="creaPost" #f="ngForm">
+        <input type="text" class="form form-control mb-1" placeholder="Titolo del post" [(ngModel)]="newPost.title" name="title">
+        <textarea class="form form-control mb-1" cols="30" rows="10" placeholder="Contenuto del post" [(ngModel)]="newPost.body" name="body"></textarea>
+        <select name="category" class="form form-control mb-1" [(ngModel)]="newPost.category">
+          <option value="news">News</option>
+          <option value="politic">Politic</option>
+          <option value="education">Education</option>
+        </select>
+        <input type="text" class="form form-control mb-3" placeholder="Autore del post" [(ngModel)]="newPost.author" name="author">
+        <button class="btn btn-primary" [disabled]="onLoad" (click)="createPost()">
+          <span class="spinner-border spinner-border-sm" aria-hidden="true" *ngIf="onLoad"></span>
+          <span *ngIf="!onLoad || (f.valid && f.dirty)">CREA POST</span>
+        </button>
+      </form>
+
+      <form class="pt-3" *ngIf="creaUser" #f="ngForm">
+        <input type="text" class="form form-control mb-1" placeholder="Nome">
+        <input type="text" class="form form-control mb-1" placeholder="Email">
+        <input type="text" class="form form-control mb-3" placeholder="Ruolo">
+        <button class="btn btn-primary" [disabled]="onLoad">
+          <span class="spinner-border spinner-border-sm" aria-hidden="true" *ngIf="onLoad"></span>
+          <span *ngIf="!onLoad || f.valid">CREA USER</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="spinner-border text-primary position-absolute spinner" role="status" *ngIf="windowOnLoad">
+  <span class="visually-hidden">Loading...</span>
+</div>

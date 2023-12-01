@@ -1,0 +1,16 @@
+header{
+  background-color: red;
+  padding: 15px;
+  ul{
+    display: flex;
+    justify-content: center;
+    column-gap: 20px;
+    a{
+      color: white;
+      text-decoration: none;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+  }
+}
