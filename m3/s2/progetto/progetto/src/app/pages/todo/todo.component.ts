@@ -46,6 +46,7 @@ export class TodoComponent {
     }
 
     if (newTodo.title) {
+      this.emptyTodos = false;
       this.loaderShow = this.todosService.loaderStart();
       this.todosService.create(newTodo).then(res => {
         this.todos.push(res);
@@ -60,6 +61,7 @@ export class TodoComponent {
     this.loaderShow = this.todosService.loaderStart();
     this.todosService.delete(id).then(res => {
       this.todos = this.todos.filter(t => t.id != id);
+      if (this.todos.length == 0) this.emptyTodos = true;
       this.loaderShow = this.todosService.loaderStop();
     })
   }

@@ -1,3 +1,11 @@
 {
-  "todos": []
+  "todos": [
+    {
+      "title": "Prima task",
+      "completed": true,
+      "creationDate": 1701445262734,
+      "completionDate": 1701445301349,
+      "id": 1
+    }
+  ]
 }
