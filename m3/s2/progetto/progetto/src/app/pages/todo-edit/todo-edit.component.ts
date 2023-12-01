@@ -15,7 +15,13 @@ export class TodoEditComponent {
     protected todoService:TodosService
     ){}
 
-  todo!:ITodo;
+  todo:ITodo = {
+    id: 0,
+    title: '',
+    completed: false,
+    creationDate: 0,
+    completionDate: null
+  };
   newTodoTitle:string = "";
   loaderShow!:boolean;
 
