@@ -135,6 +135,3 @@ export class TodoComponent {
     this.microtasksDivShow[i] = !this.microtasksDivShow[i];
   }
 }
-
-// dire a michele della scelta di non mettere il completamento
-// chiedere a michele dei path
