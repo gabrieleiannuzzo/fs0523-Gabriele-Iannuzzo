@@ -15,7 +15,6 @@ export class TodoComponent {
   newTodoTitle:string = "";
   newMicrotaskObj:IMicrotask = {
     title: "",
-    completedTodo: false, ///////////////////////////////////////////////////////////////////////////////
     completed: false
   }
   newTodoMicrotasks:string[] = [];
@@ -40,9 +39,9 @@ export class TodoComponent {
       todo.completionDate = null;
     } else {
       todo.completionDate = new Date().getTime();
+      for (let m of todo.microtasks) m.completed = true;
     }
     todo.completed = !todo.completed;
-    for (let m of todo.microtasks) m.completedTodo = !m.completedTodo;
     this.loaderShow = this.todosService.loaderStart();
     this.todosService.update(todo).then(res => {
       this.loaderShow = this.todosService.loaderStop();
@@ -51,14 +50,14 @@ export class TodoComponent {
 
   completedMicrotaskToggle(todoIndex:number, microtask:IMicrotask){
     this.loaderShow = this.todosService.loaderStart();
-    microtask.completed = !microtask.completed;
-    if (!microtask.completed) {
-      this.todos[todoIndex].completed = false;
-      microtask.completedTodo = false;
-    }
-    this.todosService.update(this.todos[todoIndex]).then(res => {
-      this.loaderShow = this.todosService.loaderStop();
-    });
+      microtask.completed = !microtask.completed;
+      if (!microtask.completed) {
+        this.todos[todoIndex].completed = false;
+        this.todos[todoIndex].completionDate = null;
+      }
+      this.todosService.update(this.todos[todoIndex]).then(res => {
+        this.loaderShow = this.todosService.loaderStop();
+      });
   }
 
   creaTodo():void{
@@ -132,6 +131,5 @@ export class TodoComponent {
   }
 }
 
-
-// fare doppio controllo qui
-// trovare un modo per inserire le istruzioni di utilizzo
+// dire a michele della scelta di non mettere il completamento
+// chiedere a michele dei path

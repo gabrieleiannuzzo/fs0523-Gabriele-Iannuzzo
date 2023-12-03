@@ -32,21 +32,25 @@ export class CompletedComponent {
       todo.completionDate = null;
     } else {
       todo.completionDate = new Date().getTime();
+      for (let m of todo.microtasks) m.completed = true;
     }
     todo.completed = !todo.completed;
     this.loaderShow = this.todosService.loaderStart();
     this.todosService.update(todo).then(res => {
-      this.todos = this.todos.filter(t => t.id != todo.id);
       this.loaderShow = this.todosService.loaderStop();
     })
   }
 
   completedMicrotaskToggle(todoIndex:number, microtask:IMicrotask){
     this.loaderShow = this.todosService.loaderStart();
-    if (!microtask.completedTodo) microtask.completed = !microtask.completed;
-    this.todosService.update(this.todos[todoIndex]).then(res => {
-      this.loaderShow = this.todosService.loaderStop();
-    });
+      microtask.completed = !microtask.completed;
+      if (!microtask.completed) {
+        this.todos[todoIndex].completed = false;
+        this.todos[todoIndex].completionDate = null;
+      }
+      this.todosService.update(this.todos[todoIndex]).then(res => {
+        this.loaderShow = this.todosService.loaderStop();
+      });
   }
 
   deleteTodo(id:number):void{

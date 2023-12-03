@@ -30,7 +30,6 @@ export class TodoEditComponent {
   newTodoMicrotasks:string[] = [];
   newMicrotaskObj:IMicrotask = {
     title: "",
-    completedTodo: false,
     completed: false
   }
   microtasksDivShow:boolean = true;
@@ -61,20 +60,23 @@ export class TodoEditComponent {
       todo.completionDate = null;
     } else {
       todo.completionDate = new Date().getTime();
+      for (let m of todo.microtasks) m.completed = true;
     }
     todo.completed = !todo.completed;
-    // aggiorno la variabile del completamento del todo nelle singole microtask
-    for (let m of todo.microtasks) m.completedTodo = !m.completedTodo;
     this.loaderShow = this.todoService.loaderStart();
     this.todoService.update(todo).then(res => {
       this.loaderShow = this.todoService.loaderStop();
     })
   }
 
-  completedMicrotaskToggle(microtask:IMicrotask){
+  completedMicrotaskToggle(todo:ITodo, microtask:IMicrotask){
     this.loaderShow = this.todoService.loaderStart();
     // disattivo la possibilità di cambiare lo stato di una microtask se tutto il todo è completato
-    if (!microtask.completedTodo) microtask.completed = !microtask.completed;
+    microtask.completed = !microtask.completed;
+    if (!microtask.completed) {
+      this.todo.completed = false;
+      this.todo.completionDate = null;
+    }
     this.todoService.update(this.todo).then(res => {
       this.loaderShow = this.todoService.loaderStop();
     });
@@ -88,13 +90,12 @@ export class TodoEditComponent {
     for (let i = 0; i < this.newTodoMicrotasks.length; i++) {
       // separo il caso in cui la microtask è già presente nell'array della todo perchè non posso sapere se è stata completata o no, e quindi devo lasciare invariata la rispettiva proprietà
       if (this.todo.microtasks[i]) {
-        // cambio solo il title della microtask in maniera tale che le altre proprietà rimangano invariate, poi pusho l'oggetto nell'array
+        // cambio solo il title della microtask in maniera tale che la proprietà sul completamento rimanga invariata, poi pusho l'oggetto nell'array
         this.todo.microtasks[i].title = this.newTodoMicrotasks[i];
         microtasksArray.push(this.todo.microtasks[i]);
       } else {
         // qui creo l'oggetto da 0
         this.newMicrotaskObj.title = this.newTodoMicrotasks[i];
-        this.newMicrotaskObj.completedTodo = this.todo.completed ? true : false;
         const newMicrotask:IMicrotask = {...this.newMicrotaskObj};
         microtasksArray.push(newMicrotask);
       }
