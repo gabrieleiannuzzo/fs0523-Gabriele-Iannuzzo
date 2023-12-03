@@ -15,17 +15,35 @@
       margin: 0 auto;
     }
     input{
-      width: calc(100% - 40px);
+      width: calc(100% - 70px);
       height: 25px;
+      &.microtask{
+        margin-top: 5px;
+      }
     }
     button{
       width: 30px;
       height: 30px;
       background-color: white;
-      border: 2px solid #00ff00;
-      color: #00ff00;
+      border: none;
       font-weight: 700;
       cursor: pointer;
+      svg{
+        fill: #00ff00;
+        position: relative;
+        top: 1px;
+      }
+      &.add-btn{
+        border: 2px solid #00ff00;
+        position: relative;
+        top: 1.5px;
+      }
+      &.first-btn{
+        top: -0.3px;
+      }
+      &.not-visible{
+        visibility: hidden;
+      }
     }
   }
   &>p{
@@ -46,6 +64,9 @@ h1{
 }
 
 #todos{
+  .not-visible{
+    visibility: hidden;
+  }
   .todo{
     display: flex;
     justify-content: space-between;
@@ -53,11 +74,60 @@ h1{
     margin-top: 10px;
     padding: 10px;
     box-shadow: 0 0 10px rgba(black, 0.2);
+    &:not(.microtask-div){
+      margin-top: 30px;
+    }
+    button{
+      width: 30px;
+      height: 30px;
+      background-color: white;
+      cursor: pointer;
+      svg{
+        margin-bottom: -2px;
+      }
+    }
+    .delete-btn{
+      border: 2px solid red;
+      &:hover{
+        background-color: red;
+        svg{
+          fill: white
+        }
+      }
+    }
+    &.microtask-div{
+      width: calc(100% - 100px);
+      margin-left: auto;
+      cursor: default;
+      &:hover{
+        background-color: rgb(188, 255, 233);
+      }
+      &.d-none{
+        display: none;
+      }
+      &>div{
+        width: calc(100% - 60px);
+        svg{
+          margin-bottom: -2px;
+          margin-left: 5px;
+        }
+      }
+    }
     &.completed{
       box-shadow: 0 0 10px rgba(#00ff00, 0.5);
     }
     &:hover{
       background-color: rgb(249, 227, 255);
+    }
+    .todo-info-div{
+      display: flex;
+      align-items: center;
+      column-gap: 15px;
+      padding-left: 10px;
+      width: calc(100% - 120px);
+      &>p svg{
+        cursor: pointer;
+      }
     }
     .todo-info{
       display: flex;
@@ -68,7 +138,8 @@ h1{
       }
       .todo-title{
         svg{
-          margin-bottom: -3px;
+          margin-bottom: -2px;
+          margin-left: 5px;
         }
       }
     }
@@ -77,15 +148,6 @@ h1{
       display: flex;
       justify-content: end;
       column-gap: 5px;
-      button{
-        width: 30px;
-        height: 30px;
-        background-color: white;
-        cursor: pointer;
-        svg{
-          margin-bottom: -2px;
-        }
-      }
       .edit-btn{
         display: flex;
         justify-content: center;
@@ -95,15 +157,6 @@ h1{
         border: 2px solid blue;
         &:hover{
           background-color: blue;
-          svg{
-            fill: white
-          }
-        }
-      }
-      .delete-btn{
-        border: 2px solid red;
-        &:hover{
-          background-color: red;
           svg{
             fill: white
           }

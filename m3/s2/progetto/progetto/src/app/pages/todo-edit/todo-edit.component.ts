@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { TodosService } from '../../services/todos.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ITodo } from '../../models/itodo';
+import { IMicrotask } from '../../models/imicrotask';
 
 @Component({
   selector: 'app-todo-edit',
@@ -18,12 +19,21 @@ export class TodoEditComponent {
   todo:ITodo = {
     id: 0,
     title: '',
+    microtasks: [],
     completed: false,
     creationDate: 0,
     completionDate: null
   };
   newTodoTitle:string = "";
   loaderShow!:boolean;
+  microtasksShow:boolean[] = [false, false, false, false];
+  newTodoMicrotasks:string[] = [];
+  newMicrotaskObj:IMicrotask = {
+    title: "",
+    completedTodo: false,
+    completed: false
+  }
+  microtasksDivShow:boolean = true;
 
 
   ngOnInit(){
@@ -31,36 +41,91 @@ export class TodoEditComponent {
     this.route.params.subscribe((params:any) => {
       this.todoService.getById(params.id).then(res => {
         this.todo = res;
+        // salvo il numero delle microtask in una variabile
+        const microtasksNumber = this.todo.microtasks.length;
+        // aggiorno subito la proprietà newTodoTitle in maniera tale da vedere il nome nel form
+        this.newTodoTitle = this.todo.title;
+        // faccio la stessa cosa con le microtask in maniera tale che appiano già gli input delle microtask riempiti con i loro titles
+        for (let i = 0; i < microtasksNumber; i++) {
+          this.newTodoMicrotasks[i] = this.todo.microtasks[i].title;
+          this.microtasksShow[i] = true;
+        }
         this.loaderShow = this.todoService.loaderStop();
       })
     })
   }
 
   completedToggle(todo:ITodo){
+    // se sto segnando il todo come completato gli aggiungo la data, altrimenti gliela tolgo
     if (todo.completed) {
       todo.completionDate = null;
     } else {
       todo.completionDate = new Date().getTime();
     }
     todo.completed = !todo.completed;
+    // aggiorno la variabile del completamento del todo nelle singole microtask
+    for (let m of todo.microtasks) m.completedTodo = !m.completedTodo;
     this.loaderShow = this.todoService.loaderStart();
     this.todoService.update(todo).then(res => {
       this.loaderShow = this.todoService.loaderStop();
     })
   }
 
-  updateTodo():void{
-    let newTodo = {...this.todo};
-    newTodo.title = this.newTodoTitle;
+  completedMicrotaskToggle(microtask:IMicrotask){
+    this.loaderShow = this.todoService.loaderStart();
+    // disattivo la possibilità di cambiare lo stato di una microtask se tutto il todo è completato
+    if (!microtask.completedTodo) microtask.completed = !microtask.completed;
+    this.todoService.update(this.todo).then(res => {
+      this.loaderShow = this.todoService.loaderStop();
+    });
+  }
 
-    if (newTodo.title) {
+  updateTodo():void{
+    const microtasksArray:IMicrotask[] = [];
+    // utilizzo una variabile temporanea perchè altrimenti il two way data binding mi renderebbe il nome di tutte le microtask uguale all'ultima dichiarata
+    const newTodo = {...this.todo};
+    newTodo.title = this.newTodoTitle;
+    for (let i = 0; i < this.newTodoMicrotasks.length; i++) {
+      // separo il caso in cui la microtask è già presente nell'array della todo perchè non posso sapere se è stata completata o no, e quindi devo lasciare invariata la rispettiva proprietà
+      if (this.todo.microtasks[i]) {
+        // cambio solo il title della microtask in maniera tale che le altre proprietà rimangano invariate, poi pusho l'oggetto nell'array
+        this.todo.microtasks[i].title = this.newTodoMicrotasks[i];
+        microtasksArray.push(this.todo.microtasks[i]);
+      } else {
+        // qui creo l'oggetto da 0
+        this.newMicrotaskObj.title = this.newTodoMicrotasks[i];
+        this.newMicrotaskObj.completedTodo = this.todo.completed ? true : false;
+        const newMicrotask:IMicrotask = {...this.newMicrotaskObj};
+        microtasksArray.push(newMicrotask);
+      }
+    }
+    // aggiorno le microtask con il nuovo array
+    newTodo.microtasks = microtasksArray;
+
+    // imposto la variabile che controlla se tutti gli input delle microtask sono riempiti
+    let microtasksDivs:number = 0;
+    let allMicrotasksNames:boolean = true;
+    for (let m of this.microtasksShow) {
+      if (m) microtasksDivs++;
+    }
+    for (let i = 0; i < microtasksDivs; i++) {
+      if (!this.newTodoMicrotasks[i]) allMicrotasksNames = false;
+    }
+
+    // controllo se gli input siano tutti riempiti e aggiorno il todo
+    if (newTodo.title && allMicrotasksNames) {
       this.loaderShow = this.todoService.loaderStart();
       this.todoService.update(newTodo).then(res => {
         console.log(res);
-
         this.todo = res;
+        this.newTodoTitle = this.todo.title;
+        const microtasksNumber = this.todo.microtasks.length;
+        for (let i = 0; i < microtasksNumber; i++) {
+          this.newTodoTitle = this.todo.title;
+          this.newTodoMicrotasks[i] = this.todo.microtasks[i].title;
+          this.microtasksShow[i] = true;
+        }
         this.loaderShow = this.todoService.loaderStop();
-        this.newTodoTitle = "";
       });
     }
   }
@@ -69,7 +134,39 @@ export class TodoEditComponent {
     this.loaderShow = true;
     this.loaderShow = this.todoService.loaderStart();
     this.todoService.delete(id).then(res => {
-      this.router.navigate(['/todo']);
+      this.router.navigate(['/']);
     })
+  }
+
+  deleteMicrotask(microtaskIndex:number):void{
+    this.loaderShow = this.todoService.loaderStart();
+    // rimuovo la microtask dall'array locale associato
+    this.todo.microtasks.splice(microtaskIndex, 1);
+    this.todoService.update(this.todo).then(res => {
+      this.todo = res;
+      // resetto graficamente il form con gli stessi controlli effettuati nell'ngOnInit
+      const microtasksNumber = this.todo.microtasks.length;
+      this.newTodoTitle = this.todo.title;
+      this.microtasksShow = [false, false, false, false];
+      this.newTodoMicrotasks = [];
+      for (let i = 0; i < microtasksNumber; i++) {
+        this.newTodoMicrotasks[i] = this.todo.microtasks[i].title;
+        this.microtasksShow[i] = true;
+      }
+      this.loaderShow = this.todoService.loaderStop();
+    })
+  }
+
+  addMicroTask(i:number):void{
+    this.microtasksShow[i] = true;
+  }
+
+  removeMicroTask(i:number):void{
+    this.microtasksShow[i] = false;
+    this.newTodoMicrotasks.pop();
+  }
+
+  toggleShowMicrotasks():void{
+    this.microtasksDivShow = !this.microtasksDivShow;
   }
 }

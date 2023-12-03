@@ -1,3 +1,4 @@
+import { IMicrotask } from '../../models/imicrotask';
 import { ITodo } from '../../models/itodo';
 import { TodosService } from './../../services/todos.service';
 import { Component } from '@angular/core';
@@ -12,15 +13,25 @@ export class TodoComponent {
 
   todos:ITodo[] = [];
   newTodoTitle:string = "";
+  newMicrotaskObj:IMicrotask = {
+    title: "",
+    completedTodo: false, ///////////////////////////////////////////////////////////////////////////////
+    completed: false
+  }
+  newTodoMicrotasks:string[] = [];
   emptyTodos:boolean = false;
   loaderShow!:boolean;
+  microtasksShow:boolean[] = [false, false, false, false];
+  microtasksDivShow:boolean[] = [];
 
   ngOnInit(){
     this.loaderShow = this.todosService.loaderStart();
     this.todosService.getAll().then(res => {
       this.todos = res;
       this.loaderShow = this.todosService.loaderStop();
+      // variabile per mostrare il messaggio che non sono presenti todo
       if (this.todos.length == 0) this.emptyTodos = true;
+      for (let t of this.todos) this.microtasksDivShow.push(false);
     });
   }
 
@@ -31,27 +42,60 @@ export class TodoComponent {
       todo.completionDate = new Date().getTime();
     }
     todo.completed = !todo.completed;
+    for (let m of todo.microtasks) m.completedTodo = !m.completedTodo;
     this.loaderShow = this.todosService.loaderStart();
     this.todosService.update(todo).then(res => {
       this.loaderShow = this.todosService.loaderStop();
     })
   }
 
+  completedMicrotaskToggle(todoIndex:number, microtask:IMicrotask){
+    this.loaderShow = this.todosService.loaderStart();
+    microtask.completed = !microtask.completed;
+    if (!microtask.completed) {
+      this.todos[todoIndex].completed = false;
+      microtask.completedTodo = false;
+    }
+    this.todosService.update(this.todos[todoIndex]).then(res => {
+      this.loaderShow = this.todosService.loaderStop();
+    });
+  }
+
   creaTodo():void{
-    let newTodo:Partial<ITodo> = {
+    const microtasksArray:IMicrotask[] = [];
+
+    for (let m of this.newTodoMicrotasks) {
+      this.newMicrotaskObj.title = m;
+      const newMicrotask:IMicrotask = {...this.newMicrotaskObj};
+      microtasksArray.push(newMicrotask);
+    }
+
+    const newTodo:Partial<ITodo> = {
       title: this.newTodoTitle,
       completed: false,
+      microtasks: microtasksArray,
       creationDate: new Date().getTime(),
       completionDate: null,
     }
 
-    if (newTodo.title) {
+    let microtasksDivs:number = 0;
+    let allMicrotasksNames:boolean = true;
+    for (let m of this.microtasksShow) {
+      if (m) microtasksDivs++;
+    }
+    for (let i = 0; i < microtasksDivs; i++) {
+      if (!this.newTodoMicrotasks[i]) allMicrotasksNames = false;
+    }
+
+    if (newTodo.title && allMicrotasksNames) {
       this.emptyTodos = false;
       this.loaderShow = this.todosService.loaderStart();
       this.todosService.create(newTodo).then(res => {
         this.todos.push(res);
         this.loaderShow = this.todosService.loaderStop();
         this.newTodoTitle = "";
+        this.newTodoMicrotasks = [];
+        this.microtasksShow = this.microtasksShow.map(m => m = false);
         this.emptyTodos = false;
       });
     }
@@ -65,4 +109,29 @@ export class TodoComponent {
       this.loaderShow = this.todosService.loaderStop();
     })
   }
+
+  deleteMicrotask(todoIndex:number, microtaskIndex:number):void{
+    this.loaderShow = this.todosService.loaderStart();
+    this.todos[todoIndex].microtasks.splice(microtaskIndex, 1);
+    this.todosService.update(this.todos[todoIndex]).then(res => {
+      this.loaderShow = this.todosService.loaderStop();
+    })
+  }
+
+  addMicroTask(i:number):void{
+    this.microtasksShow[i] = true;
+  }
+
+  removeMicroTask(i:number):void{
+    this.microtasksShow[i] = false;
+    this.newTodoMicrotasks.pop();
+  }
+
+  toggleShowMicrotasks(i:number):void{
+    this.microtasksDivShow[i] = !this.microtasksDivShow[i];
+  }
 }
+
+
+// fare doppio controllo qui
+// trovare un modo per inserire le istruzioni di utilizzo

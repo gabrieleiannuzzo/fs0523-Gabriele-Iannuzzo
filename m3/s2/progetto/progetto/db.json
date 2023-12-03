@@ -1,11 +1,3 @@
 {
-  "todos": [
-    {
-      "title": "prima task",
-      "completed": false,
-      "creationDate": 1701447626910,
-      "completionDate": null,
-      "id": 1
-    }
-  ]
+  "todos": []
 }

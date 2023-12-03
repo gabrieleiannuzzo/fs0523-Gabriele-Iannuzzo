@@ -56,6 +56,15 @@ export class TodosService {
     }).then(res => res.json());
   }
 
+  deleteMicrotask(id:number):Promise<ITodo>{
+    return fetch(`${this.url}/${id}.microtasks/id`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+      }
+    }).then(res => res.json());
+  }
+
   loaderStart():boolean{
     this.loaderShow = true;
     this.loaderDots = 0;
