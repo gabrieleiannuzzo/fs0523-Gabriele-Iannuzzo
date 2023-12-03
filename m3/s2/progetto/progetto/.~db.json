@@ -8,11 +8,6 @@
           "title": "ciao1",
           "completedTodo": false,
           "completed": true
-        },
-        {
-          "title": "ciao2",
-          "completedTodo": false,
-          "completed": true
         }
       ],
       "creationDate": 1701633024182,

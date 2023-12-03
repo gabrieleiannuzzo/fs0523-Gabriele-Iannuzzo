@@ -163,8 +163,14 @@ export class TodoEditComponent {
   }
 
   removeMicroTask(i:number):void{
+    let microtasksDivs:number = 0;
+
+    for (let m of this.microtasksShow) {
+      if (m) microtasksDivs++
+    }
     this.microtasksShow[i] = false;
-    this.newTodoMicrotasks.pop();
+    //controllo che non mi faccia il pop nel caso in cui l'ultimo (o gli ultimi) input non fosse riempito, perchè altrimenti mi toglierebbe l'ultima microtask scritta, anche se fosse inserita in un altro input
+    if (this.newTodoMicrotasks.length == microtasksDivs) this.newTodoMicrotasks.pop();
   }
 
   toggleShowMicrotasks():void{

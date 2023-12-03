@@ -122,8 +122,13 @@ export class TodoComponent {
   }
 
   removeMicroTask(i:number):void{
+    let microtasksDivs:number = 0;
+
+    for (let m of this.microtasksShow) {
+      if (m) microtasksDivs++
+    }
     this.microtasksShow[i] = false;
-    this.newTodoMicrotasks.pop();
+    if (this.newTodoMicrotasks.length == microtasksDivs) this.newTodoMicrotasks.pop();
   }
 
   toggleShowMicrotasks(i:number):void{
