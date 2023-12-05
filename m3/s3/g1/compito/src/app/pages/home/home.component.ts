@@ -1,3 +1,4 @@
+import { Subscription } from 'rxjs';
 import { IProduct } from '../../models/iproduct';
 import { ShopService } from './../../services/shop.service';
 import { Component } from '@angular/core';
@@ -11,24 +12,24 @@ export class HomeComponent {
   products:IProduct[] = [];
   favouriteProducts:IProduct[] = [];
   cartProducts:IProduct[] = [];
+  productsSubscription!:Subscription;
+  favouriteSubscription!:Subscription;
+  cartSubscription!:Subscription;
 
   constructor(private shopService:ShopService){}
 
   ngOnInit(){
-    this.shopService.getAll().subscribe(res => {
+    this.productsSubscription = this.shopService.getAll().subscribe(res => {
       this.products = res.products;
-      console.log(this.products);
     });
 
-    this.shopService.favouriteProducts$.subscribe(res => {
+    this.favouriteSubscription = this.shopService.favouriteProducts$.subscribe(res => {
       this.favouriteProducts = res;
     });
 
-    this.shopService.cartProducts$.subscribe(res => {
+    this.cartSubscription = this.shopService.cartProducts$.subscribe(res => {
       this.cartProducts = res;
     });
-
-    console.log(this.favouriteProducts);
   }
 
   toggleFavourite(product:IProduct){
@@ -37,5 +38,11 @@ export class HomeComponent {
 
   toggleCart(product:IProduct){
     this.shopService.toggleCartSubject(this.cartProducts, product);
+  }
+
+  ngOnDestroy(){
+    this.productsSubscription.unsubscribe();
+    this.favouriteSubscription.unsubscribe();
+    this.cartSubscription.unsubscribe();
   }
 }

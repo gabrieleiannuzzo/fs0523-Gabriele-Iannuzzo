@@ -10,8 +10,8 @@ import { Subject } from 'rxjs';
 export class ShopService {
   apiUrl:string = "https://dummyjson.com/products";
 
-  subjectFavouriteProducts:Subject<IProduct[]> = new Subject;
-  subjectCartProducts:Subject<IProduct[]> = new Subject;
+  subjectFavouriteProducts:Subject<IProduct[]> = new Subject<IProduct[]>;
+  subjectCartProducts:Subject<IProduct[]> = new Subject<IProduct[]>;
   favouriteProducts$ = this.subjectFavouriteProducts.asObservable();
   cartProducts$ = this.subjectCartProducts.asObservable();
 
@@ -29,7 +29,6 @@ export class ShopService {
     }
 
     this.subjectFavouriteProducts.next(favouritesArray);
-    console.log(this.subjectCartProducts);
   }
 
   toggleCartSubject(cartArray:IProduct[], product:IProduct){

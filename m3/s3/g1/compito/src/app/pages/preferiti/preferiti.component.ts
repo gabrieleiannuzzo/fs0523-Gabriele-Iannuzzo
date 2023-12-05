@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IProduct } from '../../models/iproduct';
 import { ShopService } from '../../services/shop.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-preferiti',
@@ -10,16 +11,18 @@ import { ShopService } from '../../services/shop.service';
 export class PreferitiComponent {
   favouriteProducts:IProduct[] = [];
   cartProducts:IProduct[] = [];
+  favouriteSubscription!:Subscription;
+  cartSubscription!:Subscription;
 
   constructor(private shopService:ShopService){}
 
   ngOnInit(){
-    this.shopService.favouriteProducts$.subscribe(res => {
+    this.favouriteSubscription = this.shopService.favouriteProducts$.subscribe(res => {
       this.favouriteProducts = res;
-      console.log(res);
+      console.log(this.favouriteProducts);
     });
 
-    this.shopService.cartProducts$.subscribe(res => {
+    this.cartSubscription = this.shopService.cartProducts$.subscribe(res => {
       this.cartProducts = res;
     });
   }
@@ -30,5 +33,10 @@ export class PreferitiComponent {
 
   toggleCart(product:IProduct){
     this.shopService.toggleCartSubject(this.favouriteProducts, product);
+  }
+
+  ngOnDestroy(){
+    this.favouriteSubscription.unsubscribe();
+    this.cartSubscription.unsubscribe();
   }
 }
