@@ -1,0 +1,14 @@
+<main class="row py-4 bg-warning">
+  <div class="col-3 d-flex justify-content-center mb-4" *ngFor="let p of cartProducts">
+    <div class="card bg-danger text-white" style="width: 18rem;">
+      <img [src]="p.images[0]" class="card-img-top" alt="product image">
+      <div class="card-body">
+        <h5 class="card-title">{{p.title}}</h5>
+        <p class="card-text">{{p.description}}</p>
+        <p class="card-text">{{p.price + "€"}}</p>
+        <button class="btn btn-primary mb-3" (click)="toggleFavourite(p)">Aggiungi ai preferiti</button>
+        <button class="btn btn-primary" (click)="toggleCart(p)">Aggiungi al carrello</button>
+      </div>
+    </div>
+  </div>
+</main>
