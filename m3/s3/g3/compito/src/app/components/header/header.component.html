@@ -1,0 +1,10 @@
+<header class="bg-primary py-2">
+  <nav>
+    <ul class="d-flex justify-content-center align-items-center column-gap-3 mb-0">
+      <li><a class="text-white" routerLink="/">Home</a></li>
+      <li><a class="text-white" routerLink="/auth/login">Login</a></li>
+      <li><a class="text-white" routerLink="/auth/register">Register</a></li>
+      <li *ngIf="isLogged"><button (click)="logout()" class="btn btn-warning text-white">Logout</button></li>
+    </ul>
+  </nav>
+</header>

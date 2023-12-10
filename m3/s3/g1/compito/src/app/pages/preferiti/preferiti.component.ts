@@ -19,12 +19,15 @@ export class PreferitiComponent {
   ngOnInit(){
     this.favouriteSubscription = this.shopService.favouriteProducts$.subscribe(res => {
       this.favouriteProducts = res;
-      console.log(this.favouriteProducts);
+      console.log("Iscrizione effettuata ai favoriti");
     });
 
     this.cartSubscription = this.shopService.cartProducts$.subscribe(res => {
       this.cartProducts = res;
+      console.log("Iscrizione effettuata al carrello");
     });
+
+    console.log("ngOnInit avvenuto")
   }
 
   toggleFavourite(product:IProduct){
@@ -32,7 +35,7 @@ export class PreferitiComponent {
   }
 
   toggleCart(product:IProduct){
-    this.shopService.toggleCartSubject(this.favouriteProducts, product);
+    this.shopService.toggleCartSubject(this.cartProducts, product);
   }
 
   ngOnDestroy(){

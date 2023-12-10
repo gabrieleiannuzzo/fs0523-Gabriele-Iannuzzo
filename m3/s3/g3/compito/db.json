@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "email": "gabriele@iannuzzo.it",
+      "password": "$2a$10$TUfriDUd8U0qtbtA2zsfv.F02eBgoTELmF06oFE8uTD9YihqSMdli",
+      "username": "gabbo169",
+      "id": 1
+    },
+    {
+      "email": "gabriele2@email.it",
+      "password": "$2a$10$WCken5H2VU15BC.rfu.KW.WCs7nC1SKC97HAgT7P3141CACKQgO7q",
+      "username": "gabriele",
+      "id": 2
+    }
+  ]
+}

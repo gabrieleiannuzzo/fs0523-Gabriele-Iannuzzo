@@ -1,0 +1,15 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrl: './header.component.scss'
+})
+export class HeaderComponent {
+  active:boolean = false;
+  isLogged:boolean = false;
+
+  toggleActive(){
+    this.active = !this.active;
+  }
+}

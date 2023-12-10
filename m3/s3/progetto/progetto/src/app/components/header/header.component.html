@@ -1,0 +1,22 @@
+<header class="d-flex justify-content-between align-items-center">
+  <p class="mb-0">WEATHER APP</p>
+
+  <div id="header-menu" class="overflow-hidden" [ngClass]="{'active': active}">
+    <nav>
+      <ul class="mb-0 ps-0 d-flex align-items-md-center">
+        <li><a routerLink="/" class="text-white">Home</a></li>
+        <li><a routerLink="/meteo" class="text-white">Meteo</a></li>
+        <li><input type="text" placeholder="Scegli la città"></li>
+        <li><button class="btn btn-outline-light" *ngIf="!isLogged">Login</button></li>
+        <li><button class="btn btn-outline-light" *ngIf="isLogged">Logout</button></li>
+        <!-- aggiungere link al login e pulsante per il logout -->
+      </ul>
+    </nav>
+  </div>
+
+  <div id="toggler" class="d-flex d-md-none justify-content-between position-relative" (click)="toggleActive()" [ngClass]="{'active': active}">
+    <span class="bg-white"></span>
+    <span class="bg-white"></span>
+    <span class="bg-white"></span>
+  </div>
+</header>

@@ -25,6 +25,7 @@ export class HomeComponent {
 
     this.favouriteSubscription = this.shopService.favouriteProducts$.subscribe(res => {
       this.favouriteProducts = res;
+      console.log("Iscrizione effettuata");
     });
 
     this.cartSubscription = this.shopService.cartProducts$.subscribe(res => {

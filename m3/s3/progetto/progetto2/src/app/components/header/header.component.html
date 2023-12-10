@@ -1,0 +1,20 @@
+<header class="d-flex justify-content-between align-items-center">
+  <p class="mb-0">WEATHER APP</p>
+
+  <div id="header-menu" class="overflow-hidden" [ngClass]="{'active': active}">
+    <nav>
+      <ul class="d-flex mb-0">
+        <li><a routerLink="/" class="text-white">Home</a></li>
+        <li><a routerLink="/" class="text-white">Meteo</a></li>
+        <li><input type="text" placeholder="Cerca città"></li>
+        <li><button class="btn btn-outline-light">Login / Registrazione</button></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div id="toggler" class="d-flex d-md-none justify-content-between position-relative" (click)="toggleActive()" [ngClass]="{'active': active}">
+    <span class="bg-white"></span>
+    <span class="bg-white"></span>
+    <span class="bg-white"></span>
+  </div>
+</header>

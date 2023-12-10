@@ -1,0 +1,22 @@
+<div class="d-flex justify-content-center align-items-center outer-div position-relative">
+  <form class="d-flex p-4" #f="ngForm" (ngSubmit)="login(f)">
+    <input class="form-control" type="email" placeholder="Email*" ngModel #email="ngModel" name="email" [pattern]="emailRegex" required [ngClass]="{'error': notExistingUser}" (click)="resetEmail()">
+    <p class="mb-o error-p" *ngIf="notExistingUser">Non ci sono account associati a questa email</p>
+
+    <input class="form-control" type="password" placeholder="Password*" ngModel #password="ngModel" name="password" required [ngClass]="{'error': wrongPassword, 'existing': notExistingUser}" (click)="resetPassword()">
+    <p class="mb-0 error-p" *ngIf="wrongPassword">Password errata</p>
+
+    <div class="d-flex" [ngClass]="{'existing': wrongPassword}">
+      <button class="btn btn-primary" [disabled]="f.invalid">LOGIN</button>
+      <p class="text-white mb-0">Non sei registrato? <a routerLink="/auth/register" class="text-white">Registrati</a></p>
+    </div>
+  </form>
+
+  <div class="alert text-white position-absolute error-message" *ngIf="error">Si è verificato un errore</div>
+
+  <div class="position-absolute d-flex justify-content-center align-items-center loader-div" *ngIf="loading">
+    <div class="spinner-border text-primary loader" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+</div>

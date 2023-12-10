@@ -1,0 +1,17 @@
+<header>
+  <a routerLink="/"><p>LOGO</p></a>
+  <div id="header-menu" [ngClass]="{'active': active}">
+      <nav>
+          <ul>
+            <li><a routerLink="/">Home</a></li>
+            <li><a routerLink="/login">Login</a></li>
+            <li><a routerLink="/registrazione">Registrazione</a></li>
+          </ul>
+      </nav>
+  </div>
+  <div id="toggler" (click)="activeToggle()" [ngClass]="{'active': active}">
+      <span></span>
+      <span></span>
+      <span></span>
+  </div>
+</header>
