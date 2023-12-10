@@ -1,1 +1,143 @@
-<p>meteo works!</p>
+<div class="container mx-auto py-3 meteo-container">
+  <form class="d-flex mx-auto" #f="ngForm" (ngSubmit)="getCities(f)">
+    <input class="form-control" type="text" placeholder="Cerca una città (almeno 3 lettere)" required [pattern]="meteoRegex" ngModel name="city" #city="ngModel">
+    <button class="btn btn-primary" [disabled]="f.invalid">INVIA</button>
+  </form>
+
+  <div *ngIf="citiesList">
+    <button class="d-flex align-items-center mx-auto rounded-2  ps-3 city-choice" *ngFor="let city of citiesArray" (click)="getMeteo(city.lat, city.lon, city.string)">{{city.string}}</button>
+  </div>
+
+  <div class="container">
+    <h2 *ngIf="cities">OGGI</h2>
+    <div class="d-flex column-gap-4 carousel">
+      <div class="card position-relative" style="width: 18rem;" *ngFor="let meteo of todayMeteo">
+        <img [src]="'https://openweathermap.org/img/wn/' + meteo.weather[0].icon +'@2x.png'" alt="weather-icon" class="position-absolute">
+        <div class="card-body">
+          <h5 class="card-title">{{hour(meteo["dt_txt"])}}</h5>
+          <p class="card-text mb-0">Temperatura: {{meteo.main.temp + "°C"}}</p>
+          <p class="card-text">Percepita: {{meteo.main["feels_like"] + "°C"}}</p>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Vento: {{meteo.wind.speed + "m/s, direzione: " + meteo.wind.speed + "°"}}</li>
+            <li class="list-group-item">Nuvolosità: {{meteo.clouds.all + "%"}}</li>
+            <li class="list-group-item">Visibilità: {{meteo.visibility + "m"}}</li>
+            <li class="list-group-item">Prob. di pioggia: {{(meteo.pop * 100).toFixed(0) + "%"}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <h2 *ngIf="cities">DOMANI</h2>
+    <div class="d-flex column-gap-4 carousel">
+      <div class="card position-relative" style="width: 18rem;" *ngFor="let meteo of tomorrowMeteo">
+        <img [src]="'https://openweathermap.org/img/wn/' + meteo.weather[0].icon +'@2x.png'" alt="weather-icon" class="position-absolute">
+        <div class="card-body">
+          <h5 class="card-title">{{hour(meteo["dt_txt"])}}</h5>
+          <p class="card-text mb-0">Temperatura: {{meteo.main.temp + "°C"}}</p>
+          <p class="card-text">Percepita: {{meteo.main["feels_like"] + "°C"}}</p>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Vento: {{meteo.wind.speed + "m/s, direzione: " + meteo.wind.speed + "°"}}</li>
+            <li class="list-group-item">Nuvolosità: {{meteo.clouds.all + "%"}}</li>
+            <li class="list-group-item">Visibilità: {{meteo.visibility + "m"}}</li>
+            <li class="list-group-item">Prob. di pioggia: {{(meteo.pop * 100).toFixed(0) + "%"}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <h2 *ngIf="cities">DOPODOMANI</h2>
+    <div class="d-flex column-gap-4 carousel">
+      <div class="card position-relative" style="width: 18rem;" *ngFor="let meteo of twoDaysMeteo">
+        <img [src]="'https://openweathermap.org/img/wn/' + meteo.weather[0].icon +'@2x.png'" alt="weather-icon" class="position-absolute">
+        <div class="card-body">
+          <h5 class="card-title">{{hour(meteo["dt_txt"])}}</h5>
+          <p class="card-text mb-0">Temperatura: {{meteo.main.temp + "°C"}}</p>
+          <p class="card-text">Percepita: {{meteo.main["feels_like"] + "°C"}}</p>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Vento: {{meteo.wind.speed + "m/s, direzione: " + meteo.wind.speed + "°"}}</li>
+            <li class="list-group-item">Nuvolosità: {{meteo.clouds.all + "%"}}</li>
+            <li class="list-group-item">Visibilità: {{meteo.visibility + "m"}}</li>
+            <li class="list-group-item">Prob. di pioggia: {{(meteo.pop * 100).toFixed(0) + "%"}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <h2 *ngIf="cities">{{day(3)}}</h2>
+    <div class="d-flex column-gap-4 carousel">
+      <div class="card position-relative" style="width: 18rem;" *ngFor="let meteo of threeDaysMeteo">
+        <img [src]="'https://openweathermap.org/img/wn/' + meteo.weather[0].icon +'@2x.png'" alt="weather-icon" class="position-absolute">
+        <div class="card-body">
+          <h5 class="card-title">{{hour(meteo["dt_txt"])}}</h5>
+          <p class="card-text mb-0">Temperatura: {{meteo.main.temp + "°C"}}</p>
+          <p class="card-text">Percepita: {{meteo.main["feels_like"] + "°C"}}</p>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Vento: {{meteo.wind.speed + "m/s, direzione: " + meteo.wind.speed + "°"}}</li>
+            <li class="list-group-item">Nuvolosità: {{meteo.clouds.all + "%"}}</li>
+            <li class="list-group-item">Visibilità: {{meteo.visibility + "m"}}</li>
+            <li class="list-group-item">Prob. di pioggia: {{(meteo.pop * 100).toFixed(0) + "%"}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <h2 *ngIf="cities">{{day(4)}}</h2>
+    <div class="d-flex column-gap-4 carousel">
+      <div class="card position-relative" style="width: 18rem;" *ngFor="let meteo of fourDaysMeteo">
+        <img [src]="'https://openweathermap.org/img/wn/' + meteo.weather[0].icon +'@2x.png'" alt="weather-icon" class="position-absolute">
+        <div class="card-body">
+          <h5 class="card-title">{{hour(meteo["dt_txt"])}}</h5>
+          <p class="card-text mb-0">Temperatura: {{meteo.main.temp + "°C"}}</p>
+          <p class="card-text">Percepita: {{meteo.main["feels_like"] + "°C"}}</p>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Vento: {{meteo.wind.speed + "m/s, direzione: " + meteo.wind.speed + "°"}}</li>
+            <li class="list-group-item">Nuvolosità: {{meteo.clouds.all + "%"}}</li>
+            <li class="list-group-item">Visibilità: {{meteo.visibility + "m"}}</li>
+            <li class="list-group-item">Prob. di pioggia: {{(meteo.pop * 100).toFixed(0) + "%"}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <h2 *ngIf="cities">{{day(5)}}</h2>
+    <div class="d-flex column-gap-4 carousel">
+      <div class="card position-relative" style="width: 18rem;" *ngFor="let meteo of fiveDaysMeteo">
+        <img [src]="'https://openweathermap.org/img/wn/' + meteo.weather[0].icon +'@2x.png'" alt="weather-icon" class="position-absolute">
+        <div class="card-body">
+          <h5 class="card-title">{{hour(meteo["dt_txt"])}}</h5>
+          <p class="card-text mb-0">Temperatura: {{meteo.main.temp + "°C"}}</p>
+          <p class="card-text">Percepita: {{meteo.main["feels_like"] + "°C"}}</p>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Vento: {{meteo.wind.speed + "m/s, direzione: " + meteo.wind.speed + "°"}}</li>
+            <li class="list-group-item">Nuvolosità: {{meteo.clouds.all + "%"}}</li>
+            <li class="list-group-item">Visibilità: {{meteo.visibility + "m"}}</li>
+            <li class="list-group-item">Prob. di pioggia: {{(meteo.pop * 100).toFixed(0) + "%"}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="cities">
+      <h2>CITT&Agrave;</h2>
+      <p class="mb-0 text-white">Nome: {{cityMeteo.city.name}}</p>
+      <p class="mb-0 text-white">Nazione: {{cityMeteo.city.country}}</p>
+      <p class="mb-0 text-white">Latitudine: {{cityMeteo.city.coord.lat}}</p>
+      <p class="mb-0 text-white">Longitudine: {{cityMeteo.city.coord.lon}}</p>
+      <button class="btn btn-primary mt-2" (click)="addToFavourites(user?.user?.id, cityMeteo.city.coord.lat, cityMeteo.city.coord.lon)">{{isInFavourites(cityMeteo.city.coord.lat, cityMeteo.city.coord.lon) ? "Rimuovi dai preferiti" : "Aggiungi ai preferiti"}}</button>
+    </div>
+
+    <h2>PREFERITI</h2>
+    <div class="card preferiti" style="width: 18rem;" *ngFor="let city of favouriteCitiesArray">
+      <div class="card-body">
+        <h5 class="card-title">{{city.nome}}</h5>
+        <button class="btn btn-primary mb-2" (click)="getMeteo(city.lat, city.lon, city.nome)">Vai al meteo</button>
+        <button class="btn btn-primary" (click)="removeFromFavourites(city.id)">Rimuovi dai preferiti</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="d-flex justify-content-center align-items-center position-fixed loader-div" *ngIf="loading">
+  <div class="spinner-border loader" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>

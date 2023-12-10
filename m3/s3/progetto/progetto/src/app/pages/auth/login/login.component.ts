@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ILogin } from '../models/ilogin';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { NgForm } from '@angular/forms';

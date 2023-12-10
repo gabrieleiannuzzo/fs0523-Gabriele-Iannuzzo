@@ -1,5 +1,30 @@
 {
   "users": [
+    {
+      "email": "gabriele@iannuzzo.it",
+      "password": "$2a$10$GKcZ2tO.0t/QXvhjzLMvJOdOH4qlV1/C/JkKQdEUUHAVVPxgR7QJS",
+      "username": "gabbo169",
+      "id": 1
+    }
   ],
-  "favourite_cities": []
+  "favourite_cities": [
+    {
+      "lat": 10,
+      "lon": 1,
+      "id": 4,
+      "user_id": 5
+    },
+    {
+      "lat": 10,
+      "lon": 1,
+      "id": 4,
+      "user_id": 2
+    },
+    {
+      "lat": 10,
+      "lon": 1,
+      "id": 4,
+      "user_id": 3
+    }
+  ]
 }

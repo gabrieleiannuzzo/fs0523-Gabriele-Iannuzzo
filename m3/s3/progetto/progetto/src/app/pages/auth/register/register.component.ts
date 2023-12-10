@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { IRegister } from '../models/iregister';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { HttpClient } from '@angular/common/http';
@@ -34,7 +33,7 @@ export class RegisterComponent {
       this.error = data;
     })
 
-    this.authService.loading$.subscribe(data => {
+    this.loadingSubscription = this.authService.loading$.subscribe(data => {
       this.loading = data
     })
   }

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { MeteoComponent } from './pages/meteo/meteo.component';
+import { AuthGuard } from './pages/auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -13,6 +14,7 @@ const routes: Routes = [
     path: "meteo",
     component: MeteoComponent,
     title: "Meteo | Weather App",
+    canActivate: [AuthGuard],
   },
   { path: 'auth', loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthModule) },
   {

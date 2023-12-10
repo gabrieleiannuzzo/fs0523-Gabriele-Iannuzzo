@@ -1,0 +1,56 @@
+.meteo-container{
+  background-color: rgb(242, 0, 255);
+  min-height: calc(100vh - 60px);
+  form{
+    max-width: 500px;
+  }
+  .city-choice{
+    width: 100%;
+    max-width: 500px;
+    height: 37.6px;
+    border: 1px solid rgb(189, 189, 189);
+    margin-top: 1px;
+    background-color: white;
+    &:hover{
+      background-color: dodgerblue;
+      color: white;
+    }
+  }
+  h2{
+    color: white;
+    margin-top: 20px;
+  }
+  .carousel{
+    overflow-x: scroll;
+    overflow-y: visible;
+    &::-webkit-scrollbar{
+      height: 0;
+    }
+    .card:not(.preferiti){
+      min-width: 206.4px;
+      max-width: 206.4px;
+      margin-top: 20px;
+      img{
+        top: 0;
+        right: 0;
+        transform: translate(50%, -50%) scale(0.85);
+      }
+      ul{
+        li{
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+    }
+  }
+}
+.loader-div{
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  .loader{
+    width: 60px;
+    height: 60px;
+  }
+}
