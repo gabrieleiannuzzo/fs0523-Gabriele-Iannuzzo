@@ -8,7 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-  constructor(private authService:AuthService){}
+  constructor(
+    private authService:AuthService,
+  ){}
 
   isLogged:boolean = false;
   isLoggedSubscription!:Subscription;

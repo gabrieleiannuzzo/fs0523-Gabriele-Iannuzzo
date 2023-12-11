@@ -42,7 +42,23 @@
         }
       }
     }
+    .card.preferiti{
+      min-width: 206.4px;
+      h5{
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+    }
   }
+}
+.error-message{
+  bottom: 10px;
+  right: 10px;
+  border: 2px solid red;
+  background-color: rgba(red, 0.4);
+  margin-left: 10px;
 }
 .loader-div{
   width: 100%;

@@ -5,26 +5,63 @@
       "password": "$2a$10$GKcZ2tO.0t/QXvhjzLMvJOdOH4qlV1/C/JkKQdEUUHAVVPxgR7QJS",
       "username": "gabbo169",
       "id": 1
+    },
+    {
+      "email": "joy@libero.it",
+      "password": "$2a$10$VN74AlNmT..XyOcUVh9D0./JwG0B0g3uq5THzj2vANfFm/PPAkfSq",
+      "username": "joy",
+      "id": 2
     }
   ],
   "favourite_cities": [
     {
-      "lat": 10,
-      "lon": 1,
-      "id": 4,
-      "user_id": 5
+      "lat": 41.3016,
+      "lon": 13.0259,
+      "user_id": 1,
+      "nome": "Sabaudia, Lazio, IT",
+      "id": 1
     },
     {
-      "lat": 10,
-      "lon": 1,
-      "id": 4,
-      "user_id": 2
+      "lat": 41.8933,
+      "lon": 12.4829,
+      "user_id": 1,
+      "nome": "Roma, Lazio, IT",
+      "id": 2
     },
     {
-      "lat": 10,
-      "lon": 1,
-      "id": 4,
-      "user_id": 3
+      "lat": 38.0174,
+      "lon": 12.516,
+      "user_id": 1,
+      "nome": "Trapani, Sicily, IT",
+      "id": 3
+    },
+    {
+      "lat": 48.8589,
+      "lon": 2.32,
+      "user_id": 1,
+      "nome": "Parigi, Ile-de-France, FR",
+      "id": 4
+    },
+    {
+      "lat": 51.5073,
+      "lon": -0.1276,
+      "user_id": 1,
+      "nome": "Londra, England, GB",
+      "id": 5
+    },
+    {
+      "lat": 44.6446,
+      "lon": 7.4926,
+      "user_id": 2,
+      "nome": "Saluzzo, Piedmont, IT",
+      "id": 6
+    },
+    {
+      "lat": 39.2172,
+      "lon": 9.1133,
+      "user_id": 2,
+      "nome": "Cagliari, Sardinia, IT",
+      "id": 7
     }
   ]
 }

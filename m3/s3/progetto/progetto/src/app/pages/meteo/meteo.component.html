@@ -20,7 +20,6 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item">Vento: {{meteo.wind.speed + "m/s, direzione: " + meteo.wind.speed + "°"}}</li>
             <li class="list-group-item">Nuvolosità: {{meteo.clouds.all + "%"}}</li>
-            <li class="list-group-item">Visibilità: {{meteo.visibility + "m"}}</li>
             <li class="list-group-item">Prob. di pioggia: {{(meteo.pop * 100).toFixed(0) + "%"}}</li>
           </ul>
         </div>
@@ -38,7 +37,6 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item">Vento: {{meteo.wind.speed + "m/s, direzione: " + meteo.wind.speed + "°"}}</li>
             <li class="list-group-item">Nuvolosità: {{meteo.clouds.all + "%"}}</li>
-            <li class="list-group-item">Visibilità: {{meteo.visibility + "m"}}</li>
             <li class="list-group-item">Prob. di pioggia: {{(meteo.pop * 100).toFixed(0) + "%"}}</li>
           </ul>
         </div>
@@ -56,7 +54,6 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item">Vento: {{meteo.wind.speed + "m/s, direzione: " + meteo.wind.speed + "°"}}</li>
             <li class="list-group-item">Nuvolosità: {{meteo.clouds.all + "%"}}</li>
-            <li class="list-group-item">Visibilità: {{meteo.visibility + "m"}}</li>
             <li class="list-group-item">Prob. di pioggia: {{(meteo.pop * 100).toFixed(0) + "%"}}</li>
           </ul>
         </div>
@@ -74,7 +71,6 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item">Vento: {{meteo.wind.speed + "m/s, direzione: " + meteo.wind.speed + "°"}}</li>
             <li class="list-group-item">Nuvolosità: {{meteo.clouds.all + "%"}}</li>
-            <li class="list-group-item">Visibilità: {{meteo.visibility + "m"}}</li>
             <li class="list-group-item">Prob. di pioggia: {{(meteo.pop * 100).toFixed(0) + "%"}}</li>
           </ul>
         </div>
@@ -92,7 +88,6 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item">Vento: {{meteo.wind.speed + "m/s, direzione: " + meteo.wind.speed + "°"}}</li>
             <li class="list-group-item">Nuvolosità: {{meteo.clouds.all + "%"}}</li>
-            <li class="list-group-item">Visibilità: {{meteo.visibility + "m"}}</li>
             <li class="list-group-item">Prob. di pioggia: {{(meteo.pop * 100).toFixed(0) + "%"}}</li>
           </ul>
         </div>
@@ -110,7 +105,6 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item">Vento: {{meteo.wind.speed + "m/s, direzione: " + meteo.wind.speed + "°"}}</li>
             <li class="list-group-item">Nuvolosità: {{meteo.clouds.all + "%"}}</li>
-            <li class="list-group-item">Visibilità: {{meteo.visibility + "m"}}</li>
             <li class="list-group-item">Prob. di pioggia: {{(meteo.pop * 100).toFixed(0) + "%"}}</li>
           </ul>
         </div>
@@ -127,15 +121,20 @@
     </div>
 
     <h2>PREFERITI</h2>
-    <div class="card preferiti" style="width: 18rem;" *ngFor="let city of favouriteCitiesArray">
-      <div class="card-body">
-        <h5 class="card-title">{{city.nome}}</h5>
-        <button class="btn btn-primary mb-2" (click)="getMeteo(city.lat, city.lon, city.nome)">Vai al meteo</button>
-        <button class="btn btn-primary" (click)="removeFromFavourites(city.id)">Rimuovi dai preferiti</button>
+    <div class="d-flex column-gap-4 carousel">
+      <div class="card preferiti" style="width: 18rem;" *ngFor="let city of favouriteCitiesArray">
+        <div class="card-body">
+          <h5 class="card-title">{{city.nome}}</h5>
+          <button class="btn btn-primary mb-2" (click)="getMeteo(city.lat, city.lon, city.nome)">Vai al meteo</button>
+          <button class="btn btn-primary" (click)="removeFromFavourites(city.id)">Rimuovi dai preferiti</button>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<div class="alert text-white position-fixed error-message" *ngIf="error || favouritesError">{{error ? "Si è verificato un errore" : "Si è verificato un errore durante il caricamento dei preferiti"}}</div>
+
 <div class="d-flex justify-content-center align-items-center position-fixed loader-div" *ngIf="loading">
   <div class="spinner-border loader" role="status">
     <span class="visually-hidden">Loading...</span>

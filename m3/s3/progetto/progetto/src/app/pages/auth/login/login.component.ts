@@ -55,7 +55,7 @@ export class LoginComponent {
     this.authService.resetPassword();
     this.authService.startLoading();
     this.authService.login(form.form.value).subscribe(data => {
-      this.router.navigate(["/auth/meteo"])
+      this.router.navigate(["/meteo"])
     });
   }
 

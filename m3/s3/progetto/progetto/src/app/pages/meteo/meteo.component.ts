@@ -4,7 +4,6 @@ import { NgForm } from '@angular/forms';
 import { AuthService } from '../auth/auth.service';
 import { Observable, Subscription } from 'rxjs';
 import { IUserResponse } from '../auth/models/iuser-response';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-meteo',
@@ -13,7 +12,6 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MeteoComponent {
   meteoRegex:RegExp = /[a-zA-Z]{3,}/;
-  showChoices:boolean = false;
   cityMeteo:any = {
     "cod": "200",
     "message": 0,
@@ -1678,9 +1676,11 @@ export class MeteoComponent {
   favouriteCitiesArray:any = [];
   citiesList:boolean = false;
   cities:boolean = false;
-  loading:boolean = false;
   user!:IUserResponse|null;
   chosenCity!:string;
+  error!:boolean;
+  favouritesError!:boolean;
+  loading!:boolean;
 
   todayMeteo!:any;
   tomorrowMeteo!:any;
@@ -1694,19 +1694,40 @@ export class MeteoComponent {
     private authService:AuthService,
   ){}
 
-    userSubscription!:Subscription;
+  userSubscription!:Subscription;
+  errorSubscription!:Subscription;
+  favouritesErrorSubscription!:Subscription;
+  loadingSubscription!:Subscription;
 
   ngOnInit(){
     this.userSubscription = this.authService.user$.subscribe(data => {
       this.user = data;
-      console.log(data);
     });
+
+    this.errorSubscription = this.meteoService.error$.subscribe(data => {
+      this.error = data;
+    })
+
+    this.favouritesErrorSubscription = this.meteoService.favouritesError$.subscribe(data => {
+      this.favouritesError = data;
+    })
+
+    this.loadingSubscription = this.meteoService.loading$.subscribe(data => {
+      this.loading = data;
+    })
 
     this.getFavourites();
   }
 
+  ngOnDestroy(){
+    this.userSubscription.unsubscribe();
+    this.errorSubscription.unsubscribe();
+    this.favouritesErrorSubscription.unsubscribe();
+    this.loadingSubscription.unsubscribe();
+  }
+
   getCities(form:NgForm){
-    this.loading = true;
+    this.startLoading();
     this.citiesList = true;
     this.meteoService.getCities(form.form.value.city).subscribe(data => {
       this.citiesArray = data;
@@ -1722,35 +1743,34 @@ export class MeteoComponent {
           this.citiesArray[i].string = this.citiesArray[i].name + ", " + this.citiesArray[i].country;
         }
       }
-      console.log(this.citiesArray)
-      this.loading = false;
+      this.stopLoading();
     })
   }
 
   getMeteo(lat:number, lon:number, string:string){
     this.citiesList = false;
-    this.loading = true;
+    this.startLoading();
     this.meteoService.getMeteo(lat, lon).subscribe(data => {
       this.cityMeteo = data;
+
       this.todayMeteo = this.cityMeteo.list.filter((city:any) => new Date(city["dt_txt"]).getDate() == new Date().getDate());
       this.tomorrowMeteo = this.cityMeteo.list.filter((city:any) => new Date(city["dt_txt"]).getDate() == new Date().getDate() + 1);
       this.twoDaysMeteo = this.cityMeteo.list.filter((city:any) => new Date(city["dt_txt"]).getDate() == new Date().getDate() + 2);
       this.threeDaysMeteo = this.cityMeteo.list.filter((city:any) => new Date(city["dt_txt"]).getDate() == new Date().getDate() + 3);
       this.fourDaysMeteo = this.cityMeteo.list.filter((city:any) => new Date(city["dt_txt"]).getDate() == new Date().getDate() + 4);
       this.fiveDaysMeteo = this.cityMeteo.list.filter((city:any) => new Date(city["dt_txt"]).getDate() == new Date().getDate() + 5);
+
       this.cities = true;
       this.chosenCity = string;
-      console.log(this.chosenCity)
-      this.loading = false;
+      this.stopLoading();
     });
   }
 
   getFavourites():void{
-    this.loading = true;
+    this.startLoading();
     this.meteoService.getFavourites(this.user?.user.id).subscribe(data => {
       this.favouriteCitiesArray = data;
-      console.log(this.favouriteCitiesArray)
-      this.loading = false;
+      this.stopLoading();
     });
   }
 
@@ -1769,18 +1789,19 @@ export class MeteoComponent {
   }
 
   addToFavourites(userId:number|undefined, lat:number, lon:number){
-    this.loading = true;
+    this.startLoading();
     this.meteoService.addToFavourites(userId, lat, lon, this.chosenCity).subscribe(data => {
       this.favouriteCitiesArray.push(data);
-      this.loading = false;
+      this.stopLoading();
     });
   }
 
   removeFromFavourites(id:number){
-    this.loading = true;
+    this.startLoading();
     this.meteoService.removeFromFavourites(id).subscribe(data => {
-      this.favouriteCitiesArray.filter((city:any) => city.id != id);
-      this.loading = false;
+      const index:number = this.favouriteCitiesArray.findIndex((city:any) => city.id == id)
+      this.favouriteCitiesArray.splice(index, 1);
+      this.stopLoading();
     });
   }
 
@@ -1795,5 +1816,13 @@ export class MeteoComponent {
     const year:number = day.getFullYear();
 
     return date + "/" + month + "/" + year;
+  }
+
+  startLoading():void{
+    this.meteoService.startLoading();
+  }
+
+  stopLoading():void{
+    this.meteoService.stopLoading();
   }
 }
