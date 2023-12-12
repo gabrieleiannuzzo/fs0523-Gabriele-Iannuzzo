@@ -15,6 +15,7 @@ export class MeteoService {
   errorSubject:Subject<boolean> = new Subject<boolean>
   favouritesErrorSubject:Subject<boolean> = new Subject<boolean>
   loadingSubject:Subject<boolean> = new Subject <boolean>
+
   error$ = this.errorSubject.asObservable();
   favouritesError$ = this.favouritesErrorSubject.asObservable();
   loading$ = this.loadingSubject.asObservable();

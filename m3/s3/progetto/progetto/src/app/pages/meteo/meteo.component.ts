@@ -555,11 +555,10 @@ export class MeteoComponent {
 
   handleFavourites(lat:number, lon:number):void{
     const el:any = this.favouriteCitiesArray.find((city:any) => city.lat == lat && city.lon == lon)
-    console.log(!!el)
     if (el) {
       this.removeFromFavourites(el.id);
     } else {
-      this.addToFavourites(el["user_id"], lat, lon);
+      this.addToFavourites(this.user?.user.id, lat, lon);
     }
   }
 

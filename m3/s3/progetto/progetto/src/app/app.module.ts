@@ -9,8 +9,6 @@ import { HomeComponent } from './pages/home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { GridComponent } from './pages/meteo/grid/grid.component';
-import { ListComponent } from './pages/meteo/list/list.component';
 
 @NgModule({
   declarations: [
@@ -18,8 +16,6 @@ import { ListComponent } from './pages/meteo/list/list.component';
     HeaderComponent,
     MeteoComponent,
     HomeComponent,
-    GridComponent,
-    ListComponent
   ],
   imports: [
     BrowserModule,

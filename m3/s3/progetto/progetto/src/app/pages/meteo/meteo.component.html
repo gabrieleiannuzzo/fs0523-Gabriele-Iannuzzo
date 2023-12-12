@@ -8,110 +8,109 @@
     <button class="d-flex align-items-center mx-auto rounded-2  ps-3 city-choice" *ngFor="let city of citiesArray" (click)="getMeteo(city.lat, city.lon, city.string)">{{city.string}}</button>
   </div>
 
-  <p class="text-white text-center mt-3 mb-0"><a class="text-white view-link" routerLink="/meteo/grid">Grid view</a> | <a class="text-white view-link" routerLink="/meteo/list">List view</a></p>
-
   <div class="container">
     <h2 *ngIf="cities">OGGI</h2>
-    <div class="d-flex column-gap-4 carousel">
-      <div class="card position-relative" style="width: 18rem;" *ngFor="let meteo of todayMeteo">
-        <img [src]="'https://openweathermap.org/img/wn/' + meteo.weather[0].icon +'@2x.png'" alt="weather-icon" class="position-absolute">
-        <div class="card-body">
-          <h5 class="card-title">{{hour(meteo["dt_txt"])}}</h5>
-          <p class="card-text mb-0">Temperatura: {{meteo.main.temp + "°C"}}</p>
-          <p class="card-text">Percepita: {{meteo.main["feels_like"] + "°C"}}</p>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Vento: {{meteo.wind.speed + "m/s, direzione: " + meteo.wind.speed + "°"}}</li>
-            <li class="list-group-item">Nuvolosità: {{meteo.clouds.all + "%"}}</li>
-            <li class="list-group-item">Prob. di pioggia: {{(meteo.pop * 100).toFixed(0) + "%"}}</li>
-          </ul>
-        </div>
-      </div>
+<div class="d-flex column-gap-4 carousel">
+  <div class="card position-relative" style="width: 18rem;" *ngFor="let meteo of todayMeteo">
+    <img [src]="'https://openweathermap.org/img/wn/' + meteo.weather[0].icon +'@2x.png'" alt="weather-icon" class="position-absolute">
+    <div class="card-body">
+      <h5 class="card-title">{{hour(meteo["dt_txt"])}}</h5>
+      <p class="card-text mb-0">Temperatura: {{meteo.main.temp + "°C"}}</p>
+      <p class="card-text">Percepita: {{meteo.main["feels_like"] + "°C"}}</p>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Vento: {{meteo.wind.speed + "m/s, direzione: " + meteo.wind.speed + "°"}}</li>
+        <li class="list-group-item">Nuvolosità: {{meteo.clouds.all + "%"}}</li>
+        <li class="list-group-item">Prob. di pioggia: {{(meteo.pop * 100).toFixed(0) + "%"}}</li>
+      </ul>
     </div>
+  </div>
+</div>
 
-    <h2 *ngIf="cities">DOMANI</h2>
-    <div class="d-flex column-gap-4 carousel">
-      <div class="card position-relative" style="width: 18rem;" *ngFor="let meteo of tomorrowMeteo">
-        <img [src]="'https://openweathermap.org/img/wn/' + meteo.weather[0].icon +'@2x.png'" alt="weather-icon" class="position-absolute">
-        <div class="card-body">
-          <h5 class="card-title">{{hour(meteo["dt_txt"])}}</h5>
-          <p class="card-text mb-0">Temperatura: {{meteo.main.temp + "°C"}}</p>
-          <p class="card-text">Percepita: {{meteo.main["feels_like"] + "°C"}}</p>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Vento: {{meteo.wind.speed + "m/s, direzione: " + meteo.wind.speed + "°"}}</li>
-            <li class="list-group-item">Nuvolosità: {{meteo.clouds.all + "%"}}</li>
-            <li class="list-group-item">Prob. di pioggia: {{(meteo.pop * 100).toFixed(0) + "%"}}</li>
-          </ul>
-        </div>
-      </div>
+<h2 *ngIf="cities">DOMANI</h2>
+<div class="d-flex column-gap-4 carousel">
+  <div class="card position-relative" style="width: 18rem;" *ngFor="let meteo of tomorrowMeteo">
+    <img [src]="'https://openweathermap.org/img/wn/' + meteo.weather[0].icon +'@2x.png'" alt="weather-icon" class="position-absolute">
+    <div class="card-body">
+      <h5 class="card-title">{{hour(meteo["dt_txt"])}}</h5>
+      <p class="card-text mb-0">Temperatura: {{meteo.main.temp + "°C"}}</p>
+      <p class="card-text">Percepita: {{meteo.main["feels_like"] + "°C"}}</p>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Vento: {{meteo.wind.speed + "m/s, direzione: " + meteo.wind.speed + "°"}}</li>
+        <li class="list-group-item">Nuvolosità: {{meteo.clouds.all + "%"}}</li>
+        <li class="list-group-item">Prob. di pioggia: {{(meteo.pop * 100).toFixed(0) + "%"}}</li>
+      </ul>
     </div>
+  </div>
+</div>
 
-    <h2 *ngIf="cities">DOPODOMANI</h2>
-    <div class="d-flex column-gap-4 carousel">
-      <div class="card position-relative" style="width: 18rem;" *ngFor="let meteo of twoDaysMeteo">
-        <img [src]="'https://openweathermap.org/img/wn/' + meteo.weather[0].icon +'@2x.png'" alt="weather-icon" class="position-absolute">
-        <div class="card-body">
-          <h5 class="card-title">{{hour(meteo["dt_txt"])}}</h5>
-          <p class="card-text mb-0">Temperatura: {{meteo.main.temp + "°C"}}</p>
-          <p class="card-text">Percepita: {{meteo.main["feels_like"] + "°C"}}</p>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Vento: {{meteo.wind.speed + "m/s, direzione: " + meteo.wind.speed + "°"}}</li>
-            <li class="list-group-item">Nuvolosità: {{meteo.clouds.all + "%"}}</li>
-            <li class="list-group-item">Prob. di pioggia: {{(meteo.pop * 100).toFixed(0) + "%"}}</li>
-          </ul>
-        </div>
-      </div>
+<h2 *ngIf="cities">DOPODOMANI</h2>
+<div class="d-flex column-gap-4 carousel">
+  <div class="card position-relative" style="width: 18rem;" *ngFor="let meteo of twoDaysMeteo">
+    <img [src]="'https://openweathermap.org/img/wn/' + meteo.weather[0].icon +'@2x.png'" alt="weather-icon" class="position-absolute">
+    <div class="card-body">
+      <h5 class="card-title">{{hour(meteo["dt_txt"])}}</h5>
+      <p class="card-text mb-0">Temperatura: {{meteo.main.temp + "°C"}}</p>
+      <p class="card-text">Percepita: {{meteo.main["feels_like"] + "°C"}}</p>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Vento: {{meteo.wind.speed + "m/s, direzione: " + meteo.wind.speed + "°"}}</li>
+        <li class="list-group-item">Nuvolosità: {{meteo.clouds.all + "%"}}</li>
+        <li class="list-group-item">Prob. di pioggia: {{(meteo.pop * 100).toFixed(0) + "%"}}</li>
+      </ul>
     </div>
+  </div>
+</div>
 
-    <h2 *ngIf="cities">{{day(3)}}</h2>
-    <div class="d-flex column-gap-4 carousel">
-      <div class="card position-relative" style="width: 18rem;" *ngFor="let meteo of threeDaysMeteo">
-        <img [src]="'https://openweathermap.org/img/wn/' + meteo.weather[0].icon +'@2x.png'" alt="weather-icon" class="position-absolute">
-        <div class="card-body">
-          <h5 class="card-title">{{hour(meteo["dt_txt"])}}</h5>
-          <p class="card-text mb-0">Temperatura: {{meteo.main.temp + "°C"}}</p>
-          <p class="card-text">Percepita: {{meteo.main["feels_like"] + "°C"}}</p>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Vento: {{meteo.wind.speed + "m/s, direzione: " + meteo.wind.speed + "°"}}</li>
-            <li class="list-group-item">Nuvolosità: {{meteo.clouds.all + "%"}}</li>
-            <li class="list-group-item">Prob. di pioggia: {{(meteo.pop * 100).toFixed(0) + "%"}}</li>
-          </ul>
-        </div>
-      </div>
+<h2 *ngIf="cities">{{day(3)}}</h2>
+<div class="d-flex column-gap-4 carousel">
+  <div class="card position-relative" style="width: 18rem;" *ngFor="let meteo of threeDaysMeteo">
+    <img [src]="'https://openweathermap.org/img/wn/' + meteo.weather[0].icon +'@2x.png'" alt="weather-icon" class="position-absolute">
+    <div class="card-body">
+      <h5 class="card-title">{{hour(meteo["dt_txt"])}}</h5>
+      <p class="card-text mb-0">Temperatura: {{meteo.main.temp + "°C"}}</p>
+      <p class="card-text">Percepita: {{meteo.main["feels_like"] + "°C"}}</p>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Vento: {{meteo.wind.speed + "m/s, direzione: " + meteo.wind.speed + "°"}}</li>
+        <li class="list-group-item">Nuvolosità: {{meteo.clouds.all + "%"}}</li>
+        <li class="list-group-item">Prob. di pioggia: {{(meteo.pop * 100).toFixed(0) + "%"}}</li>
+      </ul>
     </div>
+  </div>
+</div>
 
-    <h2 *ngIf="cities">{{day(4)}}</h2>
-    <div class="d-flex column-gap-4 carousel">
-      <div class="card position-relative" style="width: 18rem;" *ngFor="let meteo of fourDaysMeteo">
-        <img [src]="'https://openweathermap.org/img/wn/' + meteo.weather[0].icon +'@2x.png'" alt="weather-icon" class="position-absolute">
-        <div class="card-body">
-          <h5 class="card-title">{{hour(meteo["dt_txt"])}}</h5>
-          <p class="card-text mb-0">Temperatura: {{meteo.main.temp + "°C"}}</p>
-          <p class="card-text">Percepita: {{meteo.main["feels_like"] + "°C"}}</p>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Vento: {{meteo.wind.speed + "m/s, direzione: " + meteo.wind.speed + "°"}}</li>
-            <li class="list-group-item">Nuvolosità: {{meteo.clouds.all + "%"}}</li>
-            <li class="list-group-item">Prob. di pioggia: {{(meteo.pop * 100).toFixed(0) + "%"}}</li>
-          </ul>
-        </div>
-      </div>
+<h2 *ngIf="cities">{{day(4)}}</h2>
+<div class="d-flex column-gap-4 carousel">
+  <div class="card position-relative" style="width: 18rem;" *ngFor="let meteo of fourDaysMeteo">
+    <img [src]="'https://openweathermap.org/img/wn/' + meteo.weather[0].icon +'@2x.png'" alt="weather-icon" class="position-absolute">
+    <div class="card-body">
+      <h5 class="card-title">{{hour(meteo["dt_txt"])}}</h5>
+      <p class="card-text mb-0">Temperatura: {{meteo.main.temp + "°C"}}</p>
+      <p class="card-text">Percepita: {{meteo.main["feels_like"] + "°C"}}</p>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Vento: {{meteo.wind.speed + "m/s, direzione: " + meteo.wind.speed + "°"}}</li>
+        <li class="list-group-item">Nuvolosità: {{meteo.clouds.all + "%"}}</li>
+        <li class="list-group-item">Prob. di pioggia: {{(meteo.pop * 100).toFixed(0) + "%"}}</li>
+      </ul>
     </div>
+  </div>
+</div>
 
-    <h2 *ngIf="cities">{{day(5)}}</h2>
-    <div class="d-flex column-gap-4 carousel">
-      <div class="card position-relative" style="width: 18rem;" *ngFor="let meteo of fiveDaysMeteo">
-        <img [src]="'https://openweathermap.org/img/wn/' + meteo.weather[0].icon +'@2x.png'" alt="weather-icon" class="position-absolute">
-        <div class="card-body">
-          <h5 class="card-title">{{hour(meteo["dt_txt"])}}</h5>
-          <p class="card-text mb-0">Temperatura: {{meteo.main.temp + "°C"}}</p>
-          <p class="card-text">Percepita: {{meteo.main["feels_like"] + "°C"}}</p>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Vento: {{meteo.wind.speed + "m/s, direzione: " + meteo.wind.speed + "°"}}</li>
-            <li class="list-group-item">Nuvolosità: {{meteo.clouds.all + "%"}}</li>
-            <li class="list-group-item">Prob. di pioggia: {{(meteo.pop * 100).toFixed(0) + "%"}}</li>
-          </ul>
-        </div>
-      </div>
+<h2 *ngIf="cities">{{day(5)}}</h2>
+<div class="d-flex column-gap-4 carousel">
+  <div class="card position-relative" style="width: 18rem;" *ngFor="let meteo of fiveDaysMeteo">
+    <img [src]="'https://openweathermap.org/img/wn/' + meteo.weather[0].icon +'@2x.png'" alt="weather-icon" class="position-absolute">
+    <div class="card-body">
+      <h5 class="card-title">{{hour(meteo["dt_txt"])}}</h5>
+      <p class="card-text mb-0">Temperatura: {{meteo.main.temp + "°C"}}</p>
+      <p class="card-text">Percepita: {{meteo.main["feels_like"] + "°C"}}</p>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Vento: {{meteo.wind.speed + "m/s, direzione: " + meteo.wind.speed + "°"}}</li>
+        <li class="list-group-item">Nuvolosità: {{meteo.clouds.all + "%"}}</li>
+        <li class="list-group-item">Prob. di pioggia: {{(meteo.pop * 100).toFixed(0) + "%"}}</li>
+      </ul>
     </div>
+  </div>
+</div>
+
 
     <div *ngIf="cities">
       <h2>CITT&Agrave;</h2>
