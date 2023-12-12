@@ -2,6 +2,11 @@ import { IFavouriteCity } from './models/ifavourite-city';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject, catchError, throwError } from 'rxjs';
+import { IMeteo } from './models/imeteo';
+import { ICities } from './models/icities';
+import { IFavourites } from './models/ifavourites';
+
+type EmptyObj = {};
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +23,8 @@ export class MeteoService {
 
   apiUrl:string = "http://localhost:3000/favourite_cities";
 
-  getMeteo(lat:number, lon:number):Observable<any>{
-    return this.http.get(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=4f1397727f7743cfdc42e7c7a580cbc2&units=metric`)
+  getMeteo(lat:number, lon:number):Observable<IMeteo>{
+    return this.http.get<IMeteo>(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=4f1397727f7743cfdc42e7c7a580cbc2&units=metric`)
     .pipe(catchError((error) => {
       this.errorSubject.next(true);
       this.stopLoading();
@@ -32,8 +37,8 @@ export class MeteoService {
     }))
   }
 
-  getCities(q:string):Observable<any>{
-    return this.http.get(`http://api.openweathermap.org/geo/1.0/direct?q=${q}&limit=5&appid=4f1397727f7743cfdc42e7c7a580cbc2`)
+  getCities(q:string):Observable<ICities[]>{
+    return this.http.get<ICities[]>(`http://api.openweathermap.org/geo/1.0/direct?q=${q}&limit=5&appid=4f1397727f7743cfdc42e7c7a580cbc2`)
     .pipe(catchError((error) => {
       this.errorSubject.next(true);
       this.stopLoading();
@@ -46,8 +51,8 @@ export class MeteoService {
     }))
   }
 
-  getFavourites(userId:number|undefined):Observable<any>{
-    return this.http.get(this.apiUrl + "?user_id=" + userId)
+  getFavourites(userId:number|undefined):Observable<IFavourites[]>{
+    return this.http.get<IFavourites[]>(this.apiUrl + "?user_id=" + userId)
     .pipe(catchError((error) => {
       this.favouritesErrorSubject.next(true);
       this.stopLoading();
@@ -60,14 +65,14 @@ export class MeteoService {
     }))
   }
 
-  addToFavourites(userId:number|undefined, lat:number, lon:number, nome:string):Observable<any>{
+  addToFavourites(userId:number|undefined, lat:number, lon:number, nome:string):Observable<IFavourites>{
     const favouriteCityObj:IFavouriteCity = {
       lat: lat,
       lon: lon,
       user_id: userId,
       nome: nome,
     }
-    return this.http.post(this.apiUrl, favouriteCityObj)
+    return this.http.post<IFavourites>(this.apiUrl, favouriteCityObj)
     .pipe(catchError((error) => {
       this.errorSubject.next(true);
       this.stopLoading();
@@ -80,7 +85,7 @@ export class MeteoService {
     }))
   }
 
-  removeFromFavourites(id:number):Observable<any>{
+  removeFromFavourites(id:number):Observable<EmptyObj>{
     return this.http.delete(this.apiUrl + "/" + id)
     .pipe(catchError((error) => {
       this.errorSubject.next(true);

@@ -8,6 +8,8 @@
     <button class="d-flex align-items-center mx-auto rounded-2  ps-3 city-choice" *ngFor="let city of citiesArray" (click)="getMeteo(city.lat, city.lon, city.string)">{{city.string}}</button>
   </div>
 
+  <p class="text-white text-center mt-3 mb-0"><a class="text-white view-link" routerLink="/meteo/grid">Grid view</a> | <a class="text-white view-link" routerLink="/meteo/list">List view</a></p>
+
   <div class="container">
     <h2 *ngIf="cities">OGGI</h2>
     <div class="d-flex column-gap-4 carousel">
@@ -117,7 +119,7 @@
       <p class="mb-0 text-white">Nazione: {{cityMeteo.city.country}}</p>
       <p class="mb-0 text-white">Latitudine: {{cityMeteo.city.coord.lat}}</p>
       <p class="mb-0 text-white">Longitudine: {{cityMeteo.city.coord.lon}}</p>
-      <button class="btn btn-primary mt-2" (click)="addToFavourites(user?.user?.id, cityMeteo.city.coord.lat, cityMeteo.city.coord.lon)">{{isInFavourites(cityMeteo.city.coord.lat, cityMeteo.city.coord.lon) ? "Rimuovi dai preferiti" : "Aggiungi ai preferiti"}}</button>
+      <button class="btn btn-primary mt-2" (click)="handleFavourites(cityMeteo.city.coord.lat, cityMeteo.city.coord.lon)">{{isInFavourites(cityMeteo.city.coord.lat, cityMeteo.city.coord.lon) ? "Rimuovi dai preferiti" : "Aggiungi ai preferiti"}}</button>
     </div>
 
     <h2>PREFERITI</h2>

@@ -16,6 +16,12 @@
       color: white;
     }
   }
+  .view-link{
+    text-decoration: none;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
   h2{
     color: white;
     margin-top: 20px;

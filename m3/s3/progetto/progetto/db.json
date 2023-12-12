@@ -15,41 +15,6 @@
   ],
   "favourite_cities": [
     {
-      "lat": 41.3016,
-      "lon": 13.0259,
-      "user_id": 1,
-      "nome": "Sabaudia, Lazio, IT",
-      "id": 1
-    },
-    {
-      "lat": 41.8933,
-      "lon": 12.4829,
-      "user_id": 1,
-      "nome": "Roma, Lazio, IT",
-      "id": 2
-    },
-    {
-      "lat": 38.0174,
-      "lon": 12.516,
-      "user_id": 1,
-      "nome": "Trapani, Sicily, IT",
-      "id": 3
-    },
-    {
-      "lat": 48.8589,
-      "lon": 2.32,
-      "user_id": 1,
-      "nome": "Parigi, Ile-de-France, FR",
-      "id": 4
-    },
-    {
-      "lat": 51.5073,
-      "lon": -0.1276,
-      "user_id": 1,
-      "nome": "Londra, England, GB",
-      "id": 5
-    },
-    {
       "lat": 44.6446,
       "lon": 7.4926,
       "user_id": 2,
