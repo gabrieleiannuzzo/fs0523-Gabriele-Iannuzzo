@@ -5,6 +5,12 @@
       "password": "$2a$10$GKcZ2tO.0t/QXvhjzLMvJOdOH4qlV1/C/JkKQdEUUHAVVPxgR7QJS",
       "username": "gabbo169",
       "id": 1
+    },
+    {
+      "email": "gabrieleiannuzzo10@gmail.com",
+      "password": "$2a$10$weRWrG7bCQyU.qmTyHN/2.ICDtTGMFKZGwf8jHkGBk4douNmKPWWq",
+      "username": "gabbo1698",
+      "id": 2
     }
   ],
   "favourite_cities": [
@@ -13,7 +19,7 @@
       "lon": 12.4829,
       "user_id": 1,
       "nome": "Roma, Lazio, IT",
-      "id": 8
+      "id": 2
     }
   ]
 }
